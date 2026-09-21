@@ -3,9 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>Hannoon Platform</title>
+    <style>
+        body { font-family: 'Malgun Gothic', sans-serif; text-align: center; margin-top: 100px; }
+        h1 { color: #333; }
+        p { color: #666; }
+    </style>
 </head>
 <body>
-    <h1>환영합니다. Hannoon 통합 플랫폼입니다.</h1>
-    <p>한눈 리스 프로그램을 비롯한 다양한 솔루션이 곧 오픈됩니다.</p>
+
+    <!-- 동적으로 바뀌는 텍스트 영역 -->
+    <h1 id="main-title">로딩 중...</h1>
+    <p id="sub-title">잠시만 기다려 주세요.</p>
+
+    <script>
+        async function detectLanguageAndRender() {
+            try {
+                // 무료 IP 위치 정보 API 호출 (ipapi.co)
+                const response = await fetch('https://ipapi.co/json/');
+                const data = await response.json();
+                
+                // 국가 코드가 'KR'(대한민국)인지 확인
+                const countryCode = data.country_code;
+
+                const mainTitle = document.getElementById('main-title');
+                const subTitle = document.getElementById('sub-title');
+
+                if (countryCode === 'KR') {
+                    // 한국 IP인 경우 (한글)
+                    mainTitle.innerText = "환영합니다. Hannoon 통합 플랫폼입니다.";
+                    subTitle.innerText = "한눈 리스 프로그램을 비롯한 다양한 솔루션이 곧 오픈됩니다.";
+                    document.documentElement.lang = "ko";
+                } else {
+                    // 해외 IP인 경우 (영어)
+                    mainTitle.innerText = "Welcome to the Hannoon Integrated Platform.";
+                    subTitle.innerText = "Various solutions, including Hannoon Lease, will be launching soon.";
+                    document.documentElement.lang = "en";
+                }
+            } catch (error) {
+                // API 차단이나 네트워크 오류 시 기본값(영어 또는 한글) 처리
+                console.error("IP 위치 확인 실패:", error);
+                document.getElementById('main-title').innerText = "Welcome to Hannoon Platform";
+                document.getElementById('sub-title').innerText = "Solutions are coming soon.";
+            }
+        }
+
+        // 페이지가 열리면 실행
+        detectLanguageAndRender();
+    </script>
+
 </body>
 </html>
