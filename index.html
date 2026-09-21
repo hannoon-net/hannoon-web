@@ -2,54 +2,36 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Hannoon Platform</title>
-    <style>
-        body { font-family: 'Malgun Gothic', sans-serif; text-align: center; margin-top: 100px; }
-        h1 { color: #333; }
-        p { color: #666; }
-    </style>
-</head>
-<body>
-
-    <!-- 동적으로 바뀌는 텍스트 영역 -->
-    <h1 id="main-title">로딩 중...</h1>
-    <p id="sub-title">잠시만 기다려 주세요.</p>
-
+    <title>Hannoon Platform - Connecting...</title>
     <script>
-        async function detectLanguageAndRender() {
+        async function routeByIP() {
             try {
-                // 무료 IP 위치 정보 API 호출 (ipapi.co)
-                const response = await fetch('https://ipapi.co/json/');
-                const data = await response.json();
-                
-                // 국가 코드가 'KR'(대한민국)인지 확인
-                const countryCode = data.country_code;
+                // 무료 IP 위치 정보 API 호출
+                let response = await fetch('https://ipapi.co/json/');
+                let data = await response.json();
+                let countryCode = data.country_code;
 
-                const mainTitle = document.getElementById('main-title');
-                const subTitle = document.getElementById('sub-title');
-
+                // 한국 IP인 경우 /ko/ 폴더로 이동
                 if (countryCode === 'KR') {
-                    // 한국 IP인 경우 (한글)
-                    mainTitle.innerText = "환영합니다. Hannoon 통합 플랫폼입니다.";
-                    subTitle.innerText = "한눈 리스 프로그램을 비롯한 다양한 솔루션이 곧 오픈됩니다.";
-                    document.documentElement.lang = "ko";
+                    window.location.replace('./ko/');
                 } else {
-                    // 해외 IP인 경우 (영어)
-                    mainTitle.innerText = "Welcome to the Hannoon Integrated Platform.";
-                    subTitle.innerText = "Various solutions, including Hannoon Lease, will be launching soon.";
-                    document.documentElement.lang = "en";
+                    // 그 외 국가 IP인 경우 /en/ 폴더로 이동
+                    window.location.replace('./en/');
                 }
             } catch (error) {
-                // API 차단이나 네트워크 오류 시 기본값(영어 또는 한글) 처리
-                console.error("IP 위치 확인 실패:", error);
-                document.getElementById('main-title').innerText = "Welcome to Hannoon Platform";
-                document.getElementById('sub-title').innerText = "Solutions are coming soon.";
+                // API 차단이나 네트워크 오류 시 기본값으로 영어 또는 한국어 페이지로 안전하게 폴백(Fallback)
+                console.error("IP 라우팅 실패, 기본 영문 페이지로 이동:", error);
+                window.location.replace('./en/');
             }
         }
 
-        // 페이지가 열리면 실행
-        detectLanguageAndRender();
+        // 실행
+        routeByIP();
     </script>
-
+</head>
+<body>
+    <p style="text-align: center; margin-top: 100px; font-family: sans-serif; color: #666;">
+        Loading Hannoon Platform...
+    </p>
 </body>
 </html>
