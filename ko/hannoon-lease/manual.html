@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한눈 리스 (Hannoon Lease) - 간편 사용 메뉴얼</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased leading-relaxed">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="bg-blue-600 text-white font-bold px-3 py-1.5 rounded-lg text-sm">MANUAL</span>
+                <h1 class="text-xl font-bold text-slate-900">한눈 리스 (Hannoon Lease) 간편 사용 메뉴얼</h1>
+            </div>
+            <span class="text-xs text-slate-500 hidden sm:inline">임대 자산 관리 프로그램</span>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto px-6 py-10 space-y-10">
+
+        <!-- I. 사용 준비 -->
+        <section class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+            <h2 class="text-2xl font-bold text-blue-600 mb-6 flex items-center">
+                <span class="bg-blue-100 text-blue-800 w-8 h-8 rounded-full inline-flex items-center justify-center text-sm mr-3">I</span>
+                사용 준비
+            </h2>
+
+            <div class="space-y-6">
+                <!-- Step 1 -->
+                <div class="border-l-4 border-blue-500 pl-4 py-1">
+                    <h3 class="font-semibold text-lg text-slate-900 mb-2">1. 환경설정 - 관련파일을 저장할 폴더 지정 (Personal)</h3>
+                    <p class="text-slate-600 text-sm mb-2">데이터와 관련된 파일을 저장할 폴더를 지정합니다.</p>
+                    <div class="bg-amber-50 border border-amber-200 text-amber-800 text-xs px-3 py-2 rounded-lg inline-flex items-center">
+                        ⚠️ 주기적인 백업 수립이 필요합니다.
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="border-l-4 border-indigo-500 pl-4 py-1">
+                    <h3 class="font-semibold text-lg text-slate-900 mb-2">2. 설정 정보 및 기본 정보 CSV 업데이트</h3>
+                    <ul class="list-disc list-inside text-sm text-slate-600 space-y-1 mb-4">
+                        <li>홈페이지에서 CSV 파일 양식 다운로드</li>
+                        <li>설정 &gt; CSV 데이터 업로드 &gt; 각 정보에 해당하는 CSV 파일 업로드</li>
+                    </ul>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-1 text-slate-700">
+                        <p class="font-semibold text-slate-900 mb-1">💡 주의 사항</p>
+                        <p>• CSV 파일은 <strong>UTF-8</strong>로 인코딩 되어야 합니다.</p>
+                        <p>• ID 입력이 필요한 경우 해당 데이터가 <strong>먼저 입력 또는 업로드</strong> 되어야 합니다. (회계계정과목, 기초잔액, 결제방법)</p>
+                        <p>• 상세정보 항목명 설정 (직접 입력)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- II. 청구 실행 방법 -->
+        <section class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+            <h2 class="text-2xl font-bold text-blue-600 mb-6 flex items-center">
+                <span class="bg-blue-100 text-blue-800 w-8 h-8 rounded-full inline-flex items-center justify-center text-sm mr-3">II</span>
+                청구 실행 방법
+            </h2>
+
+            <div class="space-y-6">
+                <div class="border-l-4 border-blue-500 pl-4 py-1">
+                    <h3 class="font-semibold text-lg text-slate-900 mb-2">1. 메뉴 &gt; 청구 &gt; 청구 실행</h3>
+                    <ul class="list-disc list-inside text-sm text-slate-600 space-y-1">
+                        <li>미리 저장된 청구 템플릿으로<strong>청구 실행</strong> 버튼 클릭</li>
+                        <li>필요한 경우 편집을 통해 세부 품목을 수정한 후 청구 실행</li>
+                    </ul>
+                </div>
+
+                <div class="border-l-4 border-indigo-500 pl-4 py-1">
+                    <h3 class="font-semibold text-lg text-slate-900 mb-2">2. 자동 처리 프로세스</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-3">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <p class="font-semibold text-slate-900 text-sm mb-1">청구 생성</p>
+                            <p class="text-xs text-slate-600">청구 사건 생성 및 청구ID 발급<br>(확인: 메뉴 &gt; 청구 &gt; 청구 관리)</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <p class="font-semibold text-slate-900 text-sm mb-1">회계 전표 발행</p>
+                            <p class="text-xs text-slate-600">임대료/관리비 등 회계 전표 발행 및 분개장 입력<br>(확인: 메뉴 회계 &gt; 전표 관리)</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <p class="font-semibold text-slate-900 text-sm mb-1">데이터 저장</p>
+                            <p class="text-xs text-slate-600">전자세금계산서/청구서 발급용 데이터 저장<br>(확인: 메뉴 &gt; 청구 &gt; 세금계산서/청구서 발급)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-l-4 border-emerald-500 pl-4 py-1">
+                    <h3 class="font-semibold text-lg text-slate-900 mb-2">3. 전자 세금계산서 / 전자 청구서 발급</h3>
+                    <p class="text-sm text-slate-600">메뉴 &gt; 청구 &gt; 세금계산서 발급/청구서 발급 화면에서 <strong>발급 실행</strong>을 해야 최종 발급됩니다.</p>
+                    <p class="text-xs text-rose-600 mt-1">※ 전자 세금계산서/전자 청구서 발급은 유료이며 바로빌 회원 가입이 필요합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- III. 회계 관련 정보 자동 생성 -->
+        <section class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+            <h2 class="text-2xl font-bold text-blue-600 mb-6 flex items-center">
+                <span class="bg-blue-100 text-blue-800 w-8 h-8 rounded-full inline-flex items-center justify-center text-sm mr-3">III</span>
+                회계 관련 정보 자동 생성
+            </h2>
+            <div class="flex flex-wrap gap-3">
+                <span class="bg-blue-50 text-blue-700 border border-blue-200 px-4 py-2 rounded-xl text-sm font-medium">분개장</span>
+                <span class="bg-blue-50 text-blue-700 border border-blue-200 px-4 py-2 rounded-xl text-sm font-medium">총계정 원장</span>
+                <span class="bg-blue-50 text-blue-700 border border-blue-200 px-4 py-2 rounded-xl text-sm font-medium">임차인별 원장</span>
+                <span class="bg-blue-50 text-blue-700 border border-blue-200 px-4 py-2 rounded-xl text-sm font-medium">미수금 장부</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-4">✨ 상기 장부들은 시스템 내에서 자동으로 생성 및 업데이트됩니다.</p>
+        </section>
+
+        <!-- IV. 기타 부가 기능 -->
+        <section class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+            <h2 class="text-2xl font-bold text-blue-600 mb-6 flex items-center">
+                <span class="bg-blue-100 text-blue-800 w-8 h-8 rounded-full inline-flex items-center justify-center text-sm mr-3">IV</span>
+                기타 부가 기능
+            </h2>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-slate-700">
+                <li class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-center space-x-3">
+                    <span class="text-lg">📅</span>
+                    <span>스케줄러, 업무일지</span>
+                </li>
+                <li class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-center space-x-3">
+                    <span class="text-lg">💳</span>
+                    <span>계좌 입출금 및 카드 승인/매입 내역 <span class="text-xs text-slate-500 block">(바로빌 신청 후 이용 가능)</span></span>
+                </li>
+                <li class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-center space-x-3 sm:col-span-2">
+                    <span class="text-lg">🛠️</span>
+                    <span>기타 바로빌에서 제공하는 부가 서비스 연동 지원</span>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8 mt-16 text-center text-xs">
+        <p>&copy; Hannoon Lease. All rights reserved.</p>
+        <p class="mt-1">임대 자산 관리를 위한 스마트한 선택, 한눈 리스</p>
+    </footer>
+
+</body>
+</html>```
