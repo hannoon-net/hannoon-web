@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>서비스별 단가</title>
+    <style>
+        body {
+            font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 15px;
+        }
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 1px solid #dcdcdc;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .category-header {
+            background-color: #e4e9f0;
+            color: #2c3e50;
+            padding: 8px 12px;
+            font-weight: bold;
+            font-size: 13px;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .category-header:first-of-type {
+            border-top: none;
+        }
+        .sub-text {
+            font-size: 11px;
+            color: #666;
+            font-weight: normal;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        td {
+            border: 1px solid #e0e0e0;
+            padding: 8px 10px;
+            font-size: 12px;
+        }
+        .item-name {
+            text-align: left;
+            color: #333;
+            width: 45%;
+        }
+        .item-price {
+            text-align: right;
+            color: #111;
+            font-weight: 500;
+            width: 20%;
+        }
+        /* 빈 칸 채우기용 클래스 */
+        .empty-cell {
+            background-color: #fafafa;
+            border: 1px solid #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- 섹션 1: 세금계산서 / 현금영수증 / 전자문서 -->
+    <div class="category-header">
+        <span>세금계산서 / 현금영수증 / 전자문서</span>
+        <span class="sub-text">* 이용 건당 포인트 차감</span>
+    </div>
+    <table>
+        <tr>
+            <td class="item-name">세금계산서</td>
+            <td class="item-price">198</td>
+            <td class="item-name">종이계산서</td>
+            <td class="item-price">55</td>
+            <td class="item-name">청구서</td>
+            <td class="item-price">99</td>
+        </tr>
+        <tr>
+            <td class="item-name">거래명세서</td>
+            <td class="item-price">99</td>
+            <td class="item-name">입금표</td>
+            <td class="item-price">99</td>
+            <td class="item-name">영수증</td>
+            <td class="item-price">99</td>
+        </tr>
+        <tr>
+            <td class="item-name">견적서</td>
+            <td class="item-price">99</td>
+            <td class="item-name">발주서</td>
+            <td class="item-price">99</td>
+            <td class="item-name">현금영수증</td>
+            <td class="item-price">16.5</td>
+        </tr>
+    </table>
+
+    <!-- 섹션 2: 문자 / 카카오톡 / 팩스 -->
+    <div class="category-header">
+        <span>문자 / 팩스</span>
+        <span class="sub-text">* 이용 건당 포인트 차감</span>
+    </div>
+    <table>
+        <tr>
+            <td class="item-name">문자(단문)</td>
+            <td class="item-price">27.5</td>
+            <td class="item-name">문자(장문)</td>
+            <td class="item-price">66</td>
+            <td class="item-name">문자(포토)</td>
+            <td class="item-price">132</td>
+        </tr>
+        <tr>
+            <td class="item-name">팩스</td>
+            <td class="item-price">77</td>
+            <td class="item-name"></td>
+            <td class="item-price"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+        </tr>
+        <!--    
+        <tr>
+            <td class="item-name">카카오톡(알림톡)</td>
+            <td class="item-price">11</td>
+            <td class="item-name">카카오톡(친구톡텍스트)</td>
+            <td class="item-price">27.5</td>
+            <td class="item-name">카카오톡(친구톡이미지)</td>
+            <td class="item-price">33</td>
+        </tr>
+        <tr>
+            <td class="item-name">카카오톡(친구톡와이드)</td>
+            <td class="item-price">33</td>
+            <td class="item-name">팩스</td>
+            <td class="item-price">77</td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+        </tr>
+        -->
+    </table>
+
+    <!-- 섹션 3: 홈택스 / 사업자등록 / 카드 / 계좌 조회 -->
+    <div class="category-header">
+        <span>홈택스 / 사업자등록 / 카드 / 계좌 조회</span>
+        <span class="sub-text">* 매월 포인트 차감 또는 건당</span>
+    </div>
+    <table>
+        <tr>
+            <td class="item-name">홈택스 매입매출(세금)</td>
+            <td class="item-price">44,000</td>
+            <td class="item-name">홈택스 매입매출(현금)</td>
+            <td class="item-price">44,000</td>
+            <td class="item-name">사업자등록 상태조회</td>
+            <td class="item-price">16.5</td>
+        </tr>
+        <tr>
+            <td class="item-name">카드(승인,1일)</td>
+            <td class="item-price">5,500</td>
+            <td class="item-name">카드(승인,6시간)</td>
+            <td class="item-price">5,500</td>
+            <td class="item-name">카드(매입,1일)</td>
+            <td class="item-price">3,300</td>
+        </tr>
+        <tr>
+            <td class="item-name">계좌(10분)</td>
+            <td class="item-price">9,900</td>
+            <td class="item-name">계좌(30분)</td>
+            <td class="item-price">8,800</td>
+            <td class="item-name">계좌(1시간)</td>
+            <td class="item-price">7,700</td>
+        </tr>
+        <tr>
+            <td class="item-name">계좌(4시간)</td>
+            <td class="item-price">6,600</td>
+            <td class="item-name">계좌(1일)</td>
+            <td class="item-price">5,500</td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+        </tr>
+    </table>
+
+</div>
+
+</body>
+</html>
