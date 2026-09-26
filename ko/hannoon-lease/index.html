@@ -1,111 +1,77 @@
-<!DOCTYPE html>
-<html lang="ko" class="scroll-smooth">
+출<!DOCTYPE html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hannoon Lease - 기업 자산 및 리스 관리의 새로운 기준</title>
-    <!-- Tailwind CSS CDN 로드 -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 프리텐다드 폰트 적용 -->
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
     <style>
-        body { font-family: 'Pretendard', sans-serif; }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1a1c29 0%, #161a30 100%);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            max-width: 400px;
+            width: 85%;
+        }
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            color: #1a1c29;
+            font-weight: 700;
+            font-size: 12px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(253, 160, 133, 0.4);
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0 0 15px 0;
+            letter-spacing: -0.5px;
+        }
+        p {
+            font-size: 14px;
+            color: #a0aec0;
+            line-height: 1.6;
+            margin: 0 0 25px 0;
+        }
+        .spinner {
+            width: 30px;
+            height: 30px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #fda085;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-600 selection:text-white">
-
-    <!-- Header / Nav -->
-    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="text-xl font-bold tracking-tight text-slate-900">
-                Hannoon <span class="text-blue-600">Lease</span>
-            </div>
-            <nav class="flex items-center gap-6">
-                <a href="#features" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition">기능 소개</a>
-                <a href="#contact" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition">도입 문의</a>
-                <!-- 언어 전환 버튼 (영문 페이지로 이동) -->
-                <a href="../../en/" class="text-xs font-semibold px-3 py-1.5 rounded-full border border-slate-200 text-slate-600 hover:bg-slate-100 transition">
-                    EN 🌐
-                </a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="max-w-7xl mx-auto px-6 pt-24 pb-20 text-center lg:pt-36 lg:pb-32">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold mb-6">
-            ✨ Hannoon Platform Solution
-        </div>
-        <h1 class="text-4xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight mb-6">
-            기업 자산과 리스 관리의<br class="hidden sm:inline"> <span class="text-blue-600">스마트한 표준</span>을 제시합니다
-        </h1>
-        <p class="max-w-2xl mx-auto text-lg text-slate-600 mb-10 leading-relaxed">
-            한눈 리스 프로그램은 복잡한 자산 운용과 정산 프로세스를 자동화하여 기업의 성장에 온전히 집중할 수 있도록 돕습니다.
-        </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="#contact" class="px-8 py-4 rounded-xl bg-blue-600 text-white font-semibold shadow-lg shadow-blue-500/25 hover:bg-blue-700 transition">
-                서비스 도입 문의하기
-            </a>
-            <a href="#features" class="px-8 py-4 rounded-xl bg-white text-slate-700 font-semibold border border-slate-200 hover:bg-slate-50 transition">
-                기능 자세히 보기
-            </a>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="bg-white py-24 border-y border-slate-100">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold tracking-tight text-slate-900 mb-4">핵심 기능 안내</h2>
-                <p class="text-slate-600">실무에서 가장 필요로 하는 기능들을 정밀하게 설계했습니다.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition group">
-                    <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-lg mb-6 group-hover:scale-110 transition">
-                        01
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">자동화된 정산 프로세스</h3>
-                    <p class="text-slate-600 leading-relaxed text-sm">
-                        복잡한 리스 계약 조건과 주기별 정산을 시스템이 자동으로 처리하여 오류를 원천 차단합니다.
-                    </p>
-                </div>
-                <!-- Card 2 -->
-                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition group">
-                    <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-lg mb-6 group-hover:scale-110 transition">
-                        02
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">실시간 자산 가시성</h3>
-                    <p class="text-slate-600 leading-relaxed text-sm">
-                        산재해 있는 자산 현황과 계약 상태를 직관적인 대시보드와 리포트로 한눈에 파악할 수 있습니다.
-                    </p>
-                </div>
-                <!-- Card 3 -->
-                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition group">
-                    <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-lg mb-6 group-hover:scale-110 transition">
-                        03
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">확장 가능한 아키텍처</h3>
-                    <p class="text-slate-600 leading-relaxed text-sm">
-                        클라우드 기반의 유연한 구조로 기업의 규모 확장과 연동 요구사항에 완벽하게 대응합니다.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact" class="bg-slate-900 text-slate-400 py-16">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-                <span class="text-lg font-bold text-white tracking-tight">Hannoon Platform</span>
-                <p class="text-xs text-slate-500 mt-1">© Hannoon Inc. All rights reserved.</p>
-            </div>
-            <div class="text-sm text-slate-400">
-                Contact: <a href="mailto:contact@hannoon.com" class="text-blue-400 hover:underline">contact@hannoon.com</a>
-            </div>
-        </div>
-    </footer>
-
+<body>
+    <div class="container">
+        <div class="badge">Coming Soon</div>
+        <h1>새로운 서비스 준비 중</h1>
+        <p>더 나은 모습과 완벽한 서비스로 찾아뵙기 위해<br>열심히 준비하고 있습니다. 조금만 기다려주세요!</p>
+        <div class="spinner"></div>
+    </div>
 </body>
 </html>
