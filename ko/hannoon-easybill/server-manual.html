@@ -1,0 +1,582 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hannoon Server (한눈 서버) 사용 및 환경설정 매뉴얼 - 한눈 이지빌</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+        .code-block { font-family: 'Consolas', 'Courier New', monospace; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased leading-relaxed min-h-screen flex flex-col justify-between">
+
+    <!-- Top Header Navigation -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-xs">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="./index.html" class="flex items-center space-x-3 group">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-purple-600 flex items-center justify-center text-white font-bold text-sm shadow-sm group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-server"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-indigo-600 tracking-wider uppercase block">SERVER MANUAL</span>
+                    <h1 class="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-indigo-600 transition">Hannoon Server 운영 매뉴얼</h1>
+                </div>
+            </a>
+            <div class="flex items-center space-x-4 sm:space-x-6 text-xs sm:text-sm font-medium text-slate-600">
+                <a href="./index.html" class="hover:text-indigo-600 transition hidden sm:inline">홈</a>
+                <a href="./features.html" class="hover:text-indigo-600 transition">주요 기능</a>
+                <a href="./download.html" class="hover:text-indigo-600 transition">다운로드</a>
+                <a href="./manual.html" class="text-blue-600 font-semibold hover:text-blue-700 transition flex items-center gap-1">
+                    <i class="fa-solid fa-book-open text-xs"></i>
+                    <span>클라이언트 매뉴얼</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10 flex-grow w-full">
+
+        <!-- Banner Header -->
+        <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
+            <div class="relative z-10 space-y-3">
+                <div class="flex items-center gap-2 flex-wrap">
+                    <span class="bg-indigo-500/30 text-indigo-300 text-xs font-bold px-3 py-1 rounded-full border border-indigo-400/30">
+                        Hannoon Easybill Workgroup Edition
+                    </span>
+                    <span class="text-xs text-slate-400">Server Lite / Standard / Enterprise 지원</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
+                    Hannoon Server 구축 및 환경설정 가이드
+                </h2>
+                <p class="text-slate-300 text-sm max-w-2xl leading-relaxed">
+                    조직 내 다수의 사용자가 동시에 실시간 청구·전자세금계산서·회계 데이터를 공유하는 Hannoon Server의 서버 환경설정, DB(MariaDB/MySQL) 연동 및 사용자 권한 관리 절차를 안내합니다.
+                </p>
+            </div>
+            <div class="absolute -right-8 -bottom-10 opacity-10 text-white text-9xl pointer-events-none">
+                <i class="fa-solid fa-network-wired"></i>
+            </div>
+        </div>
+
+        <!-- Edition Architecture Comparison -->
+        <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+            <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+                <div>
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900">서버 에디션 선택 가이드 (Lite / Standard / Enterprise)</h3>
+                    <p class="text-xs text-slate-500 mt-1">기업의 규모와 동시 접속 인원에 맞는 서버 에디션을 선택하세요. (Lite: 5인 이하 / Standard: 30인 이하 / Enterprise: 무제한)</p>
+                </div>
+                <span class="text-xs font-semibold bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full">비교 안내</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Hannoon Server Lite -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold bg-blue-100 text-blue-800 px-2.5 py-0.5 rounded-full">간편 설치형</span>
+                            <span class="text-xs text-slate-500">소규모 팀 추천</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-feather-pointed text-blue-600"></i>
+                            <span>Hannoon Server Lite</span>
+                        </h4>
+                        <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+                            별도의 외부 데이터베이스(RDBMS) 프로그램 설치 없이 원클릭으로 즉시 구동되는 경량형 서버입니다.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-700 mb-6">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-emerald-600 mt-0.5"></i>
+                                <span><strong>DB 설치 불필요:</strong> 내장 임베디드 데이터베이스 자동 탑재</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-emerald-600 mt-0.5"></i>
+                                <span><strong>권장 접속 인원:</strong> 동시접속자 <strong>5인 이하</strong> 권장</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-emerald-600 mt-0.5"></i>
+                                <span><strong>간편한 백업:</strong> 파일 1개 백업으로 전체 데이터 보관 완료</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-[11px] text-slate-600">
+                        💡 5인 이하 소규모 사무실, 지점 또는 빠른 도입을 원하는 팀에 최적화
+                    </div>
+                </div>
+
+                <!-- Hannoon Server Standard -->
+                <div class="bg-indigo-50/40 border border-indigo-200 rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold bg-indigo-600 text-white px-2.5 py-0.5 rounded-full">표준형</span>
+                            <span class="text-xs text-indigo-700 font-semibold">30인 이하 권장</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-server text-indigo-600"></i>
+                            <span>Hannoon Server Standard</span>
+                        </h4>
+                        <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+                            MariaDB(권장) 또는 MySQL을 설치하여 30인 이하 팀에서 실시간 데이터 동기화와 업무를 처리하는 표준 서버입니다.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-700 mb-6">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-indigo-600 mt-0.5"></i>
+                                <span><strong>DB 설치 필요:</strong> MariaDB(권장) 또는 MySQL 설치 필수</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-indigo-600 mt-0.5"></i>
+                                <span><strong>권장 접속 인원:</strong> 동시접속자 <strong>30인 이하</strong> 권장</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-indigo-600 mt-0.5"></i>
+                                <span><strong>자동 백업:</strong> 매일 지정 시간에 DB 데이터 및 파일 자동 백업</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-indigo-200 text-[11px] text-indigo-900 font-medium">
+                        🏢 30인 이하 중소기업, 팀별 협업 환경에 최적화
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hannoon Server Enterprise -->
+            <div class="mt-6 bg-gradient-to-r from-slate-900 via-indigo-950 to-purple-950 rounded-2xl p-6 text-white flex flex-col md:flex-row items-center justify-between gap-4 border border-indigo-500/30">
+                <div class="space-y-2">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold bg-purple-600 text-white px-2.5 py-0.5 rounded-full">엔터프라이즈형</span>
+                        <span class="text-xs font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2 py-0.5 rounded">동시접속 무제한</span>
+                    </div>
+                    <h4 class="text-xl font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-building-shield text-purple-400"></i>
+                        <span>Hannoon Server Enterprise</span>
+                    </h4>
+                    <p class="text-slate-300 text-xs sm:text-sm max-w-xl leading-relaxed">
+                        MariaDB(권장) 또는 MySQL을 설치하여 동시접속자 수 제한 없이 수만 건의 트랜잭션을 안정적으로 처리합니다. 대규모 거래처 관리, 지점망 통합에 최적화되어 있습니다.
+                    </p>
+                </div>
+                <div class="shrink-0 text-xs text-slate-300 bg-white/10 p-3.5 rounded-xl border border-white/20 space-y-1.5">
+                    <p class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-400"></i> MariaDB(권장), MySQL 설치 필요</p>
+                    <p class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-400"></i> 동시접속자 무제한 지원</p>
+                    <p class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-400"></i> 고속 인덱싱 & 대용량 처리</p>
+                </div>
+            </div>
+
+                        <!-- 하단 영역: 안내 문구와 권장 서버 사양 링크 배치 -->
+            <div class="mt-4 pt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-500">                
+                <!-- 하단으로 이동된 버튼 링크 -->
+                <a href="./server-specs.html" class="inline-flex items-center gap-1.5 font-bold bg-indigo-50 text-indigo-700 hover:bg-indigo-100 border border-indigo-200 px-3.5 py-2 rounded-xl transition shrink-0 self-start sm:self-auto">
+                    <i class="fa-solid fa-microchip"></i>
+                    <span>권장 서버 하드웨어 사양 상세 보기 &rarr;</span>
+                </a>
+            </div>
+
+        </section>
+
+        <!-- 서버 시작 및 백그라운드 실행 안내 -->
+        <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+            <div class="flex items-center gap-3 pb-4 border-b border-slate-100 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center font-extrabold text-base">
+                    0
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900">서버 시작 및 백그라운드 실행</h3>
+                    <p class="text-xs text-slate-500">Hannoon Server 실행 방식 및 트레이 아이콘 사용법</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                    <h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-play text-emerald-600"></i> 서버 시작 및 백그라운드 실행
+                    </h4>
+                    <ul class="space-y-2 text-slate-600">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-emerald-600 mt-0.5 shrink-0"></i>
+                            <span>Hannoon Server를 실행하면 <strong>백그라운드로 자동 시작</strong>됩니다.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-emerald-600 mt-0.5 shrink-0"></i>
+                            <span>서버 실행 상태는 <strong>우측 하단 트레이 아이콘</strong>(시스템 트레이)으로 확인할 수 있습니다.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-emerald-600 mt-0.5 shrink-0"></i>
+                            <span>메인 프로그램 창을 닫더라도 <strong>백그라운드 실행이 계속</strong> 유지됩니다.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-emerald-600 mt-0.5 shrink-0"></i>
+                            <span>서버를 완전히 종료하려면 <strong>트레이 아이콘에서 [종료]</strong>를 선택하세요.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-indigo-50/40 p-5 rounded-xl border border-indigo-100">
+                    <h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-sliders text-indigo-600"></i> 환경 설정 접근 방법
+                    </h4>
+                    <ul class="space-y-2 text-slate-600">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-indigo-600 mt-0.5 shrink-0"></i>
+                            <span>환경 설정은 <strong>트레이 아이콘(한눈 아이콘)을 2번 클릭</strong>하면 메인 윈도우가 열립니다.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-indigo-600 mt-0.5 shrink-0"></i>
+                            <span>메인 윈도우 폼에서 <strong>서버 설정, 백업 설정, 사용자 관리</strong> 등을 처리할 수 있습니다.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-indigo-600 mt-0.5 shrink-0"></i>
+                            <span>트레이 아이콘 우클릭으로 간편 메뉴를 이용할 수 있습니다.</span>
+                        </li>
+                    </ul>
+                    <div class="mt-3 bg-white p-3 rounded-lg border border-indigo-100 text-[11px] text-indigo-800">
+                        💡 트레이 아이콘이 보이지 않으면 작업 표시줄 오른쪽 끝의 <strong>숨겨진 아이콘 표시(^)</strong>를 클릭하세요.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- (1) 환경설정: A. 서버 설정 -->
+        <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80 space-y-6">
+            <div class="flex items-center gap-3 pb-4 border-b border-slate-100">
+                <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-extrabold text-base">
+                    1-A
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900">환경설정 - 서버 설정 (Server Settings)</h3>
+                    <p class="text-xs text-slate-500">Hannoon Server 구동 및 네트워크 통신 필수 환경 값</p>
+                </div>
+            </div>
+
+            <div class="space-y-5">
+                <!-- 1. 서버 IP 확인 (Read-Only) -->
+                <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <span class="w-6 h-6 rounded-lg bg-blue-600 text-white flex items-center justify-center text-xs font-bold">1</span>
+                            <h4 class="font-bold text-slate-900 text-sm sm:text-base">클라이언트 접속 가능 IP 정보 확인 (Read-Only)</h4>
+                        </div>
+                        <span class="text-xs bg-slate-200 text-slate-700 px-2 py-0.5 rounded font-mono">자동 조회 (수정 불가)</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        클라이언트 프로그램(HannoonEasybill Workgroup Client) 사용자가 서버에 접속할 때 입력해야 하는 서버 컴퓨터의 네트워크 IP 주소입니다. 
+                        시스템 네트워크 카드로부터 자동으로 감지되어 읽기 전용(Read-only)으로 표시됩니다.
+                    </p>
+                    <div class="bg-white p-3.5 rounded-xl border border-slate-200 code-block text-xs text-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <div>
+                            <span class="text-slate-400">사내망(LAN) 접속 예시:</span>
+                            <span class="font-bold text-blue-600 ml-1">192.168.0.50</span>
+                        </div>
+                        <span class="text-[11px] text-slate-500">※ 원격지 접속 시에는 공유기 포트포워딩 후 공인 IP를 사용합니다.</span>
+                    </div>
+                </div>
+
+                <!-- 2. 서버 Port 설정 -->
+                <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <span class="w-6 h-6 rounded-lg bg-indigo-600 text-white flex items-center justify-center text-xs font-bold">2</span>
+                            <h4 class="font-bold text-slate-900 text-sm sm:text-base">서버 Port 설정 (Service Port)</h4>
+                        </div>
+                        <span class="text-xs bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded font-semibold">설정 변경 가능</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        클라이언트의 접속 요청을 수신 대기(Listen)할 통신 포트 번호를 지정합니다. 사내 보안 정책이나 타 프로그램과의 충돌 여부에 따라 포트 번호를 자유롭게 변경할 수 있습니다.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                        <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs">
+                            <span class="text-slate-500 block mb-1">기본 포트 변경 권장</span>
+                            <span class="font-mono font-bold text-slate-900 text-sm">33000</span>
+                            <span class="text-[11px] text-slate-500 block mt-0.5">(5자리 임의의 숫자, 예: 18080 등)</span>
+                        </div>
+                        <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900">
+                            <span class="font-bold block mb-1 flex items-center gap-1">
+                                <i class="fa-solid fa-shield text-amber-600"></i> 윈도우 방화벽 인바운드 허용
+                            </span>
+                            설정한 포트는 서버 PC의 [제어판 > Windows Defender 방화벽]에서 인바운드 TCP 규칙을 허용해야 외부 클라이언트 접속이 가능합니다.
+
+                            <a href="./firewall-guide.html" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="text-[11px] text-indigo-600 hover:underline block text-right font-medium">
+                                방화벽 규칙 설정 방법 &rarr;
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. 파일 저장 경로 -->
+                <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <span class="w-6 h-6 rounded-lg bg-purple-600 text-white flex items-center justify-center text-xs font-bold">3</span>
+                            <h4 class="font-bold text-slate-900 text-sm sm:text-base">파일 저장 경로 (File Storage Path)</h4>
+                        </div>
+                        <span class="text-xs bg-rose-100 text-rose-800 px-2 py-0.5 rounded font-bold">⚠️ 파일 백업 설정 필수</span>
+                    </div>
+
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        클라이언트 프로그램에서 서버로 업로드하는 관련 파일(참고문서, 각종 증빙 자료 등) 관련 데이터 파일이 저장되는 서버 PC의 실제 디렉토리 경로입니다.
+                    </p>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- (1) 환경설정: C. DB 설정 - Standard/Enterprise 에디션 -->
+        <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80 space-y-6">
+            <div class="flex items-center gap-3 pb-4 border-b border-slate-100">
+                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-extrabold text-base">
+                    1-B
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-900">환경설정 - DB 설정 (Standard 및 Enterprise 전용)</h3>
+                        <span class="text-xs bg-indigo-600 text-white font-bold px-2 py-0.5 rounded">Standard / Enterprise</span>
+                    </div>
+                    <p class="text-xs text-slate-500">MariaDB 및 MySQL 데이터베이스 서버 연동 파라미터 구성</p>
+                </div>
+            </div>
+
+            <!-- DB 프로그램 다운로드 및 안내 -->
+            <div class="bg-indigo-50/60 p-4 rounded-xl border border-indigo-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+                <div>
+                    <span class="font-bold text-indigo-900 block">MariaDB / MySQL 데이터베이스 설치</span>
+                    <span class="text-indigo-700 text-[11px]">Standard 및 Enterprise 에디션 구동 전 DB 프로그램 설치가 필요합니다 (MariaDB 권장).</span>
+                </div>
+                <div class="flex items-center gap-2 shrink-0">
+                    <a href="https://mariadb.org/download/" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-slate-50 text-indigo-700 font-bold px-3 py-1.5 rounded-lg border border-indigo-200 shadow-2xs transition flex items-center gap-1">
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        <span>MariaDB 공식 다운로드</span>
+                    </a>
+                    <a href="https://dev.mysql.com/downloads/installer/" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-slate-50 text-slate-700 font-bold px-3 py-1.5 rounded-lg border border-slate-200 shadow-2xs transition flex items-center gap-1">
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        <span>MySQL 공식 다운로드</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+                <!-- DB 주소 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <div class="font-bold text-slate-900 mb-1 flex items-center gap-1.5">
+                        <i class="fa-solid fa-server text-indigo-600"></i>
+                        <span>DB 주소 (Database Host)</span>
+                    </div>
+                    <p class="text-xs text-slate-600 mb-2">
+                        MariaDB 또는 MySQL이 설치된 호스트 주소입니다.
+                    </p>
+                    <div class="bg-white p-2.5 rounded-lg border border-slate-200 font-mono text-xs">
+                        <span class="text-slate-500">기본값:</span> <strong class="text-indigo-600">127.0.0.1</strong> (서버 컴퓨터에 함께 설치된 경우)
+                    </div>
+                    <p class="text-[11px] text-slate-500 mt-1">※ 독립된 외부 DB 서버를 운영할 경우 해당 서버의 사내 IP 입력</p>
+                </div>
+
+                <!-- DB 포트 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <div class="font-bold text-slate-900 mb-1 flex items-center gap-1.5">
+                        <i class="fa-solid fa-network-wired text-indigo-600"></i>
+                        <span>DB 포트 (Database Port)</span>
+                    </div>
+                    <p class="text-xs text-slate-600 mb-2">
+                        데이터베이스 통신 포트 번호입니다.
+                    </p>
+                    <div class="bg-white p-2.5 rounded-lg border border-slate-200 font-mono text-xs">
+                        <span class="text-slate-500">기본값:</span> <strong class="text-indigo-600">3306</strong>
+                    </div>
+                    <p class="text-[11px] text-slate-500 mt-1">※ 보안 강화를 위해 포트를 변경한 경우 해당 변경 포트 지정 가능</p>
+                </div>
+
+                <!-- DB 이름 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <div class="font-bold text-slate-900 mb-1 flex items-center gap-1.5">
+                        <i class="fa-solid fa-folder-tree text-indigo-600"></i>
+                        <span>DB 이름 (Database Name)</span>
+                    </div>
+                    <p class="text-xs text-slate-600 mb-2">
+                        한눈 이지빌 전용 데이터베이스 스키마 이름입니다.
+                    </p>
+                    <div class="bg-white p-2.5 rounded-lg border border-slate-200 font-mono text-xs">
+                        <span class="text-slate-500">고정/기본값:</span> <strong class="text-indigo-600">hannoon_easybill</strong>
+                    </div>
+                    <p class="text-[11px] text-slate-500 mt-1">※ 서버 최초 실행 시 테이블 자동 생성(스키마 자동 마이그레이션)</p>
+                </div>
+
+                <!-- DB 사용자 및 암호 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <div class="font-bold text-slate-900 mb-1 flex items-center gap-1.5">
+                        <i class="fa-solid fa-key text-indigo-600"></i>
+                        <span>DB 사용자 ID 및 패스워드 설정</span>
+                    </div>
+                    <p class="text-xs text-slate-600 mb-2">
+                        데이터베이스 읽기/쓰기 권한을 가진 계정 정보입니다.
+                    </p>
+                    <div class="bg-white p-2.5 rounded-lg border border-slate-200 font-mono text-xs">
+                        <span class="text-slate-500">계정 ID:</span> <strong>admin_user</strong> (또는 root)<br>
+                        <span class="text-slate-500">패스워드:</span> <strong>••••••••</strong>
+                    </div>
+                    <p class="text-[11px] text-slate-500 mt-1">※ 설정 후 UI의 [DB 연결 테스트] 버튼으로 정상 통신 검증</p>
+                </div>
+            </div>
+
+            <!-- SQL Quick Reference Snippet -->
+            <div class="bg-slate-900 text-slate-200 p-4 rounded-xl text-xs space-y-2">
+                <div class="flex items-center justify-between text-slate-400 border-b border-slate-800 pb-2">
+                    <span class="font-mono"><i class="fa-solid fa-terminal mr-1"></i> MariaDB / MySQL 신규 데이터베이스 및 유저 생성 SQL 예시</span>
+                    <span class="text-[11px]">DB 콘솔 실행</span>
+                </div>
+                <pre class="font-mono text-[11px] overflow-x-auto text-emerald-400">
+                    CREATE DATABASE hannoon_easybill DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+                    CREATE USER 'hannoon_admin'@'%' IDENTIFIED BY '당신의안전한비밀번호';
+                    GRANT ALL PRIVILEGES ON hannoon_easybill.* TO 'hannoon_admin'@'%';
+                    FLUSH PRIVILEGES;
+                </pre>
+            </div>
+        </section>
+
+        <!-- (1) 환경설정: B. 백업 설정 -->
+        <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80 space-y-6">
+            <div class="flex items-center gap-3 pb-4 border-b border-slate-100">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-extrabold text-base">
+                    1-C
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900">환경설정 - 백업 설정 (Backup Settings)</h3>
+                    <p class="text-xs text-slate-500">매일 자동 실행되는 데이터 보호 백업 구성</p>
+                </div>
+            </div>
+
+            <div class="space-y-5">
+                <!-- 백업 시간 설정 -->
+                <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <span class="w-6 h-6 rounded-lg bg-emerald-600 text-white flex items-center justify-center text-xs font-bold">1</span>
+                            <h4 class="font-bold text-slate-900 text-sm sm:text-base">백업 시간 (Backup Time)</h4>
+                        </div>
+                        <span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-semibold">새벽 시간 권장</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        매일 자동으로 백업을 실행할 시간을 설정합니다. 업무 시간 외 <strong>새벽 시간대</strong>(예: 02:00~04:00)를 권장합니다.
+                    </p>
+                    <div class="bg-white p-3.5 rounded-xl border border-slate-200 text-xs text-slate-700">
+                        <span class="text-slate-500">권장 설정 예시:</span> <strong class="text-emerald-700">02:00</strong> (새벽 2시 자동 백업)
+                    </div>
+                </div>
+
+                <!-- 파일 백업 경로 -->
+                <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <span class="w-6 h-6 rounded-lg bg-blue-600 text-white flex items-center justify-center text-xs font-bold">2</span>
+                            <h4 class="font-bold text-slate-900 text-sm sm:text-base">파일 백업 경로 (Backup Folder Path)</h4>
+                        </div>
+                        <span class="text-xs bg-rose-100 text-rose-800 px-2 py-0.5 rounded font-bold">⚠️ 물리적 분리 권장</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        파일 보관 폴더(DB 데이터 및 첨부 파일)와 <strong>동기화될 백업 폴더 경로</strong>를 지정합니다. 백업 시간마다 해당 폴더로 자동 동기화됩니다.
+                    </p>
+                    <div class="bg-rose-50 border border-rose-200 rounded-xl p-3.5 text-xs text-rose-900 space-y-1">
+                        <p class="font-bold flex items-center gap-1.5"><i class="fa-solid fa-triangle-exclamation text-rose-600"></i> 권장 백업 대상</p>
+                        <p>• <strong>물리적으로 분리된 로컬 드라이브</strong> (별도의 HDD/SSD) 또는</p>
+                        <p>• <strong>클라우드 드라이브 동기화 폴더</strong> (OneDrive, Google Drive 등)</p>
+                        <p class="mt-1 text-[11px]">※ 서버와 동일한 드라이브는 하드웨어 장애 시 함께 손실될 수 있으므로 권장하지 않습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- (2) 사용자 추가 및 권한 관리 -->
+        <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80 space-y-6">
+            <div class="flex items-center gap-3 pb-4 border-b border-slate-100">
+                <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-extrabold text-base">
+                    2
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900">사용자 추가 및 권한 관리 (User Management)</h3>
+                    <p class="text-xs text-slate-500">팀원별 계정 생성, 역할 배정 및 접근 보안 통제</p>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row gap-4 items-start">
+                    <span class="px-2.5 py-1 rounded-md bg-purple-600 text-white font-bold text-xs tracking-wide shrink-0">Step 1</span>
+                    <div class="text-xs sm:text-sm space-y-1">
+                        <h4 class="font-bold text-slate-900">메뉴 이동: <code class="bg-slate-200 px-1.5 py-0.5 rounded font-mono text-xs">설정 > 사용자 관리 > 사용자 추가</code></h4>
+                        <p class="text-slate-600">서버 관리자 화면에서 [사용자 추가] 버튼을 클릭하여 팀원의 계정을 등록합니다.</p>
+                    </div>
+                </div>
+                <!--    
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row gap-4 items-start">
+                    <span class="px-2.5 py-1 rounded-md bg-purple-600 text-white font-bold text-xs tracking-wide shrink-0">Step 2</span>
+                    <div class="text-xs sm:text-sm space-y-2 flex-grow">
+                        <h4 class="font-bold text-slate-900">사용자 정보 및 권한 등급 설정</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                            <div class="bg-white p-3 rounded-lg border border-slate-200">
+                                <span class="font-bold text-slate-900 text-xs block mb-1">👑 최고 관리자 (Admin)</span>
+                                <p class="text-[11px] text-slate-600">서버 설정 변경, DB 백업/복원, 모든 팀원의 계정 관리 및 전체 청구/회계 결재 권한</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-200">
+                                <span class="font-bold text-blue-700 text-xs block mb-1">✍️ 실무자 (Operator)</span>
+                                <p class="text-[11px] text-slate-600">청구 템플릿 생성, 정기 청구 실행, 전자세금계산서 발행 및 전표 분개장 입력 권한</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-200">
+                                <span class="font-bold text-slate-600 text-xs block mb-1">👀 조회 전용 (Viewer)</span>
+                                <p class="text-[11px] text-slate-600">발행된 세금계산서 내역, 총계정원장 및 미수금 현황 장부 단순 열람/출력 권한</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                -->    
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row gap-4 items-start">
+                    <span class="px-2.5 py-1 rounded-md bg-purple-600 text-white font-bold text-xs tracking-wide shrink-0">Step 2</span>
+                    <div class="text-xs sm:text-sm space-y-1">
+                        <h4 class="font-bold text-slate-900">클라이언트 배포 및 로그인 테스트</h4>
+                        <p class="text-slate-600">
+                            팀원의 PC에 설치된 <strong>HannoonEasybill Workgroup Client</strong> 프로그램 실행 후, 발급한 ID와 초기 비밀번호, 서버 IP/Port를 입력하여 첫 로그인을 수행합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Troubleshooting Box -->
+        <section class="bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200 space-y-4">
+            <h3 class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-2">
+                <i class="fa-solid fa-wrench text-indigo-600"></i>
+                <span>서버 접속 장애 트러블슈팅 체크리스트</span>
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-700">
+                <div class="bg-white p-4 rounded-xl border border-slate-200 space-y-1">
+                    <span class="font-bold text-slate-900 block">Q1. 클라이언트에서 "서버에 연결할 수 없습니다." 오류가 발생합니다.</span>
+                    <p class="text-slate-600">
+                        1) 서버 PC와 클라이언트 PC가 같은 공유기(동일 서브넷 네트워크)에 연결되어 있는지 확인하세요.<br>
+                        2) 서버 컴퓨터의 윈도우 방화벽에서 설정한 포트(Port)에 대해 TCP 인바운드가 열려있는지 점검하세요.
+                    </p>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-200 space-y-1">
+                    <span class="font-bold text-slate-900 block">Q2. 서버 Standard 및 Enterprise 에디션에서 "DB 접속 설정이 올바르지 않거나 서버에 연결할 수 없습니다." 오류가 발생합니다.</span>
+                    <p class="text-slate-600">
+                        1) MariaDB / MySQL 서비스(mysqld)가 Windows 서비스 관리자에서 정상 '실행 중'인지 확인하세요.<br>
+                        2) DB 아이디 및 DB 패스워드, DB 주소, DB 포트, 그리고 <code class="font-mono">hannoon_easybill</code> 데이터베이스가 생성되어 있는지 확인하세요.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-10 text-center text-xs border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 space-y-2">
+            <p class="font-bold text-slate-200 text-sm">Hannoon Easybill Workgroup Server Engine</p>
+            <p>&copy; Hannoon Easybill. All rights reserved.</p>
+            <p class="text-slate-500">안정적이고 강력한 사내 인트라넷 네트워크 청구·회계 서버 솔루션</p>
+        </div>
+    </footer>
+
+</body>
+</html>

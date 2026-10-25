@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>한눈 리스 - CSV 파일 업로드 주의사항 가이드</title>
+  <style>
+    :root {
+      --primary-color: #0056b3;
+      --secondary-color: #495057;
+      --accent-color: #d9534f;
+      --bg-color: #f4f6f9;
+      --card-bg: #ffffff;
+      --border-color: #dee2e6;
+      --highlight-bg: #fff3cd;
+      --highlight-border: #ffeeba;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: var(--bg-color);
+      padding: 30px 15px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 35px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    header h1 {
+      color: var(--primary-color);
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: #6c757d;
+      font-size: 15px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      color: var(--primary-color);
+      margin-top: 40px;
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--primary-color);
+    }
+
+    .card {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 25px;
+      margin-bottom: 20px;
+      background-color: #fff;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      color: #212529;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    ul, ol {
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: 12px;
+      font-weight: bold;
+      color: #fff;
+      background-color: var(--primary-color);
+      border-radius: 4px;
+    }
+
+    .badge-danger {
+      background-color: var(--accent-color);
+    }
+
+    .important-box {
+      background-color: var(--highlight-bg);
+      border: 1px solid var(--highlight-border);
+      border-left: 5px solid var(--accent-color);
+      padding: 15px 20px;
+      margin-top: 15px;
+      border-radius: 4px;
+    }
+
+    .important-box h4 {
+      color: var(--accent-color);
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    table th, table td {
+      border: 1px solid var(--border-color);
+      padding: 10px 12px;
+      text-align: left;
+    }
+
+    table th {
+      background-color: #f1f3f5;
+      font-weight: bold;
+    }
+
+    .code-tag {
+      background-color: #e9ecef;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-weight: bold;
+      color: #495057;
+    }
+
+    footer {
+      margin-top: 45px;
+      text-align: center;
+      font-size: 13px;
+      color: #888;
+      border-top: 1px solid var(--border-color);
+      padding-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>한눈 이지빌 - CSV 파일 업로드 주의사항 가이드</h1>
+      <p>원활한 데이터 업로드 및 매핑을 위해 아래 규칙을 반드시 준수해 주시기 바랍니다.</p>
+    </header>
+
+    <!-- [공통 주의 사항] -->
+    <h2 class="section-title">📌 공통 주의 사항</h2>
+
+    <div class="card">
+      <h3>1. CSV 파일 기본 규칙</h3>
+      <ul>
+        <li><strong>파일 인코딩:</strong> 반드시 <span class="code-tag">UTF-8</span> 형식을 사용해야 합니다.</li>
+        <li><strong>파일명:</strong> 파일명 변경은 가능합니다.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>2. 업로드 순서</h3>
+      <p style="margin-bottom: 10px;">한눈 리스 CSV 데이터 업로드는 메뉴 순서(파일 넘버링 순서)를 반드시 준수해 주세요.</p>
+      <div style="background-color: #eef2f7; padding: 12px; border-radius: 6px; font-weight: bold; text-align: center;">
+        회계계정과목 업로드 ➔ ... ➔ 기타설정 순서로 진행
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>3. 항목명 및 열(Column) 규칙</h3>
+      <ul>
+        <li>첫 번째 행(항목명/Header)은 절대 삭제할 수 없습니다.</li>
+        <li>항목 이름은 변경 가능하지만, <strong>항목 배열 순서는 반드시 유지</strong>해야 합니다.</li>
+        <li><strong>용어 구분 주의 (사업자 ID가 아님):</strong>
+          <ul>
+            <li><strong>공급자ID:</strong> 임대인ID, 렌탈사ID, 지입사ID, 제공사ID (*공급자 사업자 ID가 아닙니다)</li>
+            <li><strong>수요자ID:</strong> 임차인ID, 고객ID, 지입차주ID, 이용자ID, 회원ID (*공급받는자 사업자 ID가 아닙니다)</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="sub-info" style="font-size: 13px; color: #6c757d; margin-top: 8px;">
+        ※ 예외 파일: 임대자산.csv, 임대계약.csv, 청구 템플릿.csv (개별 주의사항 참조)
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>4. 참조ID 항목 기재 방식</h3>
+      <p>참조ID가 필요한 항목은 참조되는 CSV를 먼저 업로드한 후, 한눈 리스의 리스트에서 생성된 <span class="code-tag">Id</span>를 확인하여 기재하는 것을 권장합니다(추후 편집도 가능합니다).</p>
+      <p style="font-size: 14px; color: #555; margin-top: 8px;">
+        <em>예시: 임대인 정보의 '사업자ID'는 '사업자 정보 [공급자]' 업로드 완료 후 생성된 'Id'를 참조하여 기재합니다.</em>
+      </p>
+    </div>
+
+    <!-- [개별 CSV 파일 주의 사항] -->
+    <h2 class="section-title">📂 개별 CSV 파일 주의 사항</h2>
+
+    <!-- 1. 회계계정과목 -->
+    <div class="card">
+      <h3>1. 회계계정과목</h3>
+      <ul>
+        <li><strong>계정코드 첫자리 규칙 (변경 불가):</strong>
+          <br>
+          <span class="code-tag">1: 자산</span> | <span class="code-tag">2: 부채</span> | <span class="code-tag">3: 자본</span> | <span class="code-tag">4: 수익</span> | <span class="code-tag">5~9: 비용</span>
+        </li>
+        <li style="margin-top: 10px;"><strong>코드 규칙 (계정과목명은 변경 가능):</strong>
+          <table>
+            <thead>
+              <tr>
+                <th>구분</th>
+                <th>추천 코드 범위 및 예시</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>현금 / 보통예금</td>
+                <td>10101 (현금), 10301 (보통예금)</td>
+              </tr>
+              <tr>
+                <td>부가세 관련</td>
+                <td>19900 (부가세 대급금 - 자산), 29900 (부가세 예수금 - 부채)</td>
+              </tr>
+              <tr>
+                <td>리스 관련 미수금/부과금</td>
+                <td>10001 ~ 10009</td>
+              </tr>
+              <tr>
+                <td>리스 관련 부채</td>
+                <td>20001 ~ 20009</td>
+              </tr>
+              <tr>
+                <td>리스 관련 수익</td>
+                <td>40001 ~ 40009</td>
+              </tr>
+              <tr>
+                <td>리스 관련 비용</td>
+                <td>80001 ~ 80009</td>
+              </tr>
+              <tr>
+                <td>자본금 관련</td>
+                <td>30101 (자본금), 30301 (이월이익 잉여금)</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 2. 분개 템플릿 (신규 추가) -->
+    <div class="card">
+      <h3>2. 분개 템플릿</h3>
+      <ul>
+        <li>분개 템플릿은 <strong>일반 전표 입력용(<span class="code-tag">S</span>)</strong>, <strong>멀티 전표 입력용(<span class="code-tag">M</span>)</strong>으로 구분하여 설정합니다.</li>
+        <li style="margin-top: 8px;"><strong>전표 입력 폼(2가지 제공):</strong>
+          <ol style="margin-top: 6px;">
+            <li>
+              <strong>일반 전표 입력폼:</strong>
+              <p>차변/대변이 일반 전표와 마찬가지로 차변과 대변을 N:N으로 입력 가능하며, 입력폼 1개당 1개의 전표를 입력합니다. 하나의 거래에 다수의 계정과목이 복잡하게 발생되는 경우 입력에 유리합니다.</p>
+            </li>
+            <li style="margin-top: 6px;">
+              <strong>멀티 전표 입력폼:</strong>
+              <p>부가세 항목을 제외한 계정과목의 차변과 대변이 1:1로 대응하는 전표 입력방식으로, 입력폼 1개당 다수의 전표를 입력 후 한꺼번에 저장할 수 있습니다.</p>
+              <p>부가세는 매출/매입 선택에 따라 자동 입력되며, 하나의 거래/입력에 대해 대응되는 계정과목마다 금액을 분리해서 분개하는 방식으로 단순화하여 분개와 입력이 간편합니다.</p>
+            </li>
+          </ol>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 3. 결제수단 -->
+    <div class="card">
+      <h3>3. 결제수단</h3>
+      <ul>
+        <li>임차인/고객으로부터 입금받는 은행계좌, 카드, 현금 등을 구분하여 등록합니다.</li>
+        <li><strong>사용 여부 값:</strong> <span class="code-tag">0: 현재 미사용</span> / <span class="code-tag">1: 현재 사용중</span></li>
+      </ul>
+    </div>
+
+    <!-- 4. 임대자산 & 임대계약 -->
+    <div class="card">
+      <h3>4. 자산정보.csv / 계약정보.csv</h3>
+      <ul>
+        <li>반드시 <strong>공급자[임대인, 렌탈사, 지입사, 제공자 등] 및 수요자[임차인, 고객, 지입차주, 이용자 등] 정보 업로드와 ID를 확인한 후</strong> 작업해야 합니다.</li>
+        <li><strong>자산정보.csv:</strong> '공급자ID'부터 '상태' 칼럼까지 제목 변경이 불가하며, 이후부터 세부항목 표시용 제목 및 내용을 무제한 추가할 수 있습니다.
+          <br>• 상태 선택: <span class="code-tag">1: 임대[렌탈, 이용]가능</span> / <span class="code-tag">2: 임대[렌탈, 이용]중</span> / <span class="code-tag">3: 임대[렌탈, 이용]불가</span>
+        </li>
+        <li><strong>계약정보.csv:</strong> 
+          <br>• 상태 선택: <span class="code-tag">0: 계약종료</span> / <span class="code-tag">1: 계약유지</span>
+          <br>• 자산ID 항목은 복수의 자산ID를 콤마(,)로 구분하여 기재 가능합니다.
+        </li>
+        <li><strong>날짜 형식:</strong> <span class="code-tag">YYYY-MM-DD</span> 규격을 준수해 주세요.</li>
+      </ul>
+    </div>
+
+    <!-- 5. 기초잔액 -->
+    <div class="card">
+      <h3>5. 기초잔액.csv</h3>
+      <ul>
+        <li>임차인별 원장 및 미수금 장부에 기초 잔액을 표시하기 위해서는 <span class="code-tag">임차인ID</span>를 입력해야 합니다.</li>
+      </ul>
+    </div>
+
+    <!-- 6. 청구 템플릿 -->
+    <div class="card">
+      <h3>6. 청구 템플릿.csv</h3>
+      <ul>
+        <li>반드시 <strong>거래템플릿_거래정보 업로드와 ID 확인 후</strong> 작업해 주세요.</li>
+        <li><strong>'거래ID'부터 '대변계정코드'까지 칼럼 변경 불가</strong>합니다.</li>
+        <li><span class="code-tag">항목</span>, <span class="code-tag">규격</span>, <span class="code-tag">수량</span>, <span class="code-tag">단가</span> 4개 칼럼은 세트로 추가할 수 있습니다.</li>
+        <li>숫자 항목에는 천 단위 콤마(,) 사용이 가능합니다.</li>
+      </ul>
+
+      <div class="important-box">
+        <h4>🚨 [필수] 바로빌 세금계산서 연동 주의사항</h4>
+        <p>세금계산서 발행을 위해서는 <strong>바로빌 회원ID, 바로빌에 등록된 담당자명, 이메일 정보</strong>가 필수입니다[cite: 3].</p>
+        <p style="margin-top: 6px;">
+          바로빌 회원 가입 전에 <span class="code-tag">청구 템플릿.csv</span>를 업로드한 경우, 회원 가입 완료 후 <strong>템플릿.csv를 재업로드</strong>하거나 <strong>청구내역 편집 메뉴를 통해 필수 정보를 재매핑</strong>하셔야 합니다.
+        </p>
+      </div>
+    </div>
+
+    <!-- 7. 기타설정 -->
+    <div class="card">
+      <h3>7. 기타설정</h3>
+      <ul>
+        <li><span class="code-tag">KeyName</span>, <span class="code-tag">DisplayName</span>은 고정이며, <span class="code-tag">ValueText</span>만 편집 가능합니다.</li>
+        <li>자산정보항목 및 계약정보항목은 필요한 만큼 콤마(,)로 구분하여 항목을 추가할 수 있습니다.</li>
+      </ul>
+    </div>
+
+    <footer>
+      <p>한눈 이지빌 데이터 업로드 중 오류가 발생하면 오류 및 개선 제안을 이용해 주세요.</p>
+      <p>Copyright © Hannoon Lease. All rights reserved.</p>
+    </footer>
+  </div>
+
+</body>
+</html>

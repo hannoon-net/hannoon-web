@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한눈 이지빌 (Hannoon Easybill) - 다운로드 센터</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="한눈 이지빌(Hannoon Easybill) 무료 다운로드. 개인용 Personal 에디션부터 Workgroup 에디션 Client, Server Lite(DB 미설치형, 5인 이하), Server Standard(MariaDB/MySQL 연동, 30인 이하), Server Enterprise(무제한)까지 완벽 지원.">
+    <meta name="keywords" content="한눈이지빌다운로드, 세금계산서프로그램다운, 무료청구프로그램, 한눈이지빌개인용, 한눈이지빌Workgroup, HannoonServerLite, HannoonServerStandard, HannoonServerEnterprise">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+        .card-hover {
+            transition: all 0.25s ease-in-out;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="./index.html" class="flex items-center space-x-2.5 group">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-blue-700 flex items-center justify-center text-white font-bold text-sm shadow-sm group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-receipt"></i>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xl sm:text-2xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">한눈 이지빌</span>
+                    <span class="text-[11px] font-semibold bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full hidden sm:inline">Hannoon Easybill</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-slate-600">
+                <a href="./index.html" class="hover:text-blue-600 transition">홈</a>
+                <a href="./features.html" class="hover:text-blue-600 transition">주요 기능</a>
+                <a href="./use-cases.html" class="hover:text-blue-600 transition">활용 분야</a>
+                <a href="./download.html" class="text-blue-600 font-bold border-b-2 border-blue-600 pb-0.5">다운로드 센터</a>
+                <a href="./manual.html" class="hover:text-blue-600 transition">매뉴얼</a>
+                <a href="./server-manual.html" class="text-indigo-600 font-semibold hover:text-indigo-800 transition">서버 매뉴얼</a>
+            </nav>
+
+            <div class="flex items-center gap-2">
+                <button onclick="openServiceFeePopup(event)" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-3 py-2 rounded-lg transition border border-slate-200">
+                    서비스 단가표
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-12 sm:py-16 bg-gradient-to-b from-blue-50/70 via-slate-50 to-slate-50 border-b border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="inline-flex items-center gap-1.5 bg-blue-100 border border-blue-200 text-blue-800 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-4">
+                <i class="fa-solid fa-cloud-arrow-down text-blue-600"></i>
+                Official Download Center
+            </span>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+                사용 환경에 최적화된 <br class="sm:hidden">
+                <span class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">한눈 이지빌 에디션 다운로드</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
+                1인 관리자를 위한 독립형 <strong>Personal</strong> 에디션부터 다수의 팀원이 공동 작업하는 사내 인트라넷 <strong>Workgroup</strong> 에디션(Client & Server)까지 <strong>맞춤형 라인업</strong>
+            </p>
+
+            <!-- Hero Section 하단 안내 영역 -->
+            <div class="flex flex-col items-center justify-center gap-2 text-xs">
+                <!-- 1행: 정식 배포본 및 해시값 안내 뱃지 -->
+                <div class="inline-flex items-center gap-2 text-blue-700 bg-blue-50 border border-blue-200 px-4 py-2 rounded-xl">
+                    <i class="fa-solid fa-circle-check text-blue-600"></i>
+                    <span>모든 설치 파일은 정식 배포본이며, 하단의 <strong>SHA-256 해시값</strong>으로 안전성을 직접 확인하실 수 있습니다.</span>
+                </div>
+                
+                <!-- 2행: Edge 다운로드 차단 발생 시 해결 방법 링크 -->
+                <a href="./download-guide.html" target="_blank" class="inline-flex items-center gap-1.5 text-amber-800 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3.5 py-2 rounded-xl font-medium transition">
+                    <i class="fa-solid fa-shield-halved text-amber-600"></i>
+                    <span>Edge 다운로드 차단 발생 시 해결 방법 &rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Downloads Grid -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16 flex-grow w-full">
+
+        <!-- Section 1: 프로그램 4종 라인업 -->
+        <div>
+            <div class="text-center max-w-xl mx-auto mb-10">
+                <h2 class="text-2xl font-bold text-slate-900">프로그램 라인업 (Personal & Workgroup)</h2>
+                <p class="text-xs sm:text-sm text-slate-500 mt-1">기업의 규모와 네트워크 환경에 맞는 버전을 선택하여 설치하세요.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- 1. Personal 에디션 -->
+                <div class="card-hover bg-white rounded-3xl border border-slate-200 p-6 flex flex-col justify-between shadow-xs">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-bold bg-blue-100 text-blue-800 px-3 py-1 rounded-full">단일 PC / 1인용</span>
+                            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">무료 프로그램</span>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-laptop"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-1">Personal 에디션</h3>
+                        <p class="text-xs text-blue-600 font-semibold mb-3">한눈 이지빌 개인용 프로그램</p>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                            1인 사업자, 프리랜서 및 소규모 관리자에게 최적화된 독립 실행형 데스크탑 프로그램입니다.
+                        </p>
+
+                        <ul class="space-y-2.5 text-xs text-slate-600 mb-6 border-t border-slate-100 pt-4">
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-blue-600"></i>
+                                <span>내장 로컬 DB (설정 불필요)</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-blue-600"></i>
+                                <span>단일 PC 즉시 실행 및 백업</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-blue-600"></i>
+                                <span>전자세금계산서 원클릭 발행</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-blue-600"></i>
+                                <span>복식부기 4대 장부 자동 생성</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-2 pt-4 border-t border-slate-100">
+                        <button onclick="downloadApp(
+                            'Personal', 
+                            'https://github.com/hannoon-net/hannoon-easybill-personal/releases/latest/download/HannoonEasyBill_Personal_Setup.exe', 
+                            'EASYBILL_PERSONAL')" 
+                            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-xs sm:text-sm">
+                            <i class="fa-solid fa-download"></i>
+                            <span>Personal 다운로드</span>
+                        </button>
+                        <span class="text-[11px] text-slate-400 block text-center">Windows 10/11 (64-bit)</span>
+
+                        <!-- SHA-256 해시값 아코디언 (data-hash-key 지정) -->
+                        <details class="text-[11px] text-slate-500 pt-2" data-hash-key="PERSONAL">
+                            <summary class="font-medium hover:text-blue-600 transition flex items-center justify-center gap-1 cursor-pointer select-none">
+                                <i class="fa-solid fa-key text-blue-500 text-[10px]"></i> SHA-256 해시값 확인
+                            </summary>
+                            <div class="mt-2 p-2 bg-slate-50 rounded-xl border border-slate-200 text-left space-y-1">
+                                <div class="hash-display font-mono text-[10px] text-slate-700 break-all select-all"></div>
+                                <button onclick="copyHashByKey('PERSONAL')" class="w-full text-[10px] bg-white hover:bg-slate-100 text-slate-600 font-semibold py-1 rounded border border-slate-200 transition flex items-center justify-center gap-1">
+                                    <i class="fa-regular fa-copy"></i> 해시값 복사
+                                </button>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- 2. Workgroup Client 프로그램 -->
+                <div class="card-hover bg-white rounded-3xl border border-slate-200 p-6 flex flex-col justify-between shadow-xs">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-bold bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">Workgroup / 팀원용</span>
+                            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">무료 프로그램</span>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-1">Workgroup Client</h3>
+                        <p class="text-xs text-indigo-600 font-semibold mb-3">Workgroup 에디션 클라이언트 프로그램</p>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                            사내 인트라넷 Hannoon Server에 접속하여 다수의 팀원이 실시간으로 동일 데이터를 공동 처리합니다. (Workgroup 에디션 전용)
+                        </p>
+
+                        <ul class="space-y-2.5 text-xs text-slate-600 mb-6 border-t border-slate-100 pt-4">
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-indigo-600"></i>
+                                <span>중앙 서버 실시간 데이터 동기화</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-indigo-600"></i>
+                                <span>팀원별 계정 로그인 및 권한 적용</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-indigo-600"></i>
+                                <span>다중 사용자 동시 청구 및 전표 입력</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-indigo-600"></i>
+                                <span>서버 IP/Port 간편 설정 지원</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-2 pt-4 border-t border-slate-100">
+                        <button onclick="downloadApp(
+                            'Workgroup Client', 
+                            'https://github.com/hannoon-net/hannoon-easybill-workgroup/releases/latest/download/HannoonEasyBill_Workgroup_Setup.exe', 
+                            'EASYBILL_WG_CLIENT')" 
+                            class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-xs sm:text-sm">
+                            <i class="fa-solid fa-download"></i>
+                            <span>Client 다운로드</span>
+                        </button>
+                        <span class="text-[11px] text-slate-400 block text-center">Windows 10/11 (64-bit)</span>
+
+                        <!-- SHA-256 해시값 아코디언 -->
+                        <details class="text-[11px] text-slate-500 pt-2" data-hash-key="WORKGROUP">
+                            <summary class="font-medium hover:text-indigo-600 transition flex items-center justify-center gap-1 cursor-pointer select-none">
+                                <i class="fa-solid fa-key text-indigo-500 text-[10px]"></i> SHA-256 해시값 확인
+                            </summary>
+                            <div class="mt-2 p-2 bg-slate-50 rounded-xl border border-slate-200 text-left space-y-1">
+                                <div class="hash-display font-mono text-[10px] text-slate-700 break-all select-all"></div>
+                                <button onclick="copyHashByKey('WORKGROUP')" class="w-full text-[10px] bg-white hover:bg-slate-100 text-slate-600 font-semibold py-1 rounded border border-slate-200 transition flex items-center justify-center gap-1">
+                                    <i class="fa-regular fa-copy"></i> 해시값 복사
+                                </button>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- 3. Hannoon Server Lite -->
+                <div class="card-hover bg-white rounded-3xl border border-blue-200 p-6 flex flex-col justify-between shadow-xs relative overflow-hidden">
+                    <div class="absolute -right-12 -top-12 w-28 h-28 bg-blue-500/10 rounded-full pointer-events-none"></div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-bold bg-blue-600 text-white px-3 py-1 rounded-full">서버 (경량형)</span>
+                            <span class="text-xs font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">5인 이하</span>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-feather-pointed"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-1">Server Lite</h3>
+                        <p class="text-xs text-blue-600 font-semibold mb-3">DB 별도 설치 불필요 (간편 서버)</p>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                            외부 데이터베이스 설치 없이 원클릭으로 구동되며, 5인 이하 소규모 팀에 최적화된 고효율 서버입니다.
+                        </p>
+
+                        <ul class="space-y-2.5 text-xs text-slate-600 mb-6 border-t border-slate-100 pt-4">
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-blue-600"></i>
+                                <span><strong>DB 프로그램 별도 설치 필요 없음</strong></span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-blue-600"></i>
+                                <span><strong>동시접속자 5인 이하 권장</strong></span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-blue-600"></i>
+                                <span>원클릭 서버 실행 및 IP 자동 감지</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-blue-600"></i>
+                                <span>단일 파일 백업으로 손쉬운 관리</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-2 pt-4 border-t border-slate-100">
+                        <button onclick="downloadApp(
+                            'Server Lite', 
+                            'https://github.com/hannoon-net/hannoon-server-lite/releases/latest/download/HannoonServer_Lite_Setup.exe', 
+                            'SERVER_LITE')" 
+                            class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-xs sm:text-sm">
+                            <i class="fa-solid fa-download"></i>
+                            <span>Server Lite 다운로드</span>
+                        </button>
+                        <span class="text-[11px] text-slate-400 block text-center">Windows / Windows Server</span>
+
+                        <!-- SHA-256 해시값 아코디언 -->
+                        <details class="text-[11px] text-slate-500 pt-2" data-hash-key="SERVER_LITE">
+                            <summary class="font-medium hover:text-slate-800 transition flex items-center justify-center gap-1 cursor-pointer select-none">
+                                <i class="fa-solid fa-key text-slate-600 text-[10px]"></i> SHA-256 해시값 확인
+                            </summary>
+                            <div class="mt-2 p-2 bg-slate-50 rounded-xl border border-slate-200 text-left space-y-1">
+                                <div class="hash-display font-mono text-[10px] text-slate-700 break-all select-all"></div>
+                                <button onclick="copyHashByKey('SERVER_LITE')" class="w-full text-[10px] bg-white hover:bg-slate-100 text-slate-600 font-semibold py-1 rounded border border-slate-200 transition flex items-center justify-center gap-1">
+                                    <i class="fa-regular fa-copy"></i> 해시값 복사
+                                </button>
+                            </div>
+                        </details>
+                    </div>
+
+                </div>
+
+                <!-- 4. Hannoon Server Standard -->
+                <div class="card-hover bg-white rounded-3xl border border-indigo-200 p-6 flex flex-col justify-between shadow-xs relative overflow-hidden">
+                    <div class="absolute -right-8 -top-8 w-24 h-24 bg-indigo-500/10 rounded-full pointer-events-none"></div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-bold bg-indigo-600 text-white px-3 py-1 rounded-full">서버 (표준형)</span>
+                            <span class="text-xs font-bold text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded">30인 이하</span>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-1">Server Standard</h3>
+                        <p class="text-xs text-indigo-600 font-semibold mb-3">MariaDB(권장) / MySQL 설치 필요</p>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                            MariaDB 또는 MySQL과 연동하여 30인 이하 규모의 팀에서 안정적으로 다중 동시 작업을 처리합니다.
+                        </p>
+
+                        <ul class="space-y-2.5 text-xs text-slate-600 mb-6 border-t border-slate-100 pt-4">
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-indigo-600"></i>
+                                <span><strong>MariaDB(권장), MySQL 설치 필요</strong></span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-indigo-600"></i>
+                                <span><strong>동시접속자 30인 이하 권장</strong></span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-indigo-600"></i>
+                                <span>사용자 권한 분리 및 접근 통제</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-indigo-600"></i>
+                                <span>지정 시간 매일 자동 백업 지원</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-2 pt-4 border-t border-slate-100">
+                        <button onclick="downloadApp(
+                            'Server Standard', 
+                            'https://github.com/hannoon-net/hannoon-server-standard/releases/latest/download/HannoonServer_Standard_Setup.exe', 
+                            'SERVER_STD')" 
+                            class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-xs sm:text-sm">
+                            <i class="fa-solid fa-download"></i>
+                            <span>Server Standard 다운로드</span>
+                        </button>
+                        <a href="./server-manual.html" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="text-[11px] text-indigo-600 hover:underline block text-center font-medium">
+                            서버 구축 매뉴얼 확인 &rarr;
+                        </a>
+
+                        <!-- SHA-256 해시값 아코디언 -->
+                        <details class="text-[11px] text-slate-500 pt-1" data-hash-key="SERVER_STD">
+                            <summary class="font-medium hover:text-indigo-600 transition flex items-center justify-center gap-1 cursor-pointer select-none">
+                                <i class="fa-solid fa-key text-indigo-500 text-[10px]"></i> SHA-256 해시값 확인
+                            </summary>
+                            <div class="mt-2 p-2 bg-slate-50 rounded-xl border border-slate-200 text-left space-y-1">
+                                <div class="hash-display font-mono text-[10px] text-slate-700 break-all select-all"></div>
+                                <button onclick="copyHashByKey('SERVER_STD')" class="w-full text-[10px] bg-white hover:bg-slate-100 text-slate-600 font-semibold py-1 rounded border border-slate-200 transition flex items-center justify-center gap-1">
+                                    <i class="fa-regular fa-copy"></i> 해시값 복사
+                                </button>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 5. Hannoon Server Enterprise (무제한) 배너형 카드 -->
+            <div class="mt-6">
+                <div class="card-hover bg-gradient-to-r from-slate-900 via-indigo-950 to-purple-950 rounded-3xl p-6 sm:p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl border border-indigo-500/30">
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold bg-purple-600 text-white px-3 py-1 rounded-full">Enterprise 에디션</span>
+                            <span class="text-xs font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2 py-0.5 rounded">동시접속 무제한</span>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-extrabold flex items-center gap-2.5">
+                            <i class="fa-solid fa-building-shield text-purple-400"></i>
+                            <span>Hannoon Server Enterprise</span>
+                        </h3>
+                        <p class="text-slate-300 text-xs sm:text-sm max-w-2xl leading-relaxed">
+                            대규모 지점망, 수백 명의 팀원 협업 및 대량 트랜잭션을 처리하는 최상위 엔터프라이즈 서버입니다.<br class="hidden sm:inline">
+                            MariaDB(권장) 또는 MySQL 설치 후 동시접속자 수 제한 없이 안전하게 운영할 수 있습니다.
+                        </p>
+                        <ul class="flex flex-wrap gap-4 text-xs text-slate-300">
+                            <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-purple-400"></i> MariaDB(권장), MySQL 설치 필요</li>
+                            <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-purple-400"></i> 동시접속자 무제한</li>
+                            <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-purple-400"></i> 고속 인덱싱 & 대용량 데이터 처리</li>
+                            <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-purple-400"></i> 매일 정시 자동 백업 & 동기화</li>
+                        </ul>
+                    </div>
+
+                    <!-- Enterprise 카드 우측 영역 -->
+                    <div class="shrink-0 flex flex-col items-center gap-2 w-full md:w-auto">
+                        <button onclick="downloadApp(
+                            'Server Enterprise', 
+                            'https://github.com/hannoon-net/hannoon-server-enterprise/releases/latest/download/HannoonServer_Enterprise_Setup.exe', 
+                            'SERVER_ENT')" 
+                            class="w-full md:w-auto bg-purple-600 hover:bg-purple-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-xs sm:text-sm border border-purple-400/30">
+                            <i class="fa-solid fa-download text-base"></i>
+                            <span>Server Enterprise 다운로드</span>
+                        </button>
+                        <a href="./server-manual.html" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="text-[11px] text-purple-300 hover:text-white hover:underline block text-center font-medium pt-1">
+                            엔터프라이즈 서버 매뉴얼 보기 &rarr;
+                        </a>
+
+                        <!-- SHA-256 해시값 아코디언 -->
+                        <details class="text-[11px] text-purple-200/80 pt-1 w-full text-center" data-hash-key="SERVER_ENT">
+                            <summary class="font-medium hover:text-white transition inline-flex items-center justify-center gap-1 cursor-pointer select-none">
+                                <i class="fa-solid fa-key text-purple-400 text-[10px]"></i> SHA-256 해시값 확인
+                            </summary>
+                            <div class="mt-2 p-2 bg-slate-900/90 rounded-xl border border-purple-500/30 text-left space-y-1 max-w-xs mx-auto">
+                                <div class="hash-display font-mono text-[10px] text-slate-300 break-all select-all"></div>
+                                <button onclick="copyHashByKey('SERVER_ENT')" class="w-full text-[10px] bg-purple-900/60 hover:bg-purple-800 text-purple-100 font-semibold py-1 rounded border border-purple-500/40 transition flex items-center justify-center gap-1">
+                                    <i class="fa-regular fa-copy"></i> 해시값 복사
+                                </button>
+                            </div>
+                        </details>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: 상세 사양 비교표 -->
+        <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-xs">
+            <div class="mb-6">
+                <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                    <i class="fa-solid fa-table-list text-blue-600"></i>
+                    <span>에디션별 상세 사양 및 비교 안내</span>
+                </h3>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-xs sm:text-sm text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700 border-b border-slate-200">
+                            <th class="py-3 px-4 font-bold">비교 항목</th>
+                            <th class="py-3 px-4 font-bold text-blue-600">Personal (개인용)</th>
+                            <th class="py-3 px-4 font-bold text-indigo-600">Workgroup Client</th>
+                            <th class="py-3 px-4 font-bold text-slate-800">Hannoon Server Lite</th>
+                            <th class="py-3 px-4 font-bold text-indigo-700">Server Standard</th>
+                            <th class="py-3 px-4 font-bold text-purple-700">Server Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-slate-700">
+                        <tr>
+                            <td class="py-3.5 px-4 font-semibold text-slate-900">구분</td>
+                            <td class="py-3.5 px-4">독립 실행 데스크탑</td>
+                            <td class="py-3.5 px-4">팀원용 클라이언트</td>
+                            <td class="py-3.5 px-4">사내 서버 (경량)</td>
+                            <td class="py-3.5 px-4 font-semibold text-indigo-700">사내 서버 (표준형)</td>
+                            <td class="py-3.5 px-4 font-semibold text-purple-700">사내 서버 (대용량/무제한)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3.5 px-4 font-semibold text-slate-900">추천 대상</td>
+                            <td class="py-3.5 px-4">1인 관리자, 단독 사업장</td>
+                            <td class="py-3.5 px-4">서버에 접속할 팀원 PC</td>
+                            <td class="py-3.5 px-4">소규모 사무실 (5인 이하)</td>
+                            <td class="py-3.5 px-4">중소규모 팀 (30인 이하)</td>
+                            <td class="py-3.5 px-4">중견·대기업, 지점망 통합</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3.5 px-4 font-semibold text-slate-900">동시 접속자</td>
+                            <td class="py-3.5 px-4">1인 (단일 PC)</td>
+                            <td class="py-3.5 px-4">서버 사양에 따름</td>
+                            <td class="py-3.5 px-4 font-bold text-blue-600">5인 이하 권장</td>
+                            <td class="py-3.5 px-4 font-bold text-indigo-600">30인 이하 권장</td>
+                            <td class="py-3.5 px-4 font-bold text-emerald-600">무제한 (Unlimited)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3.5 px-4 font-semibold text-slate-900">DB 설치 여부</td>
+                            <td class="py-3.5 px-4">별도 설치 불필요 (내장)</td>
+                            <td class="py-3.5 px-4">불필요 (서버에 연결)</td>
+                            <td class="py-3.5 px-4 font-bold text-blue-600">별도 설치 불필요 (내장 DB)</td>
+                            <td class="py-3.5 px-4 font-bold text-rose-600">MariaDB(권장)/MySQL 필요</td>
+                            <td class="py-3.5 px-4 font-bold text-rose-600">MariaDB(권장)/MySQL 필요</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3.5 px-4 font-semibold text-slate-900">데이터 저장소</td>
+                            <td class="py-3.5 px-4">내 로컬 PC 지정 폴더</td>
+                            <td class="py-3.5 px-4">중앙 서버에 저장</td>
+                            <td class="py-3.5 px-4">서버 PC 지정 폴더</td>
+                            <td class="py-3.5 px-4">MariaDB/MySQL + 파일 저장소</td>
+                            <td class="py-3.5 px-4">MariaDB/MySQL + 파일 저장소</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3.5 px-4 font-semibold text-slate-900">프로그램 가격</td>
+                            <td class="py-3.5 px-4 font-bold text-emerald-600">무료</td>
+                            <td class="py-3.5 px-4 font-bold text-emerald-600">무료</td>
+                            <td class="py-3.5 px-4 font-bold text-emerald-600">무료</td>
+                            <td class="py-3.5 px-4 font-bold text-emerald-600">무료</td>
+                            <td class="py-3.5 px-4 font-bold text-emerald-600">무료</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-4 pt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-500">
+                <p>※ 단, 전자세금계산서/전자문서 등 발급대행기관(바로빌) 서비스 이용 시에만 바로빌 포인트가 차감됩니다.</p>
+                <a href="./server-specs.html" 
+                    target="_blank" 
+                    rel="noopener noreferrer"    
+                    class="inline-flex items-center gap-1.5 font-bold bg-indigo-50 text-indigo-700 hover:bg-indigo-100 border border-indigo-200 px-3.5 py-2 rounded-xl transition shrink-0 self-start sm:self-auto">
+                    <i class="fa-solid fa-microchip"></i>
+                    <span>권장 서버 하드웨어 사양 상세 보기 &rarr;</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 3: 보조 다운로드 - 마스터 업로드용 CSV 양식 -->
+        <section class="bg-gradient-to-r from-slate-900 to-indigo-950 rounded-3xl p-6 sm:p-10 text-white flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="space-y-2 text-center md:text-left">
+                <span class="bg-indigo-500/30 text-indigo-300 text-xs font-semibold px-3 py-1 rounded-full border border-indigo-400/30">
+                    Template Package
+                </span>
+                <h3 class="text-2xl font-bold">기본 정보 일괄 업로드용 표준 CSV 양식 (.zip)</h3>
+                <p class="text-slate-300 text-xs sm:text-sm max-w-xl">
+                    사업자 정보, 고객/입주사 마스터, 청구 템플릿, 계정과목 등을 대량으로 일괄 등록할 수 있는 표준 CSV 파일 모음입니다. (UTF-8 인코딩)
+                </p>
+            </div>
+            <div class="shrink-0 flex flex-col gap-3 w-full md:w-auto">
+                <a href="https://github.com/hannoon-net/hannoon-web/releases/download/v1.0/UploadFormatSample.zip" 
+                    target="_blank" 
+                    class="bg-white hover:bg-slate-100 text-slate-900 font-bold px-6 py-3.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-xs sm:text-sm no-underline">
+                        <i class="fa-solid fa-file-zipper text-blue-600 text-base"></i>
+                        <span>표준 CSV 양식 다운로드 (.zip)</span>
+                </a>                
+                <a href="./csv_guide.html" class="bg-indigo-500/40 hover:bg-indigo-500/60 text-white font-semibold px-6 py-3 rounded-xl border border-indigo-400/30 transition flex items-center justify-center gap-2 text-xs sm:text-sm">
+                    <i class="fa-solid fa-book-open text-indigo-300"></i>
+                    <span>CSV 업로드 가이드 보기</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Download Modal Dialog -->
+    <div id="downloadModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl text-center space-y-4 transform transition-all">
+            <div class="w-16 h-16 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center mx-auto text-2xl shadow-xs">
+                <i class="fa-solid fa-cloud-arrow-down"></i>
+            </div>
+            <div>
+                <h4 id="modalAppTitle" class="text-xl font-bold text-slate-900">프로그램 다운로드</h4>
+                <p class="text-xs text-slate-500 mt-1">잠시 후 다운로드가 자동으로 시작됩니다.</p>
+            </div>
+
+            <!-- 모달 내부 해결 가이드 링크 -->
+            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-3 text-left">
+                <a href="./download-guide.html" target="_blank" class="text-xs text-amber-900 hover:text-amber-950 flex items-center justify-between font-medium">
+                    <span class="flex items-center gap-1.5">
+                        <i class="fa-solid fa-circle-exclamation text-amber-600"></i>
+                        Edge 브라우저에서 다운로드가 보류되나요?
+                    </span>
+                    <span class="text-amber-700 underline shrink-0">해결 가이드 &rarr;</span>
+                </a>
+            </div>
+
+            <div class="pt-2 border-t border-slate-100 flex justify-center gap-3">
+                <button onclick="closeDownloadModal()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm transition">
+                    닫기
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-slate-500">
+            <p>&copy; Hannoon Easybill. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Handling -->
+    <script>
+        /* ============================================================
+         * [SHA-256 해시값 중앙 관리 객체]
+         * 파일 업데이트 시 이곳의 해시값만 변경하시면 웹사이트 화면에 자동 반영됩니다.
+         * ============================================================ */
+        const HASH_CONFIG = {
+            PERSONAL:    "sha256:63b1b36e3a0bd4d1518405c53eb9e733cca74550f95ef3d3863097df4b99b211",
+            WORKGROUP:   "sha256:8ddf205f55518b18df19ca62d9e8717e5100cec1506f6926d64fb3e7b3471a5e",
+            SERVER_LITE: "sha256:ad86687c5731f6ced44a0ff3786ef3e6de679c798c7f4c4b24fc73934fa44fbe",
+            SERVER_STD:  "sha256:e9e5caeaa0fee857241015b31a98ec2b40be9d8425da5f6b1b4bfd3d2f930590",
+            SERVER_ENT:  "sha256:7a53ddc9af6dfa0ae21e5c538b9aaec83733e470de4a280035c29fd0956cf21f"
+        };
+
+        // 페이지 로드 시 각 카드의 해시값 텍스트 자동 삽입
+        document.addEventListener("DOMContentLoaded", function() {
+            Object.keys(HASH_CONFIG).forEach(key => {
+                const detailsElem = document.querySelector(`details[data-hash-key="${key}"]`);
+                if (detailsElem) {
+                    const displayDiv = detailsElem.querySelector('.hash-display');
+                    if (displayDiv) {
+                        displayDiv.innerText = HASH_CONFIG[key];
+                    }
+                }
+            });
+        });
+
+        // 지정 키에 대한 해시값 클립보드 복사 함수
+        function copyHashByKey(key) {
+            const hashText = HASH_CONFIG[key];
+            if (!hashText) return;
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(hashText).then(() => {
+                    alert('SHA-256 해시값이 클립보드에 복사되었습니다.');
+                });
+            } else {
+                const tempInput = document.createElement('input');
+                tempInput.value = hashText;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                alert('SHA-256 해시값이 클립보드에 복사되었습니다.');
+            }
+        }
+
+        function downloadApp(appName, downloadUrl, appCode) {
+            const modal = document.getElementById('downloadModal');
+            const title = document.getElementById('modalAppTitle');
+            
+            if (title) {
+                title.innerText = appName + ' 다운로드';
+            }
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+
+            // 파일 다운로드 실행
+            window.location.href = downloadUrl;
+        }
+
+        function closeDownloadModal() {
+            const modal = document.getElementById('downloadModal');
+            if (modal) {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }
+        }
+
+        function openServiceFeePopup(event) {
+            if (event) event.preventDefault();
+            alert('서비스 단가표 안내 페이지로 이동합니다.');
+        }
+    </script>
+</body>
+</html>

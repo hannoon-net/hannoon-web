@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한눈 이지빌 (Hannoon Easybill) - 간편 사용 매뉴얼</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased leading-relaxed min-h-screen flex flex-col justify-between">
+
+    <!-- Header Navigation -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-xs">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="./index.html" class="flex items-center space-x-3 group">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-sm shadow-sm group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-blue-600 tracking-wider uppercase block">USER MANUAL</span>
+                    <h1 class="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-blue-600 transition">한눈 이지빌 간편 매뉴얼</h1>
+                </div>
+            </a>
+            <div class="flex items-center space-x-4 sm:space-x-6 text-xs sm:text-sm font-medium text-slate-600">
+                <a href="./index.html" class="hover:text-blue-600 transition hidden sm:inline">홈</a>
+                <a href="./features.html" class="hover:text-blue-600 transition">주요 기능</a>
+                <a href="./use-cases.html" class="hover:text-blue-600 transition hidden sm:inline">활용 분야</a>
+                <a href="./download.html" class="hover:text-blue-600 transition">다운로드</a>
+                <a href="./server-manual.html" class="text-indigo-600 font-semibold hover:text-indigo-700 transition flex items-center gap-1">
+                    <i class="fa-solid fa-server text-xs"></i>
+                    <span>서버 매뉴얼</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10 flex-grow w-full">
+
+        <!-- Title Banner -->
+        <div class="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 rounded-3xl p-6 sm:p-8 text-white shadow-md relative overflow-hidden">
+            <div class="relative z-10">
+                <span class="inline-block bg-white/20 backdrop-blur-sm text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                    📖 Step-by-Step 가이드
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-2">한눈 이지빌 프로그램 사용 가이드</h2>
+                <p class="text-blue-100 text-sm max-w-2xl leading-relaxed">
+                    환경 설정부터 CSV 대량 업로드, 정기 청구 실행, 전자세금계산서 발행 및 회계 장부 확인까지 쉽게 따라 할 수 있는 가이드입니다.
+                </p>
+            </div>
+            <div class="absolute -right-8 -bottom-8 opacity-10 text-white text-9xl pointer-events-none">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+            </div>
+        </div>
+
+        <!-- 운영 시 필수 주의 사항 및 데이터 규칙 -->
+        <section aria-labelledby="notice-heading" class="bg-amber-50 border border-amber-200/80 rounded-2xl p-5 shadow-xs mb-8">
+            <div class="flex items-start gap-3.5">
+                <div class="w-8 h-8 rounded-xl bg-amber-500 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                    <i class="fa-solid fa-triangle-exclamation text-sm"></i>
+                </div>
+                <div class="space-y-1.5">
+                    <h2 id="notice-heading" class="font-bold text-amber-900 text-sm">운영 시 필수 주의 사항 및 데이터 규칙</h2>
+                    <ul class="list-disc list-inside text-xs sm:text-sm text-amber-800 space-y-1">
+                        <li><strong>CSV 파일 인코딩 표준:</strong> 대량 업로드용 CSV 파일은 한글 깨짐 방지를 위해 반드시 <code class="bg-amber-100 px-1 py-0.5 rounded font-mono font-semibold text-amber-900">UTF-8</code>로 인코딩되어야 합니다.</li>
+                        <li><strong>데이터 입력 선행 순서:</strong> ID 입력이 필요한 참조 항목은 해당 마스터 데이터가 시스템에 <strong>먼저 등록</strong>되어야 청구 등록 시 오류가 발생하지 않습니다.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- I. 사용 준비 및 환경 설정 -->
+        <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mb-6 flex items-center">
+                <span class="bg-blue-100 text-blue-700 w-8 h-8 rounded-xl inline-flex items-center justify-center text-sm font-extrabold mr-3">I</span>
+                사용 준비 및 환경 설정
+            </h2>
+
+            <div class="space-y-6">
+
+                <!-- 1-1. Personal 환경설정 -->
+                <div class="border-l-4 border-blue-500 pl-4 py-1 bg-slate-50/50 p-4 rounded-r-xl">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="font-bold text-base sm:text-lg text-slate-900 flex items-center gap-2">
+                            <i class="fa-solid fa-laptop text-blue-600"></i>
+                            <span>1. 환경설정 - 개인용 에디션 (Personal)</span>
+                        </h3>
+                        <span class="text-xs bg-blue-100 text-blue-800 font-semibold px-2.5 py-0.5 rounded-full">단일 PC</span>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-3">
+                        메뉴 경로: <code class="bg-slate-200 px-1.5 py-0.5 rounded font-mono text-xs text-slate-800">설정 > 환경설정</code>에서 아래 3가지 주요 항목을 설정합니다.
+                    </p>
+                    
+                    <!-- Personal 환경설정 3대 항목 박스 -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-2">
+                        <div class="bg-white p-3.5 rounded-xl border border-blue-200 shadow-xs">
+                            <div class="text-xs font-bold text-blue-900 mb-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-folder-open text-blue-600"></i> 파일 저장 경로 설정
+                            </div>
+                            <p class="text-xs text-slate-600">
+                                데이터베이스 및 첨부 파일이 보관될 로컬 컴퓨터 저장 경로를 지정합니다.
+                            </p>
+                        </div>
+
+                        <div class="bg-white p-3.5 rounded-xl border border-blue-200 shadow-xs">
+                            <div class="text-xs font-bold text-blue-900 mb-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-sliders text-blue-600"></i> 프로그램 사용 용도
+                            </div>
+                            <p class="text-xs text-slate-600">
+                                UI 표시를 위해 사용 용도에 맞는 비즈니스 업종(부동산 임대, 렌탈, 지입 관리 등)을 선택합니다.
+                            </p>
+                        </div>
+
+                        <div class="bg-white p-3.5 rounded-xl border border-blue-200 shadow-xs">
+                            <div class="text-xs font-bold text-blue-900 mb-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-floppy-disk text-blue-600"></i> 파일 백업 경로
+                            </div>
+                            <p class="text-xs text-slate-600">
+                                프로그램 종료 시 최신 데이터가 자동으로 저장될 안전한 외장/클라우드 드라이브 경로를 설정합니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1-2. Workgroup 환경설정 -->
+                <div class="border-l-4 border-indigo-600 pl-4 py-1 bg-indigo-50/30 p-4 rounded-r-xl">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="font-bold text-base sm:text-lg text-slate-900 flex items-center gap-2">
+                            <i class="fa-solid fa-network-wired text-indigo-600"></i>
+                            <span>2. 환경설정 - 워크그룹 에디션 (Workgroup Client)</span>
+                        </h3>
+                        <span class="text-xs bg-indigo-100 text-indigo-800 font-semibold px-2.5 py-0.5 rounded-full">네트워크 협업</span>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-3">
+                        사내 <strong class="text-indigo-700">Hannoon Server</strong>와 연결하기 위해 클라이언트 프로그램에서 아래 4가지 항목을 설정합니다.
+                    </p>
+
+                    <!-- Workgroup 환경설정 4대 항목 그리드 -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+                        <div class="bg-white p-3.5 rounded-xl border border-indigo-100 shadow-xs">
+                            <div class="text-xs font-bold text-indigo-700 mb-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-globe"></i> 서버 IP 주소
+                            </div>
+                            <p class="text-xs text-slate-600">
+                                접속할 사내 서버의 고정 IP 주소를 입력합니다.
+                            </p>
+                        </div>
+
+                        <div class="bg-white p-3.5 rounded-xl border border-indigo-100 shadow-xs">
+                            <div class="text-xs font-bold text-indigo-700 mb-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-door-open"></i> 서버 Port
+                            </div>
+                            <p class="text-xs text-slate-600">
+                                지정된 5자리 포트 번호를 입력합니다.
+                            </p>
+                        </div>
+
+                        <div class="bg-white p-3.5 rounded-xl border border-indigo-100 shadow-xs">
+                            <div class="text-xs font-bold text-indigo-700 mb-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-download"></i> 다운로드 경로
+                            </div>
+                            <p class="text-xs text-slate-600">
+                                서버에서 수신된 문서를 다운로드할 로컬 폴더를 지정합니다.
+                            </p>
+                        </div>
+
+                        <div class="bg-white p-3.5 rounded-xl border border-indigo-100 shadow-xs">
+                            <div class="text-xs font-bold text-indigo-700 mb-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-sliders"></i> 프로그램 사용 용도
+                            </div>
+                            <p class="text-xs text-slate-600">
+                                업종별(임대, 렌탈, 지입 등) 환경 구성을 선택합니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 서버 백업 안내 및 바로가기 박스 -->
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between bg-white p-3.5 rounded-xl border border-indigo-200 text-xs text-indigo-950 gap-2">
+                        <div class="flex items-start sm:items-center gap-2">
+                            <i class="fa-solid fa-clock-rotate-left text-indigo-600 text-sm mt-0.5 sm:mt-0"></i>
+                            <span>
+                                <strong>참고:</strong> 워크그룹 에디션의 <strong>백업 시간 및 파일 백업 경로</strong>는 클라이언트가 아닌 <strong>서버(Hannoon Server)에서 직접 구성</strong>됩니다.
+                            </span>
+                        </div>
+                        <a href="./server-manual.html" class="font-bold text-indigo-600 hover:text-indigo-800 underline shrink-0 flex items-center gap-1">
+                            <span>서버 매뉴얼 바로가기</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 1-3. 설정 정보 및 기본 정보 CSV 업로드 -->
+                <div class="border-l-4 border-emerald-500 pl-4 py-1 bg-slate-50/50 p-4 rounded-r-xl">
+                    <h3 class="font-bold text-base sm:text-lg text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-file-csv text-emerald-600"></i>
+                        <span>3. 설정 정보 및 기본 정보 CSV 업로드</span>
+                    </h3>
+                    <ul class="list-disc list-inside text-sm text-slate-600 space-y-1 mb-4">
+                        <li>표준 CSV 양식을 다운로드하여 사업자/고객 정보, 청구 템플릿, 계정과목 등을 작성합니다.</li>
+                        <li>메뉴 경로: <code class="bg-slate-200 px-1.5 py-0.5 rounded font-mono text-xs text-slate-800">설정 > CSV 데이터 업로드</code>에서 파일 일괄 업로드</li>
+                    </ul>
+
+                    <!-- CSV 다운로드 배너 및 가이드 링크 -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
+                        <a href="https://github.com/hannoon-net/hannoon-web/releases/download/v1.0/UploadFormatSample.zip" 
+                           target="_blank" 
+                           class="flex items-center gap-3 bg-white border border-emerald-300 p-3.5 rounded-xl hover:bg-emerald-50 transition shadow-2xs">
+                            <i class="fa-solid fa-file-zipper text-emerald-600 text-xl shrink-0"></i>
+                            <div>
+                                <span class="font-bold text-emerald-900 text-xs block">표준 CSV 양식 다운로드 (.zip)</span>
+                                <span class="text-[11px] text-emerald-700">대량 업로드용 기본 양식 세트 파일</span>
+                            </div>
+                            <i class="fa-solid fa-download text-emerald-600 ml-auto text-xs"></i>
+                        </a>
+                        <a href="./csv_guide.html" 
+                            target="_blank" 
+                            rel="noopener noreferrer"    
+                            class="flex items-center gap-3 bg-emerald-50 border border-emerald-200 p-3.5 rounded-xl hover:bg-emerald-100 transition">
+                            <i class="fa-solid fa-book-open text-emerald-600 text-xl shrink-0"></i>
+                            <div>
+                                <span class="font-bold text-emerald-800 text-xs block">CSV 업로드 가이드</span>
+                                <span class="text-[11px] text-emerald-700">CSV 파일 작성 방법 및 인코딩 안내</span>
+                            </div>
+                            <i class="fa-solid fa-arrow-right text-emerald-600 ml-auto text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- II. 청구 실행 방법 -->
+        <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mb-6 flex items-center">
+                <span class="bg-indigo-100 text-indigo-700 w-8 h-8 rounded-xl inline-flex items-center justify-center text-sm font-extrabold mr-3">II</span>
+                청구 실행 방법
+            </h2>
+
+            <div class="space-y-6">
+                <!-- Step 1 -->
+                <div class="border-l-4 border-blue-500 pl-4 py-1">
+                    <h3 class="font-bold text-base sm:text-lg text-slate-900 mb-2">1. 메뉴 &gt; 청구 &gt; 청구 실행</h3>
+                    <p class="text-sm text-slate-600 mb-2">
+                        미리 등록된 청구 템플릿과 청구명을 확인하고 <strong>[청구 실행]</strong> 버튼을 클릭합니다.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="border-l-4 border-indigo-500 pl-4 py-1">
+                    <h3 class="font-bold text-base sm:text-lg text-slate-900 mb-2">2. 원클릭 3대 자동 처리 프로세스</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-3">
+                        <div class="bg-blue-50/60 p-4 rounded-xl border border-blue-100">
+                            <div class="font-bold text-blue-700 text-sm mb-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-receipt"></i> 청구 사건 생성
+                            </div>
+                            <p class="text-xs text-slate-600">청구ID 발급 및 데이터베이스 기록</p>
+                        </div>
+                        <div class="bg-indigo-50/60 p-4 rounded-xl border border-indigo-100">
+                            <div class="font-bold text-indigo-700 text-sm mb-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-file-invoice-dollar"></i> 회계 전표 자동 발행
+                            </div>
+                            <p class="text-xs text-slate-600">복식부기 분개장 자동 기록</p>
+                        </div>
+                        <div class="bg-emerald-50/60 p-4 rounded-xl border border-emerald-100">
+                            <div class="font-bold text-emerald-700 text-sm mb-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-cloud-arrow-up"></i> 발급 대기 데이터 생성
+                            </div>
+                            <p class="text-xs text-slate-600">전자세금계산서 국세청 전송용 규격 생성</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 바로빌 가입 안내 & 서비스 단가 안내 배너 (2열 그리드 배치) -->
+                <div class="pt-4 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <a href="./barobill_sign_up_guide.html" 
+                        target="_blank" 
+                        rel="noopener noreferrer"    
+                        class="flex items-center gap-3 bg-blue-50 border border-blue-200 p-4 rounded-xl hover:bg-blue-100 transition">
+                        <i class="fa-solid fa-building-columns text-blue-600 text-2xl shrink-0"></i>
+                        <div>
+                            <span class="font-bold text-blue-900 text-sm block">바로빌 가입 안내</span>
+                            <span class="text-xs text-blue-700">전자세금계산서 연동 발행을 위한 바로빌 회원가입 및 API 연동 방법</span>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-blue-600 ml-auto text-sm"></i>
+                    </a>
+
+                    <a href="./service-fee.html" 
+                        onclick="openServiceFeePopup(event)" 
+                        class="flex items-center gap-3 bg-amber-50 border border-amber-200 p-4 rounded-xl hover:bg-amber-100 transition">
+                        <i class="fa-solid fa-tags text-amber-600 text-2xl shrink-0"></i>
+                        <div>
+                            <span class="font-bold text-amber-900 text-sm block">서비스 단가 안내 (팝업)</span>
+                            <span class="text-xs text-amber-700">전자세금계산서 및 전자문서 발급 건당 포인트 차감 단가표</span>
+                        </div>
+                        <i class="fa-solid fa-up-right-from-square text-amber-600 ml-auto text-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- III. 회계 관련 정보 자동 생성 -->
+        <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mb-4 flex items-center">
+                <span class="bg-emerald-100 text-emerald-700 w-8 h-8 rounded-xl inline-flex items-center justify-center text-sm font-extrabold mr-3">III</span>
+                회계 관련 장부 자동 생성
+            </h2>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center">
+                    <div class="font-bold text-sm text-slate-800 mb-1">분개장</div>
+                    <p class="text-xs text-slate-500">차변/대변 자동 분개</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center">
+                    <div class="font-bold text-sm text-slate-800 mb-1">총계정 원장</div>
+                    <p class="text-xs text-slate-500">누적 잔액 실시간 집계</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center">
+                    <div class="font-bold text-sm text-slate-800 mb-1">고객/거래처별 원장</div>
+                    <p class="text-xs text-slate-500">납부 이력 추적</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center">
+                    <div class="font-bold text-sm text-slate-800 mb-1">미수금 장부</div>
+                    <p class="text-xs text-slate-500">미납 현황 감시</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-slate-900 text-slate-400 py-10 text-center text-xs border-t border-slate-800">
+            <div class="max-w-5xl mx-auto px-4 space-y-2">
+                <p class="font-bold text-slate-200 text-sm">한눈 이지빌 (Hannoon Easybill)</p>
+                <p>&copy; Hannoon Easybill. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- 서비스 단가 팝업 실행 스크립트 -->
+    <script>
+        function openServiceFeePopup(event) {
+            event.preventDefault();
+            const width = 800;
+            const height = 750;
+            const left = (window.screen.width - width) / 2;
+            const top = (window.screen.height - height) / 2;
+            window.open(
+                './service-fee.html',
+                'serviceFeePopup',
+                `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes`
+            );
+        }
+    </script>
+</body>
+</html>

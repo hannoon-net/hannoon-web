@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 방화벽 인바운드 허용 방법 초간단 가이드</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased leading-relaxed min-h-screen flex flex-col justify-between">
+
+    <!-- Header Navigation -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-xs">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="./index.html" class="flex items-center space-x-2.5 group">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-sm shadow-sm group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-blue-600 tracking-wider uppercase block">NETWORK GUIDE</span>
+                    <h1 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-blue-600 transition">Windows 방화벽 포트 허용 가이드</h1>
+                </div>
+            </a>
+            <a href="./server-manual.html" class="text-xs sm:text-sm font-semibold text-slate-600 hover:text-blue-600 transition flex items-center gap-1">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>서버 매뉴얼로 돌아가기</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 flex-grow w-full">
+
+        <!-- Banner Header -->
+        <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-md relative overflow-hidden">
+            <div class="relative z-10 space-y-2">
+                <span class="inline-block bg-blue-500/30 text-blue-300 text-xs font-semibold px-3 py-1 rounded-full border border-blue-400/30">
+                    🔒 사내 서버 및 네트워크 설정
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Windows 방화벽 인바운드 규칙 허용 방법</h2>
+                <p class="text-slate-300 text-xs sm:text-sm max-w-2xl leading-relaxed">
+                    다른 컴퓨터(클라이언트)가 내 PC에 설치된 서버 프로그램에 접속할 수 있도록 특정 **포트(Port)**의 통신을 허용해 주는 5단계 초간단 안내입니다.
+                </p>
+            </div>
+            <div class="absolute -right-6 -bottom-6 opacity-10 text-white text-9xl pointer-events-none">
+                <i class="fa-solid fa-network-wired"></i>
+            </div>
+        </div>
+
+        <!-- 핵심 용어 설명 노트 -->
+        <div class="bg-blue-50/70 border border-blue-200 rounded-2xl p-4 sm:p-5 flex items-start gap-3.5 text-xs sm:text-sm text-blue-950">
+            <i class="fa-solid fa-circle-info text-blue-600 text-lg shrink-0 mt-0.5"></i>
+            <div>
+                <strong class="font-bold block text-blue-900 mb-0.5">인바운드(Inbound) 규칙이란?</strong>
+                외부에서 내 컴퓨터로 들어오는 네트워크 연결 요청을 뜻합니다. 서버를 구동할 때는 외부 PC의 접속 허용을 위해 방화벽에서 포트 개방이 꼭 필요합니다.
+            </div>
+        </div>
+
+        <!-- Step-by-Step Instructions -->
+        <div class="space-y-6">
+
+            <!-- Step 1 -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 flex flex-col sm:flex-row gap-5 items-start">
+                <div class="w-10 h-10 rounded-2xl bg-blue-600 text-white font-extrabold flex items-center justify-center shrink-0 text-base shadow-xs">
+                    1
+                </div>
+                <div class="space-y-2 flex-grow text-xs sm:text-sm">
+                    <h3 class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-2">
+                        <span>고급 보안이 포함된 Windows 방화벽 실행</span>
+                    </h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        키보드의 <kbd class="bg-slate-100 border border-slate-300 px-1.5 py-0.5 rounded font-mono text-slate-800 shadow-2xs">Win 키 + R</kbd>을 눌러 실행 창을 엽니다.
+                    </p>
+                    <div class="bg-slate-100 p-3 rounded-xl border border-slate-200 font-mono text-slate-800 flex items-center justify-between gap-2">
+                        <span>wf.msc</span>
+                        <span class="text-[11px] text-slate-500 font-sans font-normal">입력 후 [확인] 클릭</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 flex flex-col sm:flex-row gap-5 items-start">
+                <div class="w-10 h-10 rounded-2xl bg-indigo-600 text-white font-extrabold flex items-center justify-center shrink-0 text-base shadow-xs">
+                    2
+                </div>
+                <div class="space-y-2 flex-grow text-xs sm:text-sm">
+                    <h3 class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-2">
+                        <span>인바운드 규칙 메뉴 선택 및 새 규칙 만들기</span>
+                    </h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        좌측 창에서 <strong class="text-slate-900">[인바운드 규칙]</strong>을 클릭한 후, 오른쪽 [작업] 창에서 <strong class="text-indigo-600">[새 규칙...]</strong>을 클릭합니다.
+                    </p>
+                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-slate-600 text-xs">
+                        <i class="fa-solid fa-arrow-right text-indigo-600 mr-1.5"></i>
+                        좌측: <strong>인바운드 규칙</strong> 선택 &rarr; 우측: <strong>새 규칙...</strong> 버튼 클릭
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 flex flex-col sm:flex-row gap-5 items-start">
+                <div class="w-10 h-10 rounded-2xl bg-emerald-600 text-white font-extrabold flex items-center justify-center shrink-0 text-base shadow-xs">
+                    3
+                </div>
+                <div class="space-y-2 flex-grow text-xs sm:text-sm">
+                    <h3 class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-2">
+                        <span>규칙 종류 및 포트 번호 지정</span>
+                    </h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        만들 규칙 종류로 <strong class="text-emerald-700">[포트(O)]</strong>를 선택하고 [다음]을 누른 뒤, 허용할 특정 포트 번호를 입력합니다.
+                    </p>
+                    <ul class="space-y-1.5 bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-xs text-slate-700">
+                        <li>• <strong>규칙 종류:</strong> <span class="font-bold text-emerald-800">[포트]</span> 선택 후 [다음]</li>
+                        <li>• <strong>프로토콜:</strong> <span class="font-bold">[TCP]</span> 체크</li>
+                        <li>• <strong>특정 로컬 포트:</strong> 서버 포트 번호 입력 (예: <code class="bg-slate-200 px-1 py-0.5 rounded font-mono text-slate-900">8080</code> 등)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 flex flex-col sm:flex-row gap-5 items-start">
+                <div class="w-10 h-10 rounded-2xl bg-amber-600 text-white font-extrabold flex items-center justify-center shrink-0 text-base shadow-xs">
+                    4
+                </div>
+                <div class="space-y-2 flex-grow text-xs sm:text-sm">
+                    <h3 class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-2">
+                        <span>작업 지정 및 프로필 설정</span>
+                    </h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        연결 요청 시 수행할 작업으로 연결 허용을 선택하고 적용할 프로필 범위를 지정합니다.
+                    </p>
+                    <ul class="space-y-1.5 bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-xs text-slate-700">
+                        <li>• <strong>작업:</strong> <span class="font-bold text-amber-800">[연결 허용(A)]</span> 선택 후 [다음]</li>
+                        <li>• <strong>프로필:</strong> [도메인], [개인], [공용] 모두 체크된 상태 유지 후 [다음]</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 flex flex-col sm:flex-row gap-5 items-start">
+                <div class="w-10 h-10 rounded-2xl bg-purple-600 text-white font-extrabold flex items-center justify-center shrink-0 text-base shadow-xs">
+                    5
+                </div>
+                <div class="space-y-2 flex-grow text-xs sm:text-sm">
+                    <h3 class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-2">
+                        <span>규칙 이름 입력 및 완료</span>
+                    </h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        내가 어떤 포트를 허용한 것인지 구분할 수 있도록 직관적인 이름을 입력하고 <strong class="text-purple-700">[마침]</strong>을 클릭합니다.
+                    </p>
+                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-xs text-slate-600">
+                        • <strong>이름 예시:</strong> <code class="bg-purple-100 font-semibold px-1.5 py-0.5 rounded text-purple-900 font-mono">Hannoon Server 8080 허용</code><br>
+                        • [마침]을 클릭하면 인바운드 규칙 추가 설정이 즉시 적용됩니다.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 주의사항 안내 박스 -->
+        <div class="bg-amber-50 border border-amber-200/80 rounded-2xl p-5 text-xs sm:text-sm text-amber-900 space-y-1.5">
+            <strong class="font-bold flex items-center gap-1.5 text-amber-950">
+                <i class="fa-solid fa-triangle-exclamation text-amber-600"></i>
+                설치 및 구동 시 참고사항
+            </strong>
+            <p>• 백신 프로그램(V3, 알약, Kaspersky 등)을 별도로 사용 중인 경우, 윈도우 방화벽과 별개로 해당 백신 프로그램의 방화벽 설정에서도 동일하게 해당 포트를 허용해야 할 수 있습니다.</p>
+            <p>• 사내 공유기를 사용 중이라면 외부 망 접속 시 공유기 관리 페이지에서 **포트포워딩(Port Forwarding)** 설정이 추가로 필요할 수 있습니다.</p>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-xs border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 space-y-1.5">
+            <p class="font-bold text-slate-200 text-sm">한눈 이지빌 (Hannoon Easybill)</p>
+            <p>&copy; Hannoon Easybill. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

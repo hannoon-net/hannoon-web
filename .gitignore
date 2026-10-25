@@ -1,0 +1,11 @@
+# 환경 변수 파일 (API 키 등이 포함된 파일)
+.env
+
+# 파이썬 가상환경 폴더
+venv/
+__pycache__/
+
+# 윈도우 시스템 파일
+Thumbs.db
+ehthumbs.db
+Desktop.ini

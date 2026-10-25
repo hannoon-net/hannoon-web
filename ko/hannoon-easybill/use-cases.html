@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한눈 이지빌 (Hannoon Easybill) - 활용 가능 분야 및 도입 가이드</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="부동산 임대관리부터 모빌리티·장비 렌탈, 화물·택배·건설 중장비 지입 관리, IT SaaS 구독, 유지보수 용역, 정기 배송 및 협회비 수납까지! 다수 공급자 및 N:N 교차 청구 비즈니스를 한눈 이지빌로 완벽 자동화하세요.">
+    <meta name="keywords" content="한눈이지빌, 활용분야, 다수사업자관리, 교차청구, 임대관리, 렌탈관리, 화물지입, 택배지입, 중장비지입, 지입료청구, 정기청구, 세금계산서발행, 바로빌연동">
+    <meta name="author" content="Hannoon Easybill">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+
+    <style>
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+        }
+        .card-hover {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px -6px rgba(15, 23, 42, 0.08), 0 4px 8px -4px rgba(15, 23, 42, 0.03);
+        }
+        .tab-btn.active {
+            background-color: #2563eb;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Sticky Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="./index.html" class="flex items-center space-x-2.5 group">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-sm shadow-xs group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-receipt"></i>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xl sm:text-2xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">한눈 이지빌</span>
+                    <span class="text-[11px] font-semibold bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full hidden sm:inline">Hannoon Easybill</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
+                <a href="./index.html" class="hover:text-blue-600 transition">홈</a>
+                <a href="./features.html" class="hover:text-blue-600 transition">주요 기능</a>
+                <a href="./use-cases.html" class="text-blue-600 font-bold border-b-2 border-blue-600 pb-0.5">활용 분야</a>
+                <a href="./download.html" class="hover:text-blue-600 transition">다운로드</a>
+                <a href="./manual.html" class="hover:text-blue-600 transition">매뉴얼</a>
+                <a href="./server-manual.html" class="text-indigo-600 font-semibold hover:text-indigo-800 transition">서버 매뉴얼</a>
+            </nav>
+
+            <!-- CTA Buttons -->
+            <div class="hidden sm:flex items-center gap-3">
+                <button onclick="openServiceFeePopup(event)" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-3 py-2 rounded-lg transition border border-slate-200">
+                    서비스 단가
+                </button>
+                <a href="./download.html" class="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-lg shadow-xs hover:shadow transition transform hover:-translate-y-0.5 flex items-center gap-1.5">
+                    <i class="fa-solid fa-download"></i>
+                    <span>무료 다운로드</span>
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-600 hover:text-slate-900 focus:outline-none" aria-label="메뉴 열기">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-2">
+            <a href="./index.html" class="block py-2 text-sm font-medium text-slate-700 hover:text-blue-600">홈</a>
+            <a href="./features.html" class="block py-2 text-sm font-medium text-slate-700 hover:text-blue-600">주요 기능</a>
+            <a href="./use-cases.html" class="block py-2 text-sm font-bold text-blue-600">활용 분야</a>
+            <a href="./download.html" class="block py-2 text-sm font-medium text-slate-700 hover:text-blue-600">다운로드</a>
+            <a href="./manual.html" class="block py-2 text-sm font-medium text-slate-700 hover:text-blue-600">매뉴얼</a>
+            <a href="./server-manual.html" class="block py-2 text-sm font-semibold text-indigo-600">서버 매뉴얼</a>
+            <div class="pt-2 border-t border-slate-100 flex items-center gap-2">
+                <button onclick="openServiceFeePopup(event)" class="w-1/2 py-2 text-center text-xs font-semibold bg-slate-100 text-slate-700 rounded-lg">서비스 단가</button>
+                <a href="./download.html" class="w-1/2 py-2 text-center text-xs font-bold bg-blue-600 text-white rounded-lg">무료 다운로드</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden pt-12 pb-16 lg:pt-16 lg:pb-20 bg-gradient-to-b from-blue-50/70 via-slate-50 to-slate-50 border-b border-slate-200/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <!-- Breadcrumb -->
+            <nav class="flex justify-center items-center gap-2 text-xs text-slate-500 font-medium mb-6">
+                <a href="./index.html" class="hover:text-blue-600 transition">홈</a>
+                <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                <a href="./features.html" class="hover:text-blue-600 transition">솔루션 안내</a>
+                <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                <span class="text-blue-600 font-semibold">활용 가능 분야</span>
+            </nav>
+
+            <span class="inline-flex items-center gap-1.5 bg-blue-100/80 border border-blue-200 text-blue-800 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-5">
+                <i class="fa-solid fa-cubes text-blue-600"></i>
+                산업별 맞춤 정기 청구 & 세금계산서 솔루션
+            </span>
+            
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+                정기 청구가 필요한 모든 비즈니스,<br class="hidden sm:inline">
+                <span class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                    한눈 이지빌로 클릭 한 번에 자동화
+                </span>
+            </h1>
+
+            <p class="max-w-3xl mx-auto text-sm sm:text-base text-slate-600 mb-8 leading-relaxed">
+                부동산 임대료·관리비, 모빌리티·장비 렌탈, <strong>화물·택배·건설 중장비 지입 관리</strong>부터 B2B SaaS 구독, 유지보수 용역, 정기 배송 및 협회비 수납까지!<br class="hidden md:inline">
+                매월 반복되는 복잡한 청구서 작성, 바로빌 전자세금계산서 발행, 복식부기 분개장을 한눈에 해결하세요.
+            </p>
+
+            <!-- Key Feature Highlights Strip -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto mb-8 text-left">
+                <div class="bg-white border border-slate-200/80 p-4 rounded-xl shadow-xs">
+                    <div class="text-blue-600 font-bold text-base flex items-center gap-2 mb-1">
+                        <i class="fa-solid fa-cubes"></i> 6대 산업 범용 지원
+                    </div>
+                    <p class="text-xs text-slate-500">부동산·렌탈·지입·IT·용역·구독 맞춤 템플릿</p>
+                </div>
+                <div class="bg-white border border-slate-200/80 p-4 rounded-xl shadow-xs">
+                    <div class="text-indigo-600 font-bold text-base flex items-center gap-2 mb-1">
+                        <i class="fa-solid fa-bolt"></i> 원클릭 세금계산서
+                    </div>
+                    <p class="text-xs text-slate-500">바로빌 공식 연동으로 국세청 자동 전송</p>
+                </div>
+                <div class="bg-white border border-slate-200/80 p-4 rounded-xl shadow-xs">
+                    <div class="text-emerald-600 font-bold text-base flex items-center gap-2 mb-1">
+                        <i class="fa-solid fa-book-journal-whills"></i> 자동 복식부기 분개
+                    </div>
+                    <p class="text-xs text-slate-500">미수금·매출 회계 전표 즉시 반영</p>
+                </div>
+                <div class="bg-white border border-slate-200/80 p-4 rounded-xl shadow-xs">
+                    <div class="text-purple-600 font-bold text-base flex items-center gap-2 mb-1">
+                        <i class="fa-solid fa-gift"></i> 무료 프로그램
+                    </div>
+                    <p class="text-xs text-slate-500">무료 프로그램 / 전자세금계산서는 발행 건당 포인트 차감</p>
+                </div>
+            </div>
+
+            <!-- N:N 및 다수 공급주체 관리 특화 배너 (신규 반영) -->
+            <div class="max-w-4xl mx-auto bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white rounded-2xl p-5 mb-8 text-left shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="space-y-1">
+                    <span class="bg-indigo-500/30 text-indigo-300 text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-indigo-400/30">
+                        ADVANCED B2B FEATURE
+                    </span>
+                    <h3 class="font-bold text-sm sm:text-base text-white">하나의 프로그램에서 다수의 공급주체 및 N:N 교차 청구 관리</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        공급 주체별 독립 고객 관리는 물론, 공급자와 공급받는자가 N:N 관계에 있는 비즈니스 환경(프랜차이즈, 지입망, 컨소시엄 등)에서도 상호 교차 청구 및 회계 관리가 가능합니다.
+                    </p>
+                </div>
+                <a href="./features.html#section-multi" class="shrink-0 bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition">
+                    상세 기능 보기 &rarr;
+                </a>
+            </div>
+
+            <!-- Quick Action Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-3">
+                <a href="./download.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition">
+                    <i class="fa-solid fa-download"></i>
+                    <span>무료 프로그램 다운로드</span>
+                </a>
+                <a href="#field-1" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-700 font-semibold px-6 py-3 rounded-xl border border-slate-200 shadow-xs transition">
+                    <i class="fa-solid fa-list-check text-blue-600"></i>
+                    <span>분야별 상세 보기</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Filter Bar (Sticky Tab Navigation) -->
+    <div id="industries" class="sticky top-16 z-30 bg-white/95 backdrop-blur-md border-y border-slate-200 py-3 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center gap-2 overflow-x-auto pb-1 text-xs sm:text-sm">
+                <button onclick="filterField('all')" id="tab-all" class="tab-btn active px-4 py-2 rounded-xl font-bold text-white bg-blue-600 transition whitespace-nowrap flex items-center gap-2">
+                    <i class="fa-solid fa-border-all"></i>
+                    <span>전체 분야 보기 (6)</span>
+                </button>
+                <button onclick="filterField('field-1')" id="tab-field-1" class="tab-btn px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-100 transition whitespace-nowrap flex items-center gap-2">
+                    <i class="fa-solid fa-building text-blue-600"></i>
+                    <span>1. 부동산·시설 관리</span>
+                </button>
+                <button onclick="filterField('field-2')" id="tab-field-2" class="tab-btn px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-100 transition whitespace-nowrap flex items-center gap-2">
+                    <i class="fa-solid fa-car-side text-emerald-600"></i>
+                    <span>2. 모빌리티·장비·가전</span>
+                </button>
+                <button onclick="filterField('field-3')" id="tab-field-3" class="tab-btn px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-100 transition whitespace-nowrap flex items-center gap-2">
+                    <i class="fa-solid fa-truck-moving text-orange-600"></i>
+                    <span>3. 화물·택배·중장비 지입</span>
+                </button>
+                <button onclick="filterField('field-4')" id="tab-field-4" class="tab-btn px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-100 transition whitespace-nowrap flex items-center gap-2">
+                    <i class="fa-solid fa-cloud text-purple-600"></i>
+                    <span>4. IT·SaaS·통신</span>
+                </button>
+                <button onclick="filterField('field-5')" id="tab-field-5" class="tab-btn px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-100 transition whitespace-nowrap flex items-center gap-2">
+                    <i class="fa-solid fa-screwdriver-wrench text-amber-600"></i>
+                    <span>5. 용역·유지보수·자문</span>
+                </button>
+                <button onclick="filterField('field-6')" id="tab-field-6" class="tab-btn px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-100 transition whitespace-nowrap flex items-center gap-2">
+                    <i class="fa-solid fa-box-open text-rose-600"></i>
+                    <span>6. 정기구독·회원제</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16 flex-grow">
+
+        <!-- ========================================== -->
+        <!-- 1. 부동산 및 건물·시설 관리 분야 -->
+        <!-- ========================================== -->
+        <section id="field-1" class="field-section bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs">
+            <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 mb-8 border-b border-slate-100 gap-4">
+                <div class="flex items-start gap-4">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-2xl shrink-0">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 flex-wrap mb-1">
+                            <span class="text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-full">CATEGORY 01</span>
+                            <span class="text-xs font-medium text-slate-400">부동산 자산 및 공간 임대</span>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">부동산 및 건물·시설 관리 분야</h2>
+                        <p class="text-xs sm:text-sm text-slate-500 mt-1">상가, 사무실, 공유오피스부터 물류창고·주차장까지 복잡한 임대료와 관리비 정산을 한 번에 해결합니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Item 1-1 -->
+                <div class="card-hover bg-slate-50/70 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center text-sm font-bold shadow-xs">
+                                    <i class="fa-solid fa-city"></i>
+                                </span>
+                                <h3 class="text-lg font-bold text-slate-900">임대료 및 관리비 청구</h3>
+                            </div>
+                            <span class="text-xs font-semibold text-blue-700 bg-blue-100/70 px-2 py-0.5 rounded">핵심 분야</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+                            상가, 사무실, 오피스텔, 지식산업센터, 공유오피스 등의 <strong>월세 및 건물 공동 관리비 청구</strong> 업무를 자동화
+                        </p>
+                        <div class="space-y-2 mb-4 text-xs">
+                            <div class="bg-white p-3 rounded-xl border border-slate-200">
+                                <strong class="text-slate-800">적용 대상:</strong> 상가, 프라자 빌딩, 지식산업센터 호실, 코워킹 오피스
+                            </div>
+                            <div class="bg-white p-3 rounded-xl border border-slate-200 text-slate-600">
+                                <strong>한눈 이지빌 기능:</strong> 호실별 월세 고지, 수도/전기 실비 정산 통합 청구서 발행, 바로빌 국세청 전자세금계산서 대량 발행
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-3 border-t border-slate-200 text-xs text-blue-600 font-semibold flex items-center justify-between">
+                        <span>임차인별 미수금 현황 실시간 감시</span>
+                        <span>바로빌 연동 지원</span>
+                    </div>
+                </div>
+
+                <!-- Item 1-2 -->
+                <div class="card-hover bg-slate-50/70 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-sm font-bold shadow-xs">
+                                    <i class="fa-solid fa-warehouse"></i>
+                                </span>
+                                <h3 class="text-lg font-bold text-slate-900">특수 시설 및 공간 임대</h3>
+                            </div>
+                            <span class="text-xs font-semibold text-indigo-700 bg-indigo-100/70 px-2 py-0.5 rounded">공간 임대</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+                            물류 창고, 주차장 전용 구역, 행사/전시장, 서브스테이션 등의 <strong>정기 사용료 청구</strong>를 오차 없이 간단하고 신속하게 처리
+                        </p>
+                        <div class="space-y-2 mb-4 text-xs">
+                            <div class="bg-white p-3 rounded-xl border border-slate-200">
+                                <strong class="text-slate-800">적용 대상:</strong> 야적장, 냉동/상온 물류창고, 주차타워 정기권, 공유 창고
+                            </div>
+                            <div class="bg-white p-3 rounded-xl border border-slate-200 text-slate-600">
+                                <strong>한눈 이지빌 기능:</strong> 기간별 계약 갱신 리마인더, 일할 계산 자동 정산, 전자청구서 자동 발송
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-3 border-t border-slate-200 text-xs text-indigo-600 font-semibold flex items-center justify-between">
+                        <span>계약 만료일 관리</span>
+                        <span>전자 입금표/영수증 발행</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 2. 모빌리티 및 장비·가전 렌탈/리스 분야 -->
+        <!-- ========================================== -->
+        <section id="field-2" class="field-section bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs">
+            <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 mb-8 border-b border-slate-100 gap-4">
+                <div class="flex items-start gap-4">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl shrink-0">
+                        <i class="fa-solid fa-car-side"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 flex-wrap mb-1">
+                            <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">CATEGORY 02</span>
+                            <span class="text-xs font-medium text-slate-400">장비 및 모빌리티 리스</span>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">모빌리티 및 장비·가전 렌탈/리스 분야</h2>
+                        <p class="text-xs sm:text-sm text-slate-500 mt-1">차량 렌터카, 사무기기 복합기, 생활 가전, 산업용 장비까지 다양한 주기적 렌탈료를 청구합니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Item 2-1 -->
+                <div class="card-hover bg-slate-50/70 border border-slate-200 rounded-2xl p-6">
+                    <h3 class="text-base font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-car text-emerald-600"></i> 차량 렌탈 및 리스
+                    </h3>
+                    <p class="text-xs text-slate-600 mb-3">법인 및 개인 대상 장기 렌터카, 업무용 차량의 월 이용료 청구 및 정기 전자세금계산서 발행</p>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs text-slate-600">
+                        • 차량 번호별 월 렌트비 및 보험 분담금 통합 청구<br>• 미납 발생 시 알림 문자(LMS) 원클릭 발송
+                    </div>
+                </div>
+
+                <!-- Item 2-2 -->
+                <div class="card-hover bg-slate-50/70 border border-slate-200 rounded-2xl p-6">
+                    <h3 class="text-base font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-print text-emerald-600"></i> 사무기기 및 IT 자산 렌탈
+                    </h3>
+                    <p class="text-xs text-slate-600 mb-3">복합기, 프린터, PC, 모니터, 문서 세쇄기 등 사무용 IT 자산의 기본 렌탈료 및 추가 매수 요금 청구</p>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs text-slate-600">
+                        • 출력 카운터 추가금 유연 수정 후 청구 실행<br>• 거래처별 원장으로 장비 유지비 현황 일괄 파악
+                    </div>
+                </div>
+
+                <!-- Item 2-3 -->
+                <div class="card-hover bg-slate-50/70 border border-slate-200 rounded-2xl p-6">
+                    <h3 class="text-base font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-water text-emerald-600"></i> 가전 및 생활 자산 렌탈
+                    </h3>
+                    <p class="text-xs text-slate-600 mb-3">정수기, 공기청정기, 비데, 안마의자 등 가정용/사무용 가전 렌탈료 정기 청구</p>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs text-slate-600">
+                        • 고객별 결제 계좌 및 카드 연동 입금 매칭<br>• 필터 교체 및 정기 점검 일정 스케줄 관리
+                    </div>
+                </div>
+
+                <!-- Item 2-4 -->
+                <div class="card-hover bg-slate-50/70 border border-slate-200 rounded-2xl p-6">
+                    <h3 class="text-base font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-screwdriver-wrench text-emerald-600"></i> 일반 산업 장비 렌탈
+                    </h3>
+                    <p class="text-xs text-slate-600 mb-3">발전기, 고소작업대, 콤프레샤, 측정기 등 공장 및 산업 현장 장비의 주기적 사용료 청구</p>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs text-slate-600">
+                        • 임대 계약 기간별 정기 고지서 발행<br>• 거래명세서 및 전자세금계산서 동시 일괄 발행
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 3. 화물, 택배, 건설 중장비 지입 관리 분야 -->
+        <!-- ========================================================================= -->
+        <section id="field-3" class="field-section bg-white rounded-3xl border-2 border-orange-200 p-6 sm:p-10 shadow-sm relative overflow-hidden">
+            <div class="absolute -right-10 -top-10 w-36 h-36 bg-orange-500/10 rounded-full pointer-events-none"></div>
+
+            <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 mb-8 border-b border-orange-100 gap-4">
+                <div class="flex items-start gap-4">
+                    <div class="w-14 h-14 rounded-2xl bg-orange-100 text-orange-600 flex items-center justify-center text-2xl shrink-0 shadow-xs">
+                        <i class="fa-solid fa-truck-moving"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 flex-wrap mb-1">
+                            <span class="text-xs font-bold uppercase tracking-wider text-orange-700 bg-orange-100 border border-orange-200 px-2.5 py-0.5 rounded-full">CATEGORY 03</span>
+                            <span class="text-xs font-semibold text-orange-600 bg-orange-50 px-2 py-0.5 rounded">핵심 전략 분야</span>
+                            <span class="text-xs font-medium text-slate-400">화물차 · 택배기사 · 건설기계 지입</span>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">화물, 택배, 건설 중장비 지입 관리 분야</h2>
+                        <p class="text-xs sm:text-sm text-slate-600 mt-1">지입차주 월 관리비 청구, 운송료·수수료 정산, 건설기계 배차 사용료 및 대량 세금계산서 발행을 한눈에 처리합니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+                <!-- 3-1: 화물 운송 및 지입차량 관리 -->
+                <div class="card-hover bg-orange-50/30 border border-orange-200/80 rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-9 h-9 rounded-xl bg-orange-600 text-white flex items-center justify-center text-sm font-bold shadow-xs">
+                                    <i class="fa-solid fa-truck-front"></i>
+                                </span>
+                                <h3 class="text-lg font-bold text-slate-900">화물 운송 및 지입차 관리</h3>
+                            </div>
+                            <span class="text-[11px] font-bold text-orange-700 bg-orange-100 px-2 py-0.5 rounded">화물 지입</span>
+                        </div>
+
+                        <p class="text-xs sm:text-sm text-slate-700 mb-4 leading-relaxed">
+                            지입 차주 대상 <strong>월 지입료(관리비), 차량 보험료, 번호판 사용료, 유류비 정산</strong> 및 운송사 간 교차 청구를 자동화
+                        </p>
+
+                        <div class="space-y-2 mb-4 text-xs">
+                            <div class="bg-white p-3 rounded-xl border border-orange-100 shadow-2xs">
+                                <strong class="text-slate-800 block mb-1">🚚 주요 청구 및 관리 항목</strong>
+                                <ul class="space-y-1 text-slate-600">
+                                    <li>• 차주별 고정 지입료(차량 관리비) 정기 고지</li>
+                                    <li>• 적재물 보험료, 자동차세 분담금 일괄 부과</li>
+                                    <li>• 화주 및 위탁 운송사 대상 교차 정산 청구서 발행</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-3 border-t border-orange-200 text-xs text-orange-700 font-semibold flex items-center justify-between">
+                        <span>차주별 미수금 실시간 추적</span>
+                        <span class="text-orange-800">바로빌 세금계산서 연동</span>
+                    </div>
+                </div>
+
+               <!-- 3-2: 건설 중장비 및 특수 건설기계 지입·배차 -->
+                <div class="card-hover bg-orange-50/30 border border-orange-200/80 rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-9 h-9 rounded-xl bg-orange-700 text-white flex items-center justify-center text-sm font-bold shadow-xs">
+                                    <i class="fa-solid fa-truck-monster"></i>
+                                </span>
+                                <h3 class="text-lg font-bold text-slate-900">건설 중장비 지입·배차 관리</h3>
+                            </div>
+                            <span class="text-[11px] font-bold text-orange-800 bg-orange-200 px-2 py-0.5 rounded">중장비 지입</span>
+                        </div>
+
+                        <p class="text-xs sm:text-sm text-slate-700 mb-4 leading-relaxed">
+                            덤프트럭, 굴착기, 크레인 등 건설기계 차주 대상 <strong>월 지입 관리비 청구 및 건설 현장 배차료 정산</strong>을 수행합니다.
+                        </p>
+
+                        <div class="space-y-2 mb-4 text-xs">
+                            <div class="bg-white p-3 rounded-xl border border-orange-100 shadow-2xs">
+                                <strong class="text-slate-800 block mb-1">🏗️ 건설 현장 및 지입 정산</strong>
+                                <ul class="space-y-1 text-slate-600">
+                                    <li>• 중장비 차주 월 지입료 정기 청구</li>
+                                    <li>• 시공사/현장별 일대·월대 장비 사용료 청구서 발행</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-3 border-t border-orange-200 text-xs text-orange-800 font-semibold flex items-center justify-between">
+                        <span>중장별 미수금 장부 자동화</span>
+                        <span class="text-orange-900">거래명세서 동시 발행</span>
+                    </div>
+                </div>
+
+                <!-- 3-3: 택배 대리점 및 위수탁 배송기사 수수료 정산 -->
+                <div class="card-hover bg-orange-50/30 border border-orange-200/80 rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-9 h-9 rounded-xl bg-amber-600 text-white flex items-center justify-center text-sm font-bold shadow-xs">
+                                    <i class="fa-solid fa-boxes-packing"></i>
+                                </span>
+                                <h3 class="text-lg font-bold text-slate-900">택배 대리점·배송기사 정산</h3>
+                            </div>
+                            <span class="text-[11px] font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded">택배 지입</span>
+                        </div>
+
+                        <p class="text-xs sm:text-sm text-slate-700 mb-4 leading-relaxed">
+                            택배 대리점·영업소와 위수탁 차주 간 <strong>월 정산액, 용역비 전자 청구 </strong>를 일괄 처리합니다.
+                        </p>
+
+                        <div class="space-y-2 mb-4 text-xs">
+                            <div class="bg-white p-3 rounded-xl border border-orange-100 shadow-2xs">
+                                <strong class="text-slate-800 block mb-1">📦 청구·세무 및 회계 관리 프로세스</strong>
+                                <ul class="space-y-1 text-slate-600">
+                                    <li>• 지입 차주 월 지입료 정기 청구</li>
+                                    <li>• 차주별 월간 정산액에 대한 전자 청구 원클릭 발송</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-3 border-t border-orange-200 text-xs text-amber-700 font-semibold flex items-center justify-between">
+                        <span>택배차주별 원장 자동화</span>
+                        <span class="text-amber-800">회계 장부 자동화</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 4. IT 인프라, 소프트웨어 및 통신 분야 -->
+        <!-- ========================================== -->
+        <section id="field-4" class="field-section bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs">
+            <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 mb-8 border-b border-slate-100 gap-4">
+                <div class="flex items-start gap-4">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl shrink-0">
+                        <i class="fa-solid fa-cloud"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 flex-wrap mb-1">
+                            <span class="text-xs font-bold uppercase tracking-wider text-purple-600 bg-purple-50 border border-purple-200 px-2.5 py-0.5 rounded-full">CATEGORY 04</span>
+                            <span class="text-xs font-medium text-slate-400">구독형 IT 솔루션 & 호스팅</span>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">IT 인프라, 소프트웨어 및 통신 분야 (SaaS/Cloud)</h2>
+                        <p class="text-xs sm:text-sm text-slate-500 mt-1">B2B SaaS 솔루션, 클라우드 호스팅, 도메인 및 전용선 정기 요금을 자동 청구합니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="card-hover bg-slate-50/70 border border-slate-200 rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-cubes-stacked text-purple-600"></i> 소프트웨어 및 B2B SaaS 라이선스 구독
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+                        ERP, CRM, 그룹웨어, 디자인/개발 툴 등 기업용 업무 솔루션의 월간/연간 정기 라이선스 구독료 청구
+                    </p>
+                </div>
+
+                <div class="card-hover bg-slate-50/70 border border-slate-200 rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-server text-purple-600"></i> 클라우드 및 통신 인프라 이용료
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+                        클라우드 서버 대행료, 웹 호스팅비, 도메인 갱신비, 기업 전용 회선료 정기 청구
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 5. 용역, 유지보수 및 전문 서비스 분야 -->
+        <!-- ========================================== -->
+        <section id="field-5" class="field-section bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs">
+            <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 mb-8 border-b border-slate-100 gap-4">
+                <div class="flex items-start gap-4">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl shrink-0">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 flex-wrap mb-1">
+                            <span class="text-xs font-bold uppercase tracking-wider text-amber-600 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full">CATEGORY 05</span>
+                            <span class="text-xs font-medium text-slate-400">정기 용역 & 자문 수수료</span>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">용역, 유지보수 및 전문 서비스 분야</h2>
+                        <p class="text-xs sm:text-sm text-slate-500 mt-1">전산 유지보수(MA), 빌딩 청소·방역, 보안 용역 및 세무·법무 전문직 자문료 청구</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="card-hover bg-slate-50/70 border border-slate-200 rounded-2xl p-5">
+                    <h3 class="text-base font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-gears text-amber-600"></i> 유지보수(MA) 수수료
+                    </h3>
+                    <p class="text-xs text-slate-600 mb-3">전산 시스템, 홈페이지, 기계/설비의 정기 유지보수 용역비 매월 정기 청구</p>
+                </div>
+
+                <div class="card-hover bg-slate-50/70 border border-slate-200 rounded-2xl p-5">
+                    <h3 class="text-base font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved text-amber-600"></i> 시설 관리 & 보안 용역
+                    </h3>
+                    <p class="text-xs text-slate-600 mb-3">무인 경비·출동 보안 서비스료, 정기 청소·소독·방역 대행 용역비 청구</p>
+                </div>
+
+                <div class="card-hover bg-slate-50/70 border border-slate-200 rounded-2xl p-5">
+                    <h3 class="text-base font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-scale-balanced text-amber-600"></i> 전문직 정기 자문료
+                    </h3>
+                    <p class="text-xs text-slate-600 mb-3">세무사, 회계사, 변호사, 노무사, 경영 컨설팅 법인의 월 정기 고문료 청구</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 6. 정기 구독 및 회원제 서비스 분야 -->
+        <!-- ========================================== -->
+        <section id="field-6" class="field-section bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs">
+            <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 mb-8 border-b border-slate-100 gap-4">
+                <div class="flex items-start gap-4">
+                    <div class="w-14 h-14 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-2xl shrink-0">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 flex-wrap mb-1">
+                            <span class="text-xs font-bold uppercase tracking-wider text-rose-600 bg-rose-50 border border-rose-200 px-2.5 py-0.5 rounded-full">CATEGORY 06</span>
+                            <span class="text-xs font-medium text-slate-400">정기 배송 및 단체 회비</span>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">정기 구독 및 회원제 서비스 분야</h2>
+                        <p class="text-xs sm:text-sm text-slate-500 mt-1">원두/간식 사무실 정기 배송, 디지털 콘텐츠 구독 및 협회/학회 회원 회비 정기 수납</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="card-hover bg-slate-50/70 border border-slate-200 rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-truck text-rose-600"></i> 정기 배송 및 소모품 수납 서비스
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+                        사무실 원두 커피, 간식 큐레이션, 소모품 정기 배송 및 정기 콘텐츠 서비스료를 매월 정산
+                    </p>
+                </div>
+
+                <div class="card-hover bg-slate-50/70 border border-slate-200 rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-id-card-clip text-rose-600"></i> 협회 및 단체 정기 회비
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+                        협회, 학회, 동문회, 비영리 단체, 골프/스포츠 클럽 등의 정기 월회비 및 연회비를 수납 관리
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Bottom Banner -->
+        <section class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-3xl p-8 sm:p-12 text-white text-center shadow-lg">
+            <h3 class="text-2xl sm:text-3xl font-extrabold mb-3">귀사의 비즈니스에 맞는 정기 청구를 지금 시작하세요</h3>
+            <p class="text-blue-100 text-xs sm:text-sm max-w-2xl mx-auto mb-6">
+                복잡한 엑셀 장부와 수기 세금계산서 작성에서 벗어나세요. 한눈 이지빌은 무료로 다운로드받아 즉시 사용하실 수 있습니다 (전자세금계산서는 발행 건당 포인트 차감).
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-3">
+                <a href="./download.html" class="w-full sm:w-auto bg-white text-blue-700 hover:bg-blue-50 font-bold px-8 py-3.5 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm">
+                    <i class="fa-solid fa-download"></i>
+                    <span>무료 프로그램 다운로드</span>
+                </a>
+                <a href="./manual.html" class="w-full sm:w-auto bg-blue-700/50 hover:bg-blue-700 text-white font-semibold px-6 py-3.5 rounded-xl border border-white/20 transition flex items-center justify-center gap-2 text-sm">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>사용 매뉴얼 살펴보기</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-10 text-center text-xs border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 space-y-2">
+            <p class="font-bold text-slate-200 text-sm">한눈 이지빌 (Hannoon Easybill)</p>
+            <p>&copy; Hannoon Easybill. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function filterField(fieldId) {
+            const sections = document.querySelectorAll('.field-section');
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            buttons.forEach(btn => {
+                btn.className = "tab-btn px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-100 transition whitespace-nowrap flex items-center gap-2";
+            });
+
+            const activeBtn = document.getElementById(fieldId === 'all' ? 'tab-all' : 'tab-' + fieldId);
+            if (activeBtn) {
+                activeBtn.className = "tab-btn active px-4 py-2 rounded-xl font-bold text-white bg-blue-600 transition whitespace-nowrap flex items-center gap-2";
+            }
+
+            sections.forEach(sec => {
+                if (fieldId === 'all' || sec.id === fieldId) {
+                    sec.style.display = 'block';
+                } else {
+                    sec.style.display = 'none';
+                }
+            });
+        }
+
+        function openServiceFeePopup(event) {
+            event.preventDefault();
+            const width = 800;
+            const height = 750;
+            const left = (window.screen.width - width) / 2;
+            const top = (window.screen.height - height) / 2;
+            window.open(
+                './service-fee.html',
+                'serviceFeePopup',
+                `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes`
+            );
+        }
+    </script>
+</body>
+</html>

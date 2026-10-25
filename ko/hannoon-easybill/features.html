@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주요 기능 소개 - 한눈 이지빌 (Hannoon Easybill)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Pretendard -->
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #f8fafc;
+        }
+        .content-card {
+            transition: all 0.2s ease-in-out;
+        }
+        .content-card:hover {
+            border-color: #cbd5e1;
+            box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Top Navigation -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="./index.html" class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-sm shadow-xs">
+                    <i class="fa-solid fa-receipt"></i>
+                </div>
+                <span class="font-extrabold text-slate-900 tracking-tight text-base sm:text-lg">한눈 이지빌</span>
+                <span class="text-[11px] bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-medium hidden sm:inline">솔루션 기능 센터</span>
+            </a>
+            <div class="flex items-center gap-4 text-xs sm:text-sm font-medium text-slate-600">
+                <a href="./index.html" class="hover:text-blue-600 transition hidden sm:inline">홈</a>
+                <a href="./use-cases.html" class="hover:text-blue-600 transition">활용 분야</a>
+                <a href="./download.html" class="hover:text-blue-600 transition">다운로드</a>
+                <a href="./manual.html" class="hover:text-blue-600 transition">매뉴얼</a>
+                <a href="./server-manual.html" class="hover:text-indigo-600 transition hidden sm:inline">서버 매뉴얼</a>
+                <button onclick="openServiceFeePopup(event)" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-2.5 py-1.5 rounded-lg border border-slate-200 transition">
+                    서비스 단가
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+        <!-- Breadcrumb & Page Title Header -->
+        <div class="space-y-3">
+            <nav class="flex text-xs text-slate-500 font-medium items-center gap-2">
+                <a href="./index.html" class="hover:text-slate-700 transition-colors">홈</a>
+                <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                <a href="./use-cases.html" class="hover:text-slate-700 transition-colors">솔루션 안내</a>
+                <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                <span class="text-blue-600 font-semibold">주요 기능 소개</span>
+            </nav>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">주요 기능 한눈에 보기</h1>
+                    <p class="text-sm text-slate-500 mt-1">다수 사업자 및 N:N 교차 청구 지원부터 원클릭 청구, 전자세금계산서 연동, 자체 데이터 보안/자동 백업까지 안내합니다.</p>
+                </div>
+                <a href="./download.html" class="self-start sm:self-auto bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2.5 rounded-xl shadow-xs text-xs sm:text-sm transition flex items-center gap-2">
+                    <i class="fa-solid fa-download"></i>
+                    <span>무료 다운로드</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Category Tab Navigation -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-200 text-sm">
+            <button onclick="switchTab('all')" id="tab-btn-all" class="px-4 py-2 rounded-xl font-bold bg-blue-600 text-white shadow-xs transition-all whitespace-nowrap">전체 보기</button>
+            <button onclick="switchTab('prep')" id="tab-btn-prep" class="px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-100 transition-all whitespace-nowrap">1. 사용 준비 & 환경설정</button>
+            <button onclick="switchTab('billing')" id="tab-btn-billing" class="px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-100 transition-all whitespace-nowrap">2. 청구 실행</button>
+            <button onclick="switchTab('accounting')" id="tab-btn-accounting" class="px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-100 transition-all whitespace-nowrap">3. 회계 장부 자동화</button>
+            <button onclick="switchTab('multi')" id="tab-btn-multi" class="px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-100 transition-all whitespace-nowrap">4. 다수 공급 주체 관리</button>
+            <button onclick="switchTab('security')" id="tab-btn-security" class="px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-100 transition-all whitespace-nowrap">5. 보안/백업/업데이트</button>
+            <button onclick="switchTab('extra')" id="tab-btn-extra" class="px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-100 transition-all whitespace-nowrap">6. 부가 기능 연동</button>
+        </div>
+
+        <!-- Content Sections Container -->
+        <div class="space-y-8">
+
+            <!-- Section 1: 사용 준비 -->
+            <section id="section-prep" class="bg-white rounded-2xl border border-slate-200/80 p-6 sm:p-8 content-card shadow-xs">
+                <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+                    <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-base">
+                        I
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">사용 준비 및 환경 설정</h2>
+                        <p class="text-xs text-slate-500">Personal 및 Workgroup 환경 최적화와 마스터 정보 CSV 일괄 등록</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 text-sm font-bold text-slate-800 mb-2">
+                                <i class="fa-solid fa-sliders text-blue-600"></i>
+                                <span>1. 환경설정 (Personal & Workgroup)</span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-600 mb-3">
+                                • <strong>Personal:</strong> 데이터 및 관련 파일이 저장될 로컬 <strong>파일 저장 경로</strong>를 지정합니다.<br>
+                                • <strong>Workgroup:</strong> 사내 Hannoon Server 컴퓨터의 <strong>서버 IP, 서버 Port, 다운로드 받는 폴더 경로</strong>를 지정하여 폐쇄형 협업 환경을 구축합니다.<br>
+                                • <strong>백업 설정:</strong> 데이터 복구를 위해 파일 저장 경로 외 별도의 <strong>백업 저장 경로</strong>를 설정합니다.
+                            </p>
+                        </div>
+                        <div class="bg-blue-50 p-3 rounded-lg border border-blue-100 text-xs text-blue-700 flex items-center justify-between">
+                            <span class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-server"></i> Workgroup 서버 매뉴얼 지원
+                            </span>
+                            <a href="./server-manual.html" class="underline font-bold">확인하기 &rarr;</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 text-sm font-bold text-slate-800 mb-2">
+                                <i class="fa-solid fa-file-arrow-up text-indigo-600"></i>
+                                <span>2. 기본 정보 CSV 대량 업데이트</span>
+                            </div>
+                            <ul class="list-disc list-inside text-xs sm:text-sm text-slate-600 space-y-1.5 mb-2">
+                                <li>홈페이지에서 다운로드한 표준 CSV 양식 활용</li>
+                                <li>경로: <code class="bg-slate-200 px-1 py-0.5 rounded font-mono text-[11px]">설정 &gt; CSV 데이터 업로드</code></li>
+                                <li>사업자(공급주체), 고객/임차인 정보, 청구 품목 마스터 일괄 반영</li>
+                            </ul>
+                        </div>
+                        <div class="bg-indigo-50 p-3 rounded-lg border border-indigo-100 text-xs text-indigo-700 flex items-center gap-2">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span>UTF-8 인코딩 필수, 선행 마스터 ID 순서 준수</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: 청구 실행 -->
+            <section id="section-billing" class="bg-white rounded-2xl border border-slate-200/80 p-6 sm:p-8 content-card shadow-xs">
+                <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+                    <div class="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-base">
+                        II
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">원클릭 청구 실행 및 자동 처리 프로세스</h2>
+                        <p class="text-xs text-slate-500">템플릿 기반 청구 생성, 전표 자동 발행 및 전자세금계산서 발급 연동</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 flex flex-col sm:flex-row gap-4 items-start">
+                        <span class="px-2.5 py-1 rounded-md bg-blue-600 text-white font-bold text-xs tracking-wide shrink-0">Step 1</span>
+                        <div class="flex-grow text-xs sm:text-sm">
+                            <h3 class="font-bold text-slate-800 mb-1">청구 실행 (Billing Execution)</h3>
+                            <p class="text-slate-600 mb-1">경로: <code class="bg-slate-200 px-1 py-0.5 rounded font-mono text-[11px]">메뉴 > 청구 > 청구 실행</code></p>
+                            <p class="text-slate-600">미리 등록된 정기 청구 템플릿과 청구명을 확인한 후 [청구 실행] 버튼을 클릭합니다. 세부 수량, 단가, 할인액을 즉시 편집할 수 있습니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 flex flex-col sm:flex-row gap-4 items-start">
+                        <span class="px-2.5 py-1 rounded-md bg-indigo-600 text-white font-bold text-xs tracking-wide shrink-0">Step 2</span>
+                        <div class="flex-grow text-xs sm:text-sm">
+                            <h3 class="font-bold text-slate-800 mb-2">원클릭 5대 자동화 처리 결과</h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                                <div class="bg-white p-3 rounded-lg border border-slate-200">
+                                    <div class="font-bold text-blue-600 mb-1"><i class="fa-solid fa-file-invoice-dollar"></i> 전자 세금계산서 발급</div>
+                                    <p class="text-[11px] text-slate-500">바로빌 연동, 국세청 즉시 전송</p>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg border border-slate-200">
+                                    <div class="font-bold text-indigo-600 mb-1"><i class="fa-solid fa-receipt"></i> 전자 청구서 발급</div>
+                                    <p class="text-[11px] text-slate-500">이메일/알림톡 발송</p>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg border border-slate-200">
+                                    <div class="font-bold text-emerald-600 mb-1"><i class="fa-solid fa-file-invoice"></i> 회계 전표 자동 발행</div>
+                                    <p class="text-[11px] text-slate-500">분개장 차변/대변 자동 기록</p>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg border border-slate-200">
+                                    <div class="font-bold text-purple-600 mb-1"><i class="fa-solid fa-book"></i> 주요부 자동 생성</div>
+                                    <p class="text-[11px] text-slate-500">분개장 &amp; 총계정원장 실시간 생성</p>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg border border-slate-200">
+                                    <div class="font-bold text-rose-600 mb-1"><i class="fa-solid fa-book-open"></i> 보조부 자동 생성</div>
+                                    <p class="text-[11px] text-slate-500">거래처별 원장 &amp; 미수금 장부</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: 회계 자동 생성 -->
+            <section id="section-accounting" class="bg-white rounded-2xl border border-slate-200/80 p-6 sm:p-8 content-card shadow-xs">
+                <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+                    <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-base">
+                        III
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">회계 관련 장부 실시간 자동 생성</h2>
+                        <p class="text-xs text-slate-500">복식부기 지식 없이도 완벽한 4대 표준 회계 장부 관리</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-center space-y-2">
+                        <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mx-auto text-base">
+                            <i class="fa-solid fa-book"></i>
+                        </div>
+                        <div class="font-bold text-sm text-slate-800">분개장</div>
+                        <p class="text-[11px] text-slate-500">차변/대변 자동 분개 기록</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-center space-y-2">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center mx-auto text-base">
+                            <i class="fa-solid fa-book-bookmark"></i>
+                        </div>
+                        <div class="font-bold text-sm text-slate-800">총계정 원장</div>
+                        <p class="text-[11px] text-slate-500">계정과목별 누적 합계 집계</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-center space-y-2">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto text-base">
+                            <i class="fa-solid fa-users-viewfinder"></i>
+                        </div>
+                        <div class="font-bold text-sm text-slate-800">고객/거래처별 원장</div>
+                        <p class="text-[11px] text-slate-500">업체별 청구 및 수납 관리</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-center space-y-2">
+                        <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center mx-auto text-base">
+                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                        </div>
+                        <div class="font-bold text-sm text-slate-800">미수금 장부</div>
+                        <p class="text-[11px] text-slate-500">실시간 미수 채권 감시</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: 다수 공급주체 관리 및 N:N 교차 청구 (신규 반영 섹션) -->
+            <section id="section-multi" class="bg-white rounded-2xl border border-slate-200/80 p-6 sm:p-8 content-card shadow-xs">
+                <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+                    <div class="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-base">
+                        IV
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">다수 공급주체 관리 및 N:N 상호 교차 청구 시스템</h2>
+                        <p class="text-xs text-slate-500">복잡한 다중 사업자 및 얽혀 있는 거래 구조도 단 하나의 단일 솔루션으로 관리</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-indigo-50/40 p-5 rounded-xl border border-indigo-100 space-y-3">
+                        <div class="flex items-center gap-2 text-sm font-bold text-indigo-900">
+                            <i class="fa-solid fa-sitemap text-indigo-600"></i>
+                            <span>1. 단일 프로그램 내 다수 공급주체(사업자) 통합 관리</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            프로그램을 여러 번 설치하거나 세션을 개별로 전환할 필요 없이, 단 하나의 프로그램 내에서 <strong>다수의 공급주체(사업자/공급자) 명의를 생성하고 일괄 관리</strong>할 수 있습니다.
+                        </p>
+                        <ul class="text-xs text-slate-700 space-y-1.5 pt-2 border-t border-indigo-100">
+                            <li>• 계열사, 지점, 복수 법인/사업자 명의별 고객 마스터 및 청구 독립 관리</li>
+                            <li>• 사업자별 매출 전표, 장부, 세금계산서 발급 이력 개별 및 통합 집계</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-blue-50/40 p-5 rounded-xl border border-blue-100 space-y-3">
+                        <div class="flex items-center gap-2 text-sm font-bold text-blue-900">
+                            <i class="fa-solid fa-arrows-split-up-and-left text-blue-600"></i>
+                            <span>2. N:N 복합 비즈니스 구조 상호 교차 청구 지원</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            공급주체와 공급받는주체가 일대다(1:N)가 아닌 <strong>다대다(N:N)</strong>의 복합관계에 있는 비지니스 환경에서도 상호 맞춤형 정산 및 교차 청구가 가능합니다.
+                        </p>
+                        <ul class="text-xs text-slate-700 space-y-1.5 pt-2 border-t border-blue-100">
+                            <li>• 프랜차이즈, 지입 운송망, 컨소시엄, 공동 임대 등 교차 정산 구조 지원</li>
+                            <li>• 주고받는 청구/입금/출금 거래에 대해 차변/대변 전표 및 교차 세금계산서 원스톱 연동</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: 한눈 이지빌 차별화 장점 (보안/백업/업데이트) -->
+            <section id="section-security" class="bg-white rounded-2xl border border-slate-200/80 p-6 sm:p-8 content-card shadow-xs">
+                <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+                    <div class="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-base">
+                        V
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">한눈 이지빌 차별화 시스템 (보안 · 백업 · 업데이트)</h2>
+                        <p class="text-xs text-slate-500">핵심 업무 자동화를 뒷받침하는 강력한 보안 관리 및 무중단 운영 지원</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- 보안 상 유리함 -->
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                        <div class="flex items-center gap-2 text-sm font-bold text-slate-900">
+                            <i class="fa-solid fa-shield-halved text-blue-600"></i>
+                            <span>1. 독립형 보안 체계</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            고객 개인 정보, 회사 재무관련 정보, 회사 영업 정보를 외부 서버 사용으로 인한 유출 우려 없이 기업 자체에서 철저히 관리할 수 있습니다.
+                        </p>
+                        <ul class="text-xs text-slate-700 space-y-1.5 pt-2 border-t border-slate-200">
+                            <li>• <strong>[개인용]:</strong> 사용자 컴퓨터(PC)에 모든 데이터가 독립적으로 안전하게 저장됨</li>
+                            <li>• <strong>[워크그룹]:</strong> 한눈 서버를 이용해 회사 내 폐쇄형 네트워크(사내 인트라넷) 환경을 완벽 구축</li>
+                        </ul>
+                    </div>
+
+                    <!-- 자동 백업 시스템 -->
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                        <div class="flex items-center gap-2 text-sm font-bold text-slate-900">
+                            <i class="fa-solid fa-box-archive text-emerald-600"></i>
+                            <span>2. 자동 백업 시스템</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            데이터 유지보수를 위한 별도의 외주 비용이 발생하지 않으며, 손쉬운 설정만으로 안전하게 복구 대책을 마련합니다.
+                        </p>
+                        <ul class="text-xs text-slate-700 space-y-1.5 pt-2 border-t border-slate-200">
+                            <li>• 환경설정에서 지정한 백업 경로(별도 드라이브, 클라우드 가상 드라이브, NAS 등)로 주기적 자동 백업</li>
+                            <li>• <strong>[개인용]:</strong> 프로그램 종료 시 자동 백업</li>
+                            <li>• <strong>[워크그룹]:</strong> 서버에서 매일 지정한 정시에 자동 백업</li>
+                        </ul>
+                    </div>
+
+                    <!-- 자동 업데이트 -->
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                        <div class="flex items-center gap-2 text-sm font-bold text-slate-900">
+                            <i class="fa-solid fa-arrows-rotate text-indigo-600"></i>
+                            <span>3. 자동 업데이트</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            세법 변경, 기능 개선 및 전자세금계산서 연동 모듈을 언제나 최신 상태로 유지할 수 있습니다.
+                        </p>
+                        <ul class="text-xs text-slate-700 space-y-1.5 pt-2 border-t border-slate-200">
+                            <li>• 프로그램 시작 시 신규 업데이트 버전 자동 체크</li>
+                            <li>• 클릭 한 번으로 간편 패치 및 신규 기능 즉시 반영</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: 기타 부가 기능 -->
+            <section id="section-extra" class="bg-white rounded-2xl border border-slate-200/80 p-6 sm:p-8 content-card shadow-xs">
+                <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+                    <div class="w-9 h-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-base">
+                        VI
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">기타 부가 기능 및 확장 연동 서비스</h2>
+                        <p class="text-xs text-slate-500">업무 편의성을 극대화하는 스마트 지원 도구</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 flex items-center gap-3">
+                        <div class="text-purple-600 text-xl"><i class="fa-solid fa-calendar-check"></i></div>
+                        <div>
+                            <span class="font-bold text-slate-800 block">스케줄러 & 업무일지</span>
+                            <span class="text-slate-500 text-[11px]">청구 및 수납 만기일 일정 공유</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 flex items-center gap-3">
+                        <div class="text-purple-600 text-xl"><i class="fa-solid fa-building-columns"></i></div>
+                        <div>
+                            <span class="font-bold text-slate-800 block">은행 계좌 & 카드 연동</span>
+                            <span class="text-slate-500 text-[11px]">입출금 내역 및 신용카드 승인 바로빌 연동</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 flex items-center gap-3">
+                        <div class="text-purple-600 text-xl"><i class="fa-solid fa-paper-plane"></i></div>
+                        <div>
+                            <span class="font-bold text-slate-800 block">문자 & 팩스 발송</span>
+                            <span class="text-slate-500 text-[11px]">청구 알림 문자 및 세무 증빙 팩스 전송</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-8 mt-12 text-center text-xs text-slate-500">
+        <p class="font-semibold text-slate-700">한눈 이지빌 (Hannoon Easybill) 솔루션 센터</p>
+        <p class="mt-1">&copy; Hannoon Easybill. All rights reserved.</p>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        function switchTab(category) {
+            const sections = {
+                prep: document.getElementById('section-prep'),
+                billing: document.getElementById('section-billing'),
+                accounting: document.getElementById('section-accounting'),
+                multi: document.getElementById('section-multi'),
+                security: document.getElementById('section-security'),
+                extra: document.getElementById('section-extra')
+            };
+
+            const buttons = {
+                all: document.getElementById('tab-btn-all'),
+                prep: document.getElementById('tab-btn-prep'),
+                billing: document.getElementById('tab-btn-billing'),
+                accounting: document.getElementById('tab-btn-accounting'),
+                multi: document.getElementById('tab-btn-multi'),
+                security: document.getElementById('tab-btn-security'),
+                extra: document.getElementById('tab-btn-extra')
+            };
+
+            Object.values(buttons).forEach(btn => {
+                if(btn) btn.className = "px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-100 transition-all whitespace-nowrap";
+            });
+
+            if(buttons[category]) {
+                buttons[category].className = "px-4 py-2 rounded-xl font-bold bg-blue-600 text-white shadow-xs transition-all whitespace-nowrap";
+            }
+
+            Object.keys(sections).forEach(key => {
+                if (category === 'all' || category === key) {
+                    sections[key].style.display = 'block';
+                } else {
+                    sections[key].style.display = 'none';
+                }
+            });
+        }
+
+        function openServiceFeePopup(event) {
+            event.preventDefault();
+            const width = 800;
+            const height = 750;
+            const left = (window.screen.width - width) / 2;
+            const top = (window.screen.height - height) / 2;
+            window.open(
+                './service-fee.html',
+                'serviceFeePopup',
+                `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes`
+            );
+        }
+    </script>
+</body>
+</html>

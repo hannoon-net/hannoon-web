@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한눈 이지빌 (Hannoon Easybill) - 바로빌 연동 서비스별 단가 안내</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+
+    <style>
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased p-3 sm:p-6 min-h-screen flex flex-col justify-between">
+
+    <div class="max-w-3xl mx-auto w-full bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
+        <!-- Top Header Banner -->
+        <div class="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 px-6 py-5 text-white flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div>
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="text-xs bg-white/20 backdrop-blur-sm px-2.5 py-0.5 rounded-full font-semibold">바로빌(Barobill) 공식 연동</span>
+                    <span class="text-xs text-blue-100">Hannoon Easybill</span>
+                </div>
+                <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight">서비스별 이용 요금 안내</h1>
+            </div>
+            <div class="text-right flex items-center gap-2 self-start sm:self-auto">
+                <button onclick="window.print()" class="text-xs bg-white/10 hover:bg-white/20 text-white px-3 py-1.5 rounded-lg border border-white/20 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-print"></i> 인쇄
+                </button>
+                <button onclick="window.close()" class="text-xs bg-white text-blue-700 hover:bg-blue-50 font-semibold px-3 py-1.5 rounded-lg transition shadow-xs">
+                    창 닫기
+                </button>
+            </div>
+        </div>
+
+        <!-- Notice Alert Box -->
+        <div class="bg-blue-50/70 border-b border-blue-100 px-6 py-4 flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 mt-0.5 text-sm font-bold">
+                <i class="fa-solid fa-circle-info"></i>
+            </div>
+            <div class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                <p class="font-bold text-blue-900 mb-0.5">※ 한눈 이지빌(Hannoon Easybill) 프로그램은 무료 프로그램입니다.</p>
+                <p class="text-slate-600 text-xs">
+                    프로그램 자체의 모든 기능(청구 관리, 장부 자동 생성, 고객/자산 관리 등)은 무료로 제공됩니다 (전자세금계산서는 발행 건당 포인트 차감). 
+                    단, 국세청 전송 전자세금계산서, 전자문서, 문자/팩스 및 금융 조회 기능은 발급대행기관인 <strong>바로빌(Barobill) 회원가입 및 포인트 충전 후 차감 이용</strong>됩니다.
+                </p>
+            </div>
+        </div>
+
+        <div class="p-6 space-y-6">
+
+            <!-- Section 1: 전자세금계산서 / 현금영수증 / 전자문서 -->
+            <div class="rounded-xl border border-slate-200 overflow-hidden">
+                <div class="bg-slate-100 px-4 py-2.5 flex items-center justify-between border-b border-slate-200">
+                    <div class="flex items-center gap-2 font-bold text-slate-800 text-sm">
+                        <i class="fa-solid fa-file-invoice text-blue-600"></i>
+                        <span>전자세금계산서 / 현금영수증 / 전자문서</span>
+                    </div>
+                    <span class="text-xs text-blue-600 font-semibold bg-blue-50 border border-blue-100 px-2 py-0.5 rounded">건당 포인트 차감</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs text-left">
+                        <tbody class="divide-y divide-slate-100 text-slate-700">
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="px-4 py-3 font-semibold text-slate-900 w-1/4">전자세금계산서</td>
+                                <td class="px-4 py-3 text-right font-bold text-blue-600 w-1/4">198 P</td>
+                                <td class="px-4 py-3 font-semibold text-slate-900 w-1/4 border-l border-slate-100">종이계산서</td>
+                                <td class="px-4 py-3 text-right font-medium text-slate-800 w-1/4">55 P</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="px-4 py-3 font-semibold text-slate-900">전자청구서</td>
+                                <td class="px-4 py-3 text-right font-medium text-slate-800">99 P</td>
+                                <td class="px-4 py-3 font-semibold text-slate-900 border-l border-slate-100">거래명세서</td>
+                                <td class="px-4 py-3 text-right font-medium text-slate-800">99 P</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="px-4 py-3 font-semibold text-slate-900">입금표</td>
+                                <td class="px-4 py-3 text-right font-medium text-slate-800">99 P</td>
+                                <td class="px-4 py-3 font-semibold text-slate-900 border-l border-slate-100">영수증</td>
+                                <td class="px-4 py-3 text-right font-medium text-slate-800">99 P</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="px-4 py-3 font-semibold text-slate-900">견적서</td>
+                                <td class="px-4 py-3 text-right font-medium text-slate-800">99 P</td>
+                                <td class="px-4 py-3 font-semibold text-slate-900 border-l border-slate-100">발주서</td>
+                                <td class="px-4 py-3 text-right font-medium text-slate-800">99 P</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="px-4 py-3 font-semibold text-slate-900">현금영수증</td>
+                                <td class="px-4 py-3 text-right font-bold text-indigo-600">16.5 P</td>
+                                <td class="px-4 py-3 text-slate-400 border-l border-slate-100">-</td>
+                                <td class="px-4 py-3 text-right text-slate-400">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Section 2: 문자 / 팩스 -->
+            <div class="rounded-xl border border-slate-200 overflow-hidden">
+                <div class="bg-slate-100 px-4 py-2.5 flex items-center justify-between border-b border-slate-200">
+                    <div class="flex items-center gap-2 font-bold text-slate-800 text-sm">
+                        <i class="fa-solid fa-paper-plane text-indigo-600"></i>
+                        <span>문자 / 팩스 발송 서비스</span>
+                    </div>
+                    <span class="text-xs text-indigo-600 font-semibold bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded">건당 포인트 차감</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs text-left">
+                        <tbody class="divide-y divide-slate-100 text-slate-700">
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="px-4 py-3 font-semibold text-slate-900 w-1/4">문자 (단문 SMS)</td>
+                                <td class="px-4 py-3 text-right font-medium text-slate-800 w-1/4">27.5 P</td>
+                                <td class="px-4 py-3 font-semibold text-slate-900 w-1/4 border-l border-slate-100">문자 (장문 LMS)</td>
+                                <td class="px-4 py-3 text-right font-medium text-slate-800 w-1/4">66 P</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="px-4 py-3 font-semibold text-slate-900">문자 (포토 MMS)</td>
+                                <td class="px-4 py-3 text-right font-medium text-slate-800">132 P</td>
+                                <td class="px-4 py-3 font-semibold text-slate-900 border-l border-slate-100">전자팩스 (FAX)</td>
+                                <td class="px-4 py-3 text-right font-medium text-slate-800">77 P</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Section 3: 홈택스 / 사업자등록 / 카드 / 계좌 조회 -->
+            <div class="rounded-xl border border-slate-200 overflow-hidden">
+                <div class="bg-slate-100 px-4 py-2.5 flex items-center justify-between border-b border-slate-200">
+                    <div class="flex items-center gap-2 font-bold text-slate-800 text-sm">
+                        <i class="fa-solid fa-building-columns text-emerald-600"></i>
+                        <span>홈택스 / 사업자등록 / 카드 / 계좌 조회 서비스</span>
+                    </div>
+                    <span class="text-xs text-emerald-600 font-semibold bg-emerald-50 border border-emerald-100 px-2 py-0.5 rounded">월 정액 및 건당</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs text-left">
+                        <tbody class="divide-y divide-slate-100 text-slate-700">
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="px-4 py-3 font-semibold text-slate-900 w-1/4">홈택스 매입매출(세금)</td>
+                                <td class="px-4 py-3 text-right font-semibold text-slate-800 w-1/4">44,000 P /월</td>
+                                <td class="px-4 py-3 font-semibold text-slate-900 w-1/4 border-l border-slate-100">홈택스 매입매출(현금)</td>
+                                <td class="px-4 py-3 text-right font-semibold text-slate-800 w-1/4">44,000 P /월</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="px-4 py-3 font-semibold text-slate-900">사업자등록 상태조회</td>
+                                <td class="px-4 py-3 text-right font-bold text-emerald-600">16.5 P /건</td>
+                                <td class="px-4 py-3 font-semibold text-slate-900 border-l border-slate-100">카드(승인, 1일 주기)</td>
+                                <td class="px-4 py-3 text-right font-medium text-slate-800">5,500 P /월</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="px-4 py-3 font-semibold text-slate-900">카드(승인, 6시간 주기)</td>
+                                <td class="px-4 py-3 text-right font-medium text-slate-800">5,500 P /월</td>
+                                <td class="px-4 py-3 font-semibold text-slate-900 border-l border-slate-100">카드(매입, 1일 주기)</td>
+                                <td class="px-4 py-3 text-right font-medium text-slate-800">3,300 P /월</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="px-4 py-3 font-semibold text-slate-900">계좌(10분 주기)</td>
+                                <td class="px-4 py-3 text-right font-medium text-slate-800">9,900 P /월</td>
+                                <td class="px-4 py-3 font-semibold text-slate-900 border-l border-slate-100">계좌(30분 주기)</td>
+                                <td class="px-4 py-3 text-right font-medium text-slate-800">8,800 P /월</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="px-4 py-3 font-semibold text-slate-900">계좌(1시간 주기)</td>
+                                <td class="px-4 py-3 text-right font-medium text-slate-800">7,700 P /월</td>
+                                <td class="px-4 py-3 font-semibold text-slate-900 border-l border-slate-100">계좌(4시간 주기)</td>
+                                <td class="px-4 py-3 text-right font-medium text-slate-800">6,600 P /월</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="px-4 py-3 font-semibold text-slate-900">계좌(1일 주기)</td>
+                                <td class="px-4 py-3 text-right font-medium text-slate-800">5,500 P /월</td>
+                                <td class="px-4 py-3 text-slate-400 border-l border-slate-100">-</td>
+                                <td class="px-4 py-3 text-right text-slate-400">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Notes & Tips -->
+            <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 text-xs text-slate-600 space-y-1.5">
+                <p class="font-bold text-slate-800 flex items-center gap-1.5">
+                    <i class="fa-solid fa-lightbulb text-amber-500"></i> 안내 사항
+                </p>
+                <p>• 1 포인트(P)는 부가세(VAT) 포함 기준이며, 바로빌 사이트에서 신용카드 또는 가상계좌로 간편 충전할 수 있습니다.</p>
+                <p>• 전자세금계산서 발행 시 국세청(HomeTax) 전송 및 수신자 이메일 발송이 동시에 자동 처리됩니다.</p>
+                <p>• 사업자등록 상태조회 기능을 통해 휴·폐업 여부를 청구 전 실시간으로 사전 검증할 수 있습니다.</p>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-slate-50 border-t border-slate-200 px-6 py-4 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+            <span>&copy; Hannoon Easybill. 발급대행 제휴사: (주)바로빌</span>
+            <div class="flex items-center gap-3">
+                <a href="./index.html" class="text-blue-600 hover:underline">한눈 이지빌 메인 홈</a>
+                <span>|</span>
+                <button onclick="window.close()" class="text-slate-600 hover:text-slate-900">창 닫기</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

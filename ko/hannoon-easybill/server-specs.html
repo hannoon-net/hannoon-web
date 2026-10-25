@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한눈 서버 (Hannoon Server) - 에디션별 권장 하드웨어 사양</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+        .card-hover {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 30px -8px rgba(30, 41, 59, 0.08), 0 4px 8px -4px rgba(30, 41, 59, 0.03);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Header Navigation -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="./index.html" class="flex items-center space-x-2.5 group">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-purple-600 flex items-center justify-center text-white font-bold text-sm shadow-xs group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-server"></i>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">한눈 서버</span>
+                    <span class="text-[11px] font-semibold bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded-full hidden sm:inline">Hannoon Server</span>
+                </div>
+            </a>
+            <div class="flex items-center space-x-4 text-xs sm:text-sm font-medium text-slate-600">
+                <a href="./index.html" class="hover:text-blue-600 transition">홈</a>
+                <a href="./download.html" class="hover:text-blue-600 transition">다운로드</a>
+                <a href="./server-manual.html" class="text-indigo-600 font-semibold hover:text-indigo-800 transition">서버 매뉴얼</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 flex-grow">
+
+        <!-- Title Banner -->
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+            <span class="inline-flex items-center gap-1.5 bg-indigo-100 border border-indigo-200 text-indigo-800 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full">
+                <i class="fa-solid fa-microchip text-indigo-600"></i>
+                SYSTEM REQUIREMENTS
+            </span>
+            <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                한눈 서버 에디션별 권장 하드웨어 사양
+            </h1>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                동시 접속자 수 및 데이터베이스(DB) 처리 특성에 맞추어 최적화된 서버 환경 구축 가이드를 안내합니다.
+            </p>
+        </div>
+
+        <!-- Hardware Specs Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- 1. Server Lite -->
+            <div class="card-hover bg-white rounded-3xl border border-blue-200 p-6 flex flex-col justify-between shadow-xs">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold bg-blue-600 text-white px-3 py-1 rounded-full">Server Lite (경량형)</span>
+                        <span class="text-xs font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">5인 이하</span>
+                    </div>
+                    <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-feather-pointed"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-slate-900 mb-1">Hannoon Server Lite</h2>
+                    <p class="text-xs text-blue-600 font-semibold mb-4">내장 DB (별도 설치 없음)</p>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                        소규모 팀을 위한 간편 서버로, 별도의 전용 서버 PC 없이 일반 업무용 PC에서 구동 가능합니다.
+                    </p>
+
+                    <div class="space-y-3 border-t border-slate-100 pt-4 text-xs">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-microchip text-blue-600 mt-0.5"></i>
+                            <div>
+                                <strong class="text-slate-800 block">CPU</strong>
+                                <span class="text-slate-600">Dual-Core (2코어) 이상<br><span class="text-[11px] text-slate-400">(Intel i3 / AMD Ryzen 3 이상)</span></span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-memory text-blue-600 mt-0.5"></i>
+                            <div>
+                                <strong class="text-slate-800 block">RAM</strong>
+                                <span class="text-slate-600">4 GB 이상</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-hard-drive text-blue-600 mt-0.5"></i>
+                            <div>
+                                <strong class="text-slate-800 block">저장장치 (SSD)</strong>
+                                <span class="text-slate-600">128 GB 이상의 SATA / NVMe SSD</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-network-wired text-blue-600 mt-0.5"></i>
+                            <div>
+                                <strong class="text-slate-800 block">네트워크</strong>
+                                <span class="text-slate-600">제한 없음</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-3 border-t border-slate-100 bg-blue-50/50 p-3 rounded-xl text-[11px] text-blue-900">
+                    💡 <strong>특징:</strong> 업무용 PC에 함께 구동 가능하며, 백업이 용이합니다.
+                </div>
+            </div>
+
+            <!-- 2. Server Standard -->
+            <div class="card-hover bg-white rounded-3xl border border-indigo-200 p-6 flex flex-col justify-between shadow-xs relative overflow-hidden">
+                <div class="absolute -right-8 -top-8 w-24 h-24 bg-indigo-500/10 rounded-full pointer-events-none"></div>
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold bg-indigo-600 text-white px-3 py-1 rounded-full">Server Standard (표준형)</span>
+                        <span class="text-xs font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded">30인 이하</span>
+                    </div>
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-slate-900 mb-1">Hannoon Server Standard</h2>
+                    <p class="text-xs text-indigo-600 font-semibold mb-4">MariaDB(권장) / MySQL 연동</p>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                        30인 이하 규모의 팀에서 다중 동시 작업 및 정기 데이터 백업을 안정적으로 지원합니다.
+                    </p>
+
+                    <div class="space-y-3 border-t border-slate-100 pt-4 text-xs">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-microchip text-indigo-600 mt-0.5"></i>
+                            <div>
+                                <strong class="text-slate-800 block">CPU</strong>
+                                <span class="text-slate-600">Quad-Core (4코어) 이상<br><span class="text-[11px] text-slate-400">(Intel i5 / AMD Ryzen 5 이상)</span></span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-memory text-indigo-600 mt-0.5"></i>
+                            <div>
+                                <strong class="text-slate-800 block">RAM</strong>
+                                <span class="text-slate-600">8 GB ~ 16 GB</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-hard-drive text-indigo-600 mt-0.5"></i>
+                            <div>
+                                <strong class="text-slate-800 block">저장장치 (SSD)</strong>
+                                <span class="text-slate-600">256 GB 이상의 NVMe M.2 SSD</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-network-wired text-indigo-600 mt-0.5"></i>
+                            <div>
+                                <strong class="text-slate-800 block">네트워크</strong>
+                                <span class="text-slate-600">500 Mbps ~ 1 Gbps 사내망</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-3 border-t border-slate-100 bg-indigo-50/50 p-3 rounded-xl text-[11px] text-indigo-900">
+                    💡 <strong>특징:</strong> 전용 PC 권장. 외부 NAS 또는 USB 드라이브 백업을 추천합니다.
+                </div>
+            </div>
+
+            <!-- 3. Server Enterprise -->
+            <div class="card-hover bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-950 rounded-3xl p-6 flex flex-col justify-between text-white shadow-xl border border-purple-500/30">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold bg-purple-600 text-white px-3 py-1 rounded-full">Server Enterprise</span>
+                        <span class="text-xs font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2 py-0.5 rounded">무제한 접속</span>
+                    </div>
+                    <div class="w-12 h-12 rounded-2xl bg-purple-900/60 text-purple-300 flex items-center justify-center text-xl mb-4 border border-purple-500/30">
+                        <i class="fa-solid fa-building-shield"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-white mb-1">Hannoon Server Enterprise</h2>
+                    <p class="text-xs text-purple-300 font-semibold mb-4">MariaDB(권장) / MySQL 대용량 연동</p>
+                    <p class="text-xs text-slate-300 leading-relaxed mb-6">
+                        대규모 본지점망, 대량 트랜잭션 및 동시 접속자 수 제한 없는 최상위 서버입니다.
+                    </p>
+
+                    <div class="space-y-3 border-t border-slate-800 pt-4 text-xs">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-microchip text-purple-400 mt-0.5"></i>
+                            <div>
+                                <strong class="text-white block">CPU</strong>
+                                <span class="text-slate-300">Octa-Core (8코어 / 16스레드) 이상<br><span class="text-[11px] text-slate-400">(Intel i7/i9, Xeon / AMD EPYC)</span></span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-memory text-purple-400 mt-0.5"></i>
+                            <div>
+                                <strong class="text-white block">RAM</strong>
+                                <span class="text-slate-300">32 GB 이상</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-hard-drive text-purple-400 mt-0.5"></i>
+                            <div>
+                                <strong class="text-white block">저장장치 (SSD)</strong>
+                                <span class="text-slate-300">512 GB ~ 1 TB+ NVMe Enterprise SSD<br><span class="text-[11px] text-slate-400">(RAID 1 / 10 이중화 권장)</span></span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-network-wired text-purple-400 mt-0.5"></i>
+                            <div>
+                                <strong class="text-white block">네트워크</strong>
+                                <span class="text-slate-300">1 Gbps 이상 사내망 또는 고속 인터넷망 </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-3 border-t border-slate-800 bg-purple-950/50 p-3 rounded-xl text-[11px] text-purple-200">
+                    💡 <strong>특징:</strong> 무정전 전원장치(UPS) 및 실시간 자동 이중화 백업 구축 권장.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Comparison Table Section -->
+        <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-xs space-y-6">
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
+                <i class="fa-solid fa-table-list text-indigo-600"></i>
+                <span>에디션별 시스템 사양 한눈에 비교</span>
+            </h3>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-xs sm:text-sm text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700 border-b border-slate-200">
+                            <th class="py-3.5 px-4 font-bold">비교 항목</th>
+                            <th class="py-3.5 px-4 font-bold text-blue-600">Server Lite</th>
+                            <th class="py-3.5 px-4 font-bold text-indigo-600">Server Standard</th>
+                            <th class="py-3.5 px-4 font-bold text-purple-600">Server Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-slate-700">
+                        <tr>
+                            <td class="py-3.5 px-4 font-semibold text-slate-900">권장 동시접속</td>
+                            <td class="py-3.5 px-4 font-bold text-blue-600">5인 이하</td>
+                            <td class="py-3.5 px-4 font-bold text-indigo-600">30인 이하</td>
+                            <td class="py-3.5 px-4 font-bold text-purple-600">무제한 (Unlimited)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3.5 px-4 font-semibold text-slate-900">데이터베이스 (DB)</td>
+                            <td class="py-3.5 px-4">서버 내장 DB</td>
+                            <td class="py-3.5 px-4">MariaDB / MySQL</td>
+                            <td class="py-3.5 px-4">MariaDB / MySQL</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3.5 px-4 font-semibold text-slate-900">CPU 권장사양</td>
+                            <td class="py-3.5 px-4">2코어 이상 (Dual-Core)</td>
+                            <td class="py-3.5 px-4">4코어 이상 (Quad-Core)</td>
+                            <td class="py-3.5 px-4 font-semibold text-purple-700">8코어 이상 (Octa-Core)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3.5 px-4 font-semibold text-slate-900">RAM 권장사양</td>
+                            <td class="py-3.5 px-4">4 GB 이상</td>
+                            <td class="py-3.5 px-4">8 GB ~ 16 GB</td>
+                            <td class="py-3.5 px-4 font-semibold text-purple-700">32 GB 이상</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3.5 px-4 font-semibold text-slate-900">저장장치 권장사양</td>
+                            <td class="py-3.5 px-4">128 GB SSD</td>
+                            <td class="py-3.5 px-4">256 GB NVMe SSD</td>
+                            <td class="py-3.5 px-4 font-semibold text-purple-700">512 GB+ NVMe SSD (RAID 권장)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3.5 px-4 font-semibold text-slate-900">지원 OS</td>
+                            <td class="py-3.5 px-4" colspan="3">Windows 10 / 11 (64-bit), Windows Server 2016 이상</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-xs border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 space-y-2">
+            <p class="font-bold text-slate-200 text-sm">한눈 이지빌 (Hannoon Easybill)</p>
+            <p>&copy; Hannoon Easybill. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

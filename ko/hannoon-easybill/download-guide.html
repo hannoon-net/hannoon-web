@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다운로드 차단 해제 상세 안내 - 한눈 이지빌</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="./index.html" class="flex items-center space-x-2.5">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-sm shadow-sm">
+                    <i class="fa-solid fa-receipt"></i>
+                </div>
+                <span class="text-xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">한눈 이지빌</span>
+            </a>
+            <a href="./download.html" class="text-xs sm:text-sm font-semibold text-blue-600 hover:text-blue-800 transition flex items-center gap-1">
+                <i class="fa-solid fa-arrow-left"></i> 다운로드 센터로 돌아가기
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 flex-grow w-full space-y-8">
+
+        <!-- Title Section -->
+        <div class="text-center space-y-3">
+            <span class="inline-flex items-center gap-1.5 bg-amber-100 border border-amber-200 text-amber-800 text-xs font-bold px-3.5 py-1.5 rounded-full">
+                <i class="fa-solid fa-shield-halved text-amber-600"></i>
+                Microsoft Edge 스마트스크린 관련 안내
+            </span>
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                "신뢰할 수 있는지 확인합니다" 차단 해제 방법
+            </h1>
+            <p class="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                한눈 이지빌의 모든 설치 파일은 악성코드 및 바이러스 검사를 완료한 정식 배포본입니다.<br>
+                Edge 브라우저에서 아래와 같은 팝업 창이 나타나면 다음 순서대로 다운로드를 완료해 주세요.
+            </p>
+        </div>
+
+        <!-- Explanation Alert Box -->
+        <div class="bg-blue-50 border border-blue-200 rounded-2xl p-5 text-xs sm:text-sm text-blue-900 flex items-start gap-3 shadow-xs">
+            <i class="fa-solid fa-circle-info text-blue-600 text-xl shrink-0 mt-0.5"></i>
+            <div>
+                <strong class="font-bold block text-blue-950 mb-1">차단 원인 안내</strong>
+                최신 버전 배포 직후에는 Microsoft 서버에 다운로드 평판(신뢰도)이 누적되는 기간이 필요합니다. 이에 따라 Edge 브라우저가 사용자 보호를 위해 일시적으로 다운로드를 보류하는 정상적인 반응입니다.
+            </div>
+        </div>
+
+        <!-- Step-by-Step Guide -->
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-xs space-y-8">
+            <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-4 flex items-center gap-2">
+                <i class="fa-solid fa-list-check text-blue-600"></i>
+                다운로드 보존 및 실행 단계별 가이드
+            </h2>
+
+            <!-- Step 1 -->
+            <div class="flex flex-col md:flex-row items-start gap-4">
+                <div class="w-8 h-8 rounded-full bg-blue-600 text-white font-bold text-sm flex items-center justify-center shrink-0">
+                    1
+                </div>
+                <div class="space-y-2 flex-grow">
+                    <h3 class="font-bold text-slate-900 text-base">더 보기 버튼(···)에서 [유지] 클릭</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        다운로드 항목 위에 마우스를 올린 후 우측의 <strong>더 보기<span class="inline-block bg-slate-100 border border-slate-300 px-2 py-0.5 rounded text-xs font-mono ml-1">···</span></strong> 아이콘을 눌러 <strong>[유지]</strong>를 선택합니다.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 2 (핵심 드롭다운 설명 파트) -->
+            <div class="flex flex-col md:flex-row items-start gap-4 pt-4 border-t border-slate-100">
+                <div class="w-8 h-8 rounded-full bg-blue-600 text-white font-bold text-sm flex items-center justify-center shrink-0">
+                    2
+                </div>
+                <div class="space-y-3 flex-grow">
+                    <h3 class="font-bold text-slate-900 text-base">[삭제 ∨] 버튼 우측 화살표(∨) 클릭</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        "열기 전에 신뢰할 수 있는지 확인합니다" 팝업창 하단 오른쪽의 <span class="font-bold text-slate-900">[삭제 ∨]</span> 버튼에서 <strong>오른쪽 화살표(∨) 아이콘</strong>을 클릭하세요.
+                    </p>
+                    
+                    <!-- 핵심 가이드 박스 -->
+                    <div class="bg-slate-900 text-white p-4 rounded-2xl space-y-2 text-xs sm:text-sm border border-slate-800">
+                        <div class="flex items-center gap-2 text-amber-400 font-bold">
+                            <i class="fa-solid fa-hand-pointer"></i>
+                            <span>클릭 위치 안내</span>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed">
+                            <strong class="text-white">'삭제' 글자를 클릭하면 파일이 삭제</strong>되므로, 반드시 <strong>'삭제' 글자 오른쪽에 붙어 있는 [ ∨ ] 화살표(드롭다운 콤보)</strong>를 누르셔야 메뉴가 펼쳐집니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="flex flex-col md:flex-row items-start gap-4 pt-4 border-t border-slate-100">
+                <div class="w-8 h-8 rounded-full bg-blue-600 text-white font-bold text-sm flex items-center justify-center shrink-0">
+                    3
+                </div>
+                <div class="space-y-2 flex-grow">
+                    <h3 class="font-bold text-slate-900 text-base">[그래도 유지] 선택</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        화살표(∨)를 클릭하여 나타난 하위 메뉴에서 <strong>[그래도 유지]</strong>를 클릭하면 설치 파일 다운로드가 안전하게 완료됩니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Windows SmartScreen Tip -->
+        <div class="bg-indigo-950 text-white rounded-3xl p-6 sm:p-8 space-y-3">
+            <h3 class="text-base font-bold flex items-center gap-2 text-indigo-300">
+                <i class="fa-solid fa-desktop"></i>
+                파일 실행 시 "Windows의 PC 보호" 창이 뜨는 경우
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                다운로드한 `.exe` 설치 파일 실행 시 Windows 푸른색 안내창이 표시되면 다음과 같이 실행해 주세요.
+            </p>
+            <ol class="list-decimal list-inside text-xs sm:text-sm text-slate-300 space-y-1.5 pl-1 pt-1">
+                <li>안내문 안의 <strong>[추가 정보]</strong> 링크를 클릭합니다.</li>
+                <li>우측 하단에 생성되는 <strong>[실행]</strong> 버튼을 누르면 정상적으로 설치가 진행됩니다.</li>
+            </ol>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-6">
+        <div class="max-w-5xl mx-auto px-4 text-center text-xs text-slate-500">
+            <p>&copy; Hannoon Easybill. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
