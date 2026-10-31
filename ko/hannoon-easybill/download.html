@@ -627,10 +627,13 @@
                 modal.classList.add('flex');
             }
 
-            // 파일 다운로드 실행
+            // 1. 구글 스프레드시트로 다운로드 로그 전송 실행
+            sendDownloadLog(appCode);
+
+            // 2. 파일 다운로드 실행
             window.location.href = downloadUrl;
         }
-
+        
         function closeDownloadModal() {
             const modal = document.getElementById('downloadModal');
             if (modal) {
@@ -643,6 +646,32 @@
             if (event) event.preventDefault();
             alert('서비스 단가표 안내 페이지로 이동합니다.');
         }
+
+        // download.html 내 스크립트 예시
+        async function sendDownloadLog(programCode) {
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbzhoz1qPMPRs8BkclrQnCq2S0mx3e4HCb5gYUKiNuwYjD91woSbHtLpFwC6v_6eb98I/exec";
+
+        try {
+            // 1. 사용자 공인 IP 조회
+            const ipRes = await fetch("https://api64.ipify.org?format=json");
+            const ipData = await ipRes.json();
+            const clientIp = ipData.ip;
+
+            // 2. GAS로 로그 전송 (CORS Preflight 회피를 위해 text/plain 사용)
+            await fetch(GAS_URL, {
+            method: "POST",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify({
+                programCode: programCode,
+                ip: clientIp
+            }),
+            mode: "no-cors" // 응답을 별도 처리하지 않는 백그라운드 로깅 시 권장
+            });
+        } catch (e) {
+            console.warn("로그 수집 실패:", e);
+        }
+        }
+
     </script>
 </body>
 </html>
