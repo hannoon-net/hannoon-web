@@ -222,7 +222,7 @@
           <br>
           <span class="code-tag">1: 자산</span> | <span class="code-tag">2: 부채</span> | <span class="code-tag">3: 자본</span> | <span class="code-tag">4: 수익</span> | <span class="code-tag">5~9: 비용</span>
         </li>
-        <li style="margin-top: 10px;"><strong>코드 규칙 (계정과목명은 변경 가능):</strong>
+        <li style="margin-top: 10px;"><strong>코드 규칙 및 권장 사항 (계정과목명은 변경 가능):</strong>
           <table>
             <thead>
               <tr>
@@ -232,32 +232,32 @@
             </thead>
             <tbody>
               <tr>
-                <td>현금 / 보통예금</td>
+                <td>현금 / 보통예금 [필수]</td>
                 <td>10101 (현금), 10301 (보통예금)</td>
               </tr>
               <tr>
-                <td>부가세 관련</td>
+                <td>부가세 관련 [필수]</td>
                 <td>19900 (부가세 대급금 - 자산), 29900 (부가세 예수금 - 부채)</td>
               </tr>
               <tr>
-                <td>리스 관련 미수금/부과금</td>
+                <td>자본금 관련 [필수]</td>
+                <td>30101 (자본금), 30301 (이익잉여금)</td>
+              </tr>
+              <tr>
+                <td>주사업 관련 미수금/부과금 (권장)</td>
                 <td>10001 ~ 10009</td>
               </tr>
               <tr>
-                <td>리스 관련 부채</td>
+                <td>주사업 관련 부채 (권장)</td>
                 <td>20001 ~ 20009</td>
               </tr>
               <tr>
-                <td>리스 관련 수익</td>
+                <td>주사업 관련 수익 (권장)</td>
                 <td>40001 ~ 40009</td>
               </tr>
               <tr>
-                <td>리스 관련 비용</td>
+                <td>주사업 관련 비용 (권장)</td>
                 <td>80001 ~ 80009</td>
-              </tr>
-              <tr>
-                <td>자본금 관련</td>
-                <td>30101 (자본금), 30301 (이월이익 잉여금)</td>
               </tr>
             </tbody>
           </table>
