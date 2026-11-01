@@ -199,7 +199,7 @@
     <!-- Main Container -->
     <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
 
-        <!-- Category Tabs -->
+        <!-- Category Tabs 
         <div class="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-200 text-xs sm:text-sm">
             <button onclick="filterFaqCategory('all')" id="tab-all" class="cat-btn px-4 py-2 rounded-xl font-bold bg-blue-600 text-white shadow-xs transition whitespace-nowrap">전체 보기</button>
             <button onclick="filterFaqCategory('license')" id="tab-license" class="cat-btn px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-200/60 transition whitespace-nowrap">도입 & 비용</button>
@@ -208,6 +208,7 @@
             <button onclick="filterFaqCategory('industry')" id="tab-industry" class="cat-btn px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-200/60 transition whitespace-nowrap">산업별 실무</button>
             <button onclick="filterFaqCategory('server')" id="tab-server" class="cat-btn px-4 py-2 rounded-xl font-medium text-slate-600 hover:bg-slate-200/60 transition whitespace-nowrap">서버 & 보안</button>
         </div>
+        -->
 
         <!-- FAQ List Accordion -->
         <div id="faqList" class="space-y-3">
@@ -221,16 +222,18 @@
                         <span class="inline-block text-[11px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md mr-1.5 align-middle">
                             도입 & 비용
                         </span>
-                        <span class="faq-question-text">한눈 이지빌 프로그램은 정말 평생 무료인가요? 숨겨진 유료 요금이 있나요?</span>
+                        <span class="faq-question-text">한눈 이지빌 프로그램은 정말 무료인가요</span>
                     </span>
                 </span>
                 <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform duration-200 ml-2 shrink-0"></i>
             </summary>
             <div class="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/50 faq-answer-text">
-                한눈 이지빌은 <strong>설치 대수, 거래처 수, 청구 건수, 사용 기간에 아무런 제한이 없는 평생 100% 무료 소프트웨어</strong>입니다.
-        <br><br>
-        소프트웨어 도입비나 월 정기 구독료가 전혀 없으며, 국세청 전자세금계산서 전송, 카카오 알림톡/SMS 문자 발송, 계좌 거래내역 자동 조회와 같이 <strong>외부 통신망(바로빌)을 이용할 때 소요되는 최소 실비 포인트(세금계산서 건당 198P 등) 외에는 어떠한 추가 비용도 발생하지 않습니다.</strong>
-                <div class="mt-4 pt-3 border-t border-slate-200/70 flex flex-wrap gap-2"><a href="./service-fee.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg border border-blue-200/70 transition"><span>서비스별 단가 안내 확인하기</span><i class="fa-solid fa-arrow-right text-[10px]"></i></a></div>
+                한눈 이지빌은 <strong> 도입비 0원, 설치 대수, 거래처 수, 사용 기간에 따른 사용료가 없는 무료 소프트웨어</strong>입니다.
+                <br><br>
+                소프트웨어 도입비나 월 정기 구독료가 전혀 없으며, 
+                국세청 전자세금계산서 전송, 전자문서 박송, SMS 문자 발송, 계좌 거래내역 자동 조회와 같이 
+                <strong>한눈 이지빌과 연동된 외부 통신사의 발급 대행 서비스(바로빌)을 이용할 때 소요되는 사용 포인트(세금계산서 건당 198P 등) 외에는 어떠한 추가 비용도 발생하지 않습니다.</strong> (바로빌 서비스 이용을 위해서는 바로빌 회원가입과 포인트 충전 후 이용하셔야 합니다.)
+                <div class="mt-4 pt-3 border-t border-slate-200/70 flex flex-wrap gap-2"><a href="./service-fee.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg border border-blue-200/70 transition"><span>바로빌 서비스별 단가 안내 확인하기</span><i class="fa-solid fa-arrow-right text-[10px]"></i></a></div>
             </div>
         </details>
         <!-- [FAQ Item End] -->
@@ -251,8 +254,8 @@
             </summary>
             <div class="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/50 faq-answer-text">
                 기존에 수기나 엑셀로 관리하던 고객 명단과 청구 내역을 <strong>표준 CSV 파일 일괄 업로드 기능</strong>을 통해 몇 번의 클릭만으로 손쉽게 이전할 수 있습니다.
-        <br><br>
-        한눈 이지빌 다운로드 센터에서 제공하는 <strong>표준 CSV 업로드 양식(.zip)</strong>을 내려받아 상호, 사업자번호, 대표자명, 이메일, 기본 청구 금액 등을 입력한 후 프로그램 내 [기본 정보 CSV 대량 업데이트] 메뉴에서 불러오면 즉시 데이터베이스로 자동 전환됩니다.
+                <br><br>
+                한눈 이지빌 다운로드 센터에서 제공하는 <strong>표준 CSV 업로드 양식(.zip)</strong>을 내려받아 상호, 사업자번호, 대표자명, 이메일, 청구 청구를 위한 템플릿 정보 등을 입력한 후 프로그램 내의 [CSV 데이터 업로드] 메뉴에서 불러오면 즉시 데이터베이스로 자동 전환됩니다.
                 <div class="mt-4 pt-3 border-t border-slate-200/70 flex flex-wrap gap-2"><a href="./csv_guide.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg border border-blue-200/70 transition"><span>CSV 파일 작성 가이드 확인하기</span><i class="fa-solid fa-arrow-right text-[10px]"></i></a><a href="./download.html#section-csv" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg border border-blue-200/70 transition"><span>다운로드 센터에서 샘플 양식 받기</span><i class="fa-solid fa-arrow-right text-[10px]"></i></a></div>
             </div>
         </details>
@@ -273,9 +276,11 @@
                 <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform duration-200 ml-2 shrink-0"></i>
             </summary>
             <div class="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/50 faq-answer-text">
-                국세청 홈택스는 무료이지만, 매월 수십~수백 건의 거래처마다 로그인하여 일일이 공급가액, 품목, 세액, 이메일을 수기로 입력해야 하므로 막대한 시간과 오입력 위험이 따릅니다.
-        <br><br>
-        반면 한눈 이지빌의 <strong>바로빌 API 연동</strong>을 이용하면 프로그램에 저장된 템플릿을 통해 <strong>100건 이상의 전자세금계산서를 단 3초 만에 국세청으로 일괄 즉시 전송</strong>할 수 있습니다. 발행 비용은 건당 198P(약 198원) 수준으로, 실무자의 수십 시간의 야근과 인건비를 획기적으로 절감해 줍니다.
+                국세청 홈택스는 무료이지만, 청구와 별도로 매번 로그인하여 일일이 사업자 정보, 품목, 공급가액, 세액을 직접 입력해야 하므로 막대한 시간과 오입력 위험이 따르며, 잘못 입력시 수정세금계산서를 발행해야하는 번거로움이 있습니다.
+                <br><br>
+                반면 한눈 이지빌의 <strong>바로빌 API 연동 서비스</strong>을 이용하면 프로그램에 저장된 템플릿을 통해 <strong>몇번의 클릭만으로 전자세금계산서를 국세청으로 일괄 전송</strong>할 수 있습니다. 
+                국세청 익일 전송으로 설정한 경우 발급 후에도 국세청 전송 전 취소가 가능하므로 수정세금계산서 발급의 번거로움을 줄일 수 있습니다. 
+                발행 비용은 건당 198원 수준으로 매우 저렴하므로, <strong>업무에 따른 시간당 비용과 인건비</strong>를 고려한다면 홈택스를 통한 직접 발행 업무에 비해 비용을 획기적으로 절감해 줍니다.
                 <div class="mt-4 pt-3 border-t border-slate-200/70 flex flex-wrap gap-2"><a href="./barobill_sign_up_guide.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg border border-blue-200/70 transition"><span>바로빌 회원가입 및 연동 가이드</span><i class="fa-solid fa-arrow-right text-[10px]"></i></a><a href="./service-fee.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg border border-blue-200/70 transition"><span>서비스 단가표 보기</span><i class="fa-solid fa-arrow-right text-[10px]"></i></a></div>
             </div>
         </details>
@@ -290,39 +295,47 @@
                         <span class="inline-block text-[11px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md mr-1.5 align-middle">
                             회계 & 장부
                         </span>
-                        <span class="faq-question-text">복식부기 회계 원리를 전혀 몰라도 분개장과 미수금 장부가 자동으로 생성되나요?</span>
+                        <span class="faq-question-text">복식부기 회계에 맞게 분개장과 미수금 장부가 자동으로 생성되나요?</span>
                     </span>
                 </span>
                 <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform duration-200 ml-2 shrink-0"></i>
             </summary>
             <div class="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/50 faq-answer-text">
-                네! 한눈 이지빌의 가장 강력한 차별점 중 하나입니다. 사용자가 복식부기 차변/대변 원리를 몰라도 <strong>단순히 '청구서 발행' 버튼만 누르면 프로그램 내부 회계 엔진이 자동으로 올바른 분개 전표를 생성</strong>합니다.
-        <br><br>
-        발행과 동시에 <strong>분개장, 총계정원장, 거래처별원장, 미수금장부</strong> 4대 핵심 장부에 실시간 반영되며, 고객사에서 입금되었을 때 '입금 처리'만 체크해 주면 미수금 잔액이 즉시 차감 정리됩니다.
+                네, 청구 템플릿에 설정된 회계 계정코드에 따라 
+                <strong>정기 요금을 청구할 때 '청구 실행' 버튼만 클릭으로 프로그램 내부 회계 엔진이 자동으로 분개 전표를 생성</strong>합니다.
+                <br><br>
+                그 밖의 미수금 입금, 고정비 발생 등 자주 발생되는 거래에 해당하는 계정과목 코드를 설정해두면, 
+                <strong>전표 입력시 분개 템플릿의 항목 선택만으로 쉽게 분개 전표를 생성</strong>합니다.
+                <br><br>
+                청구실행 또는 전표발행과 동시에 <strong>분개장, 총계정원장, 거래처별원장, 미수금장부</strong> 4대 핵심 장부에 실시간 반영되어 정리됩니다.
+                <br>
+                (한눈 회계장부는 세무신고용이 아닌 사업상 회계 업무을 보조하기 위한 장부입니다.)
                 <div class="mt-4 pt-3 border-t border-slate-200/70 flex flex-wrap gap-2"><a href="./features.html#section-accounting" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg border border-blue-200/70 transition"><span>주요 기능 회계 자동화 상세 보기</span><i class="fa-solid fa-arrow-right text-[10px]"></i></a></div>
             </div>
         </details>
         <!-- [FAQ Item End] -->
 
-        <!-- [FAQ Item Start: industry] -->
-        <details class="faq-item group bg-white border border-slate-200 rounded-2xl overflow-hidden transition shadow-2xs hover:border-slate-300" data-category="industry" >
+        <!-- [FAQ Item Start: license] -->
+        <details class="faq-item group bg-white border border-slate-200 rounded-2xl overflow-hidden transition shadow-2xs hover:border-slate-300" data-category="license" >
             <summary class="flex items-center justify-between p-5 cursor-pointer font-bold text-slate-900 text-sm sm:text-base hover:text-blue-600 select-none transition-colors">
                 <span class="flex items-start sm:items-center gap-3">
                     <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">Q</span>
                     <span>
                         <span class="inline-block text-[11px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md mr-1.5 align-middle">
-                            산업별 실무
+                            서버 & 보안
                         </span>
-                        <span class="faq-question-text">화물·중장비 지입차주 월 관리비 및 보험료 세금계산서(N:N 상호 청구) 발행 시 주의사항은?</span>
+                        <span class="faq-question-text">Personal(개인용)과 Workgroup(서버/클라이언트) 중 어떤 에디션을 설치해야 하나요?</span>
                     </span>
                 </span>
                 <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform duration-200 ml-2 shrink-0"></i>
             </summary>
             <div class="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/50 faq-answer-text">
-                지입/운송 비즈니스는 운송사가 차주에게 관리비/보험료를 청구(매출)하고, 동시에 차주가 운송사에 운송용역을 청구(매입)하는 <strong>공급자-공급받는자가 교차되는 N:N 상호 거래 구조</strong>를 가집니다.
-        <br><br>
-        한눈 이지빌은 <strong>업계 유일 N:N 상호 교차 청구 기능</strong>을 탑재하여 양방향 세금계산서와 정산서를 원클릭으로 상계 정산 처리할 수 있습니다. 지입료(과세)와 보험료/공제금(비과세/예수금) 항목을 분리 등록해 두시면 실수령액이 자동 산출됩니다.
-                <div class="mt-4 pt-3 border-t border-slate-200/70 flex flex-wrap gap-2"><a href="./case/logistics.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg border border-blue-200/70 transition"><span>화물·지입 전용 솔루션 자세히 보기</span><i class="fa-solid fa-arrow-right text-[10px]"></i></a></div>
+                관리자 1명이 단일 PC에서 독립적으로 청구 및 장부를 관리하고자 하신다면 <strong>Personal 에디션</strong>을 설치하시면 됩니다. 
+                별도 서버 설정 없이 설치 즉시 바로 사용 가능합니다.
+                <br><br>
+                반면 경리팀, 영업팀, 관리부 등 2명 이상의 직원이 사내 네트워크에서 데이터를 실시간 공유하고 동시 작업해야 한다면, 
+                사내 PC 1대에 <strong>Hannoon Server</strong>를 설치하고 각 실무자 PC에 <strong>Workgroup Client</strong>를 설치하여 접속하시면 됩니다.
+                <div class="mt-4 pt-3 border-t border-slate-200/70 flex flex-wrap gap-2"><a href="./download.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg border border-blue-200/70 transition"><span>무료 다운로드 센터 바로가기</span><i class="fa-solid fa-arrow-right text-[10px]"></i></a></div>
             </div>
         </details>
         <!-- [FAQ Item End] -->
@@ -336,39 +349,23 @@
                         <span class="inline-block text-[11px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md mr-1.5 align-middle">
                             서버 & 보안
                         </span>
-                        <span class="faq-question-text">클라우드가 아닌 사내 PC나 폐쇄망 서버(Workgroup)에서도 다수가 함께 쓸 수 있나요?</span>
+                        <span class="faq-question-text">클라우드나 고성능 서버가 아닌 사내 일반 PC에 서버를 설치해서 다수가 함께 쓸 수 있나요?</span>
                     </span>
                 </span>
                 <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform duration-200 ml-2 shrink-0"></i>
             </summary>
             <div class="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/50 faq-answer-text">
-                네, 한눈 이지빌은 기업의 영업 기밀과 고객 재무 데이터 보호를 최우선으로 여깁니다. 해외 외부 클라우드에 데이터를 올리지 않고, <strong>사내 폐쇄망 인트라넷 LAN 환경에서 여러 사용자가 동시 접속하여 실시간 협업</strong>할 수 있는 <strong>Workgroup Server & Client</strong> 시스템을 제공합니다.
-        <br><br>
-        소규모 팀을 위한 DB 미설치형 <strong>Server Lite</strong>(5인 이하)부터, 수십~수백 명이 접속하는 <strong>Server Standard</strong>(MariaDB 연동), <strong>Enterprise</strong>까지 모두 무료로 제공됩니다.
+                네, 한눈 이지빌은 기업의 영업 기밀과 고객 재무 데이터 보호를 최우선으로 여깁니다. 
+                외부 클라우드에 데이터를 올리지 않고, <strong>사내 폐쇄망 인트라넷 LAN 환경에서 여러 사용자가 동시 접속하여 실시간 협업</strong>할 수 있는 <strong>Workgroup Server & Client</strong> 시스템을 제공합니다.
+                <br><br>
+                소규모 팀을 위한 DB 미설치형 <strong>Server Lite</strong>(5인 이하)부터, 
+                일반 PC에 설치하여 수십 명이 접속 가능한 <strong>Server Standard</strong>, 
+                고성능 서버에서 사용자 제한 없이 접속할 수 있는 <strong>Enterprise</strong>까지 모두 무료로 제공됩니다.
+                <br><br>
+                환경설정에서 백업시간과 파일 백업 경로를 설정해 두면 매일 정해진 시간에 <strong>자동 백업</strong>을 수행합니다.
+                <br>
+                (파일 백업 경로는 물리적으로 분리된 저장 장치를 권장합니다) 
                 <div class="mt-4 pt-3 border-t border-slate-200/70 flex flex-wrap gap-2"><a href="./server-manual.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg border border-blue-200/70 transition"><span>Hannoon Server 구축 매뉴얼</span><i class="fa-solid fa-arrow-right text-[10px]"></i></a><a href="./server-specs.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg border border-blue-200/70 transition"><span>서버 하드웨어 권장 사양</span><i class="fa-solid fa-arrow-right text-[10px]"></i></a></div>
-            </div>
-        </details>
-        <!-- [FAQ Item End] -->
-
-        <!-- [FAQ Item Start: license] -->
-        <details class="faq-item group bg-white border border-slate-200 rounded-2xl overflow-hidden transition shadow-2xs hover:border-slate-300" data-category="license" >
-            <summary class="flex items-center justify-between p-5 cursor-pointer font-bold text-slate-900 text-sm sm:text-base hover:text-blue-600 select-none transition-colors">
-                <span class="flex items-start sm:items-center gap-3">
-                    <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">Q</span>
-                    <span>
-                        <span class="inline-block text-[11px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md mr-1.5 align-middle">
-                            도입 & 비용
-                        </span>
-                        <span class="faq-question-text">Personal(개인용)과 Workgroup(서버/클라이언트) 중 어떤 에디션을 설치해야 하나요?</span>
-                    </span>
-                </span>
-                <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform duration-200 ml-2 shrink-0"></i>
-            </summary>
-            <div class="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/50 faq-answer-text">
-                관리자 1명이 단일 PC에서 독립적으로 청구 및 장부를 관리하고자 하신다면 <strong>Personal 에디션</strong>을 설치하시면 됩니다. 별도 서버 설정 없이 설치 즉시 바로 사용 가능합니다.
-        <br><br>
-        반면 경리팀, 영업팀, 관리부 등 2명 이상의 직원이 사내 네트워크에서 데이터를 실시간 공유하고 동시 작업해야 한다면 사내 PC 1대에 <strong>Hannoon Server</strong>를 설치하고 각 실무자 PC에 <strong>Workgroup Client</strong>를 설치하여 연결하시면 됩니다.
-                <div class="mt-4 pt-3 border-t border-slate-200/70 flex flex-wrap gap-2"><a href="./download.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg border border-blue-200/70 transition"><span>무료 다운로드 센터 바로가기</span><i class="fa-solid fa-arrow-right text-[10px]"></i></a></div>
             </div>
         </details>
         <!-- [FAQ Item End] -->
@@ -388,15 +385,22 @@
                 <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform duration-200 ml-2 shrink-0"></i>
             </summary>
             <div class="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/50 faq-answer-text">
-                한눈 이지빌은 자체 <strong>자동 백업 시스템</strong>을 내장하고 있어, 사용자가 지정한 보조 드라이브나 USB, 외장하드 경로에 주기적으로 데이터 백업본을 자동 생성합니다.
-        <br><br>
-        PC를 교체하거나 재설치할 때는 새 PC에 프로그램을 설치한 후 기존 백업 파일(DB 파일)을 동일한 데이터 폴더에 복사해 넣기만 하면 이전 데이터가 100% 완벽히 복원됩니다.
-                <div class="mt-4 pt-3 border-t border-slate-200/70 flex flex-wrap gap-2"><a href="./manual.html#section-backup" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg border border-blue-200/70 transition"><span>간편 사용 매뉴얼 백업 안내</span><i class="fa-solid fa-arrow-right text-[10px]"></i></a></div>
+                한눈 이지빌은 자체 <strong>자동 백업 시스템</strong>을 내장하고 있어, 
+                사용자가 지정한 보조 드라이브나 외장하드 경로에 주기적으로 DB 백업 파일과 관련 파일의 폴더 구조와 파일을 자동으로 백업 저장합니다.
+                <br><br>
+                [복구 절차]<br>
+                1. PC를 교체/운응체체 재설치 및 새 PC에 프로그램을 설치<br>
+                2. DB 복구<br>
+                    - 개인용 : 구축 중<br>
+                    - 서버 : MariaDB/MySql 일반 복구 방법 참조<br>
+                3. 파일 복구<br>
+                서버에서 설정한 파일 보관 폴더에 그대로 복사<br>
+               <div class="mt-4 pt-3 border-t border-slate-200/70 flex flex-wrap gap-2"><a href="./manual.html#section-backup" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg border border-blue-200/70 transition"><span>간편 사용 매뉴얼 백업 안내</span><i class="fa-solid fa-arrow-right text-[10px]"></i></a></div>
             </div>
         </details>
         <!-- [FAQ Item End] -->
 
-        <!-- [FAQ Item Start: billing] -->
+        <!-- [FAQ Item Start: billing] 
         <details class="faq-item group bg-white border border-slate-200 rounded-2xl overflow-hidden transition shadow-2xs hover:border-slate-300" data-category="billing" >
             <summary class="flex items-center justify-between p-5 cursor-pointer font-bold text-slate-900 text-sm sm:text-base hover:text-blue-600 select-none transition-colors">
                 <span class="flex items-start sm:items-center gap-3">
@@ -417,26 +421,33 @@
                 <div class="mt-4 pt-3 border-t border-slate-200/70 flex flex-wrap gap-2"><a href="./service-fee.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg border border-blue-200/70 transition"><span>서비스 단가 및 현금영수증 비용 안내</span><i class="fa-solid fa-arrow-right text-[10px]"></i></a></div>
             </div>
         </details>
-        <!-- [FAQ Item End] -->
+        -->
 
-        </div>
-
-        <div id="noResultMsg" class="hidden text-center py-12 text-slate-500">
-            <i class="fa-regular fa-face-meh text-3xl mb-2 text-slate-400"></i>
-            <p class="text-sm">일치하는 질문을 찾지 못했습니다.</p>
-            <button onclick="resetFaqFilter()" class="mt-3 text-xs font-bold text-blue-600 hover:underline">전체 질문 다시 보기</button>
-        </div>
-
-        <!-- How to Add New Questions Guide Note for Developer/User -->
-        <div class="bg-blue-50/60 border border-blue-200/80 rounded-2xl p-5 text-xs text-slate-600 space-y-2">
-            <div class="flex items-center gap-2 font-bold text-blue-800 text-sm">
-                <i class="fa-solid fa-code"></i>
-                <span>FAQ 추가 및 유지보수 가이드 (프레임 구조)</span>
+        <!-- [FAQ Item Start: industry] 
+        <details class="faq-item group bg-white border border-slate-200 rounded-2xl overflow-hidden transition shadow-2xs hover:border-slate-300" data-category="industry" >
+            <summary class="flex items-center justify-between p-5 cursor-pointer font-bold text-slate-900 text-sm sm:text-base hover:text-blue-600 select-none transition-colors">
+                <span class="flex items-start sm:items-center gap-3">
+                    <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">Q</span>
+                    <span>
+                        <span class="inline-block text-[11px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md mr-1.5 align-middle">
+                            산업별 실무
+                        </span>
+                        <span class="faq-question-text">화물·중장비 지입차주 월 관리비 및 보험료 세금계산서(N:N 상호 청구) 발행 시 주의사항은?</span>
+                    </span>
+                </span>
+                <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform duration-200 ml-2 shrink-0"></i>
+            </summary>
+            <div class="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/50 faq-answer-text">
+                지입/운송 비즈니스는 운송사가 차주에게 관리비/보험료를 청구(매출)하고, 동시에 차주가 운송사에 운송용역을 청구(매입)하는 <strong>공급자-공급받는자가 교차되는 N:N 상호 거래 구조</strong>를 가집니다.
+        <br><br>
+        한눈 이지빌은 <strong>업계 유일 N:N 상호 교차 청구 기능</strong>을 탑재하여 양방향 세금계산서와 정산서를 원클릭으로 상계 정산 처리할 수 있습니다. 지입료(과세)와 보험료/공제금(비과세/예수금) 항목을 분리 등록해 두시면 실수령액이 자동 산출됩니다.
+                <div class="mt-4 pt-3 border-t border-slate-200/70 flex flex-wrap gap-2"><a href="./case/logistics.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg border border-blue-200/70 transition"><span>화물·지입 전용 솔루션 자세히 보기</span><i class="fa-solid fa-arrow-right text-[10px]"></i></a></div>
             </div>
-            <p>
-                새로운 실무 질문을 추가하고자 하실 경우, 본 HTML 파일 내 <code class="bg-blue-100 text-blue-900 px-1.5 py-0.5 rounded font-mono">&lt;!-- [FAQ Item Start] --&gt;</code> 주석 블록을 복사하여 <code class="bg-blue-100 text-blue-900 px-1.5 py-0.5 rounded font-mono">data-category</code> 속성과 질문/답변 텍스트만 교체하시면 검색 및 카테고리 필터링이 자동으로 완벽히 작동합니다.
-            </p>
-        </div>
+        </details>
+        [FAQ Item End] -->
+
+
+
 
         <!-- Bottom CTA Banner -->
         <section class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-700 rounded-3xl p-8 sm:p-10 text-center text-white relative overflow-hidden shadow-xl mt-12">
