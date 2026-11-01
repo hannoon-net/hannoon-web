@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부동산 임대관리 프로그램 - 상가·원룸·빌딩 월세 및 관리비 청구 | 한눈 빌링</title>
+    <link rel="canonical" href="https://www.hannoon.net/ko/hannoon-easybill/case/real-estate.html">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="상가, 오피스텔, 빌딩, 원룸, 지식산업센터 부동산 임대관리 솔루션! 매월 반복되는 월세 및 관리비 원클릭 청구, 바로빌 국세청 전자세금계산서·전자청구서 발행, 미수금 장부 자동 관리를 평생 무료 프로그램 한눈 빌링로 해결하세요.">
+    <meta name="keywords" content="부동산임대관리프로그램, 월세관리, 임대료청구, 관리비청구프로그램, 상가관리프로그램, 빌딩관리프로그램, 오피스텔임대관리, 지식산업센터관리, 공유오피스청구, 창고임대관리, 물류창고청구, 주차장월정기권관리, 야적장임대관리, 원룸월세관리, 건물시설관리, 한눈이지빌">
+    <meta name="author" content="Hannoon Soft">
+    
+    <!-- Open Graph / Facebook / KakaoTalk Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="한눈 빌링 (Hannoon Easybill)">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:title" content="부동산 임대관리 솔루션 - 월세 & 관리비 원클릭 청구 | 한눈 빌링">
+    <meta property="og:description" content="상가, 오피스텔, 빌딩, 원룸, 지식산업센터 부동산 임대관리 솔루션! 매월 반복되는 월세 및 관리비 원클릭 청구, 바로빌 국세청 전자세금계산서·전자청구서 발행, 미수금 장부 자동 관리를 평생 무료 프로그램 한눈 빌링로 해결하세요.">
+    <meta property="og:url" content="https://www.hannoon.net/ko/hannoon-easybill/case/real-estate.html">
+    <meta property="og:image" content="https://www.hannoon.net/og-image.png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="부동산 임대관리 솔루션 - 월세 & 관리비 원클릭 청구 | 한눈 빌링">
+    <meta name="twitter:description" content="상가, 오피스텔, 빌딩, 원룸, 지식산업센터 부동산 임대관리 솔루션! 매월 반복되는 월세 및 관리비 원클릭 청구, 바로빌 국세청 전자세금계산서·전자청구서 발행, 미수금 장부 자동 관리를 평생 무료 프로그램 한눈 빌링로 해결하세요.">
+    <meta name="twitter:image" content="https://www.hannoon.net/og-image.png">
+
+    <!-- Structured Data (JSON-LD) - FAQPage -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "관리비가 매달 다른데 변동 금액도 쉽게 청구할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네, 가능합니다. 기본 템플릿을 불러온 후 이번 달 수도/전기 계량기 검침 사용량에 따른 변동 관리비만 빠르게 수정하여 일괄 청구할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "개인 임차인에게도 현금영수증 발행이 가능한가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네! 바로빌 API와 연동되어 사업자는 물론 개인 주민등록번호/휴대폰번호로 국세청 현금영수증을 즉시 발행할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "프로그램 사용료나 호실 수 제한이 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "호실 수 제한 없이 평생 100% 무료입니다. 바로빌 연동 실비(세금계산서 198P 등) 외에는 프로그램 라이선스 비용이 전혀 발생하지 않습니다."
+      }
+    }
+  ]
+}
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+
+    <style>
+        body { 
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif; 
+        }
+        .hero-glow {
+            background: radial-gradient(circle at 50% 20%, rgba(59, 130, 246, 0.12) 0%, rgba(99, 102, 241, 0.04) 50%, transparent 80%);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-600 selection:text-white">
+
+    <!-- Global Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center space-x-2.5 group">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-blue-700 flex items-center justify-center text-white font-bold text-sm shadow-xs group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-receipt"></i>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xl sm:text-2xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">한눈 빌링</span>
+                    <span class="text-[11px] font-semibold bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full hidden sm:inline">솔루션 센터</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-slate-600">
+                <a href="../features.html" class="hover:text-blue-600 transition">주요 기능</a>
+                <a href="../use-cases.html" class="text-blue-600 font-bold border-b-2 border-blue-600 pb-0.5">활용 분야</a>
+                <a href="../download.html" class="hover:text-blue-600 transition">다운로드 센터</a>
+                <a href="../faq.html" class="hover:text-blue-600 transition flex items-center gap-1 font-semibold text-slate-700">
+                    <i class="fa-solid fa-circle-question text-xs text-blue-600"></i>
+                    <span>FAQ</span>
+                </a>
+                <a href="../manual.html" class="hover:text-blue-600 transition">간편 매뉴얼</a>
+                <a href="../server-manual.html" class="hover:text-indigo-600 transition flex items-center gap-1">
+                    <i class="fa-solid fa-server text-xs"></i>
+                    <span>서버 매뉴얼</span>
+                </a>
+            </nav>
+
+            <div class="flex items-center gap-2 sm:gap-3">
+                <a href="../download.html" class="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-bold px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl shadow-xs hover:shadow-md transition transform hover:-translate-y-0.5 flex items-center gap-1.5">
+                    <i class="fa-solid fa-download text-xs"></i>
+                    <span>무료 다운로드</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb & Hero Header -->
+    <section class="hero-glow pt-8 pb-16 border-b border-slate-200/60">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <!-- Breadcrumbs -->
+            <nav class="flex items-center justify-center gap-2 text-xs text-slate-500 mb-6 font-medium">
+                <a href="../index.html" class="hover:text-blue-600">홈</a>
+                <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                <a href="../use-cases.html" class="hover:text-blue-600">활용 분야</a>
+                <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                <span class="text-blue-600 font-semibold">부동산 & 건물·시설 관리</span>
+            </nav>
+
+            <span class="inline-flex items-center gap-1.5 bg-blue-100 border border-blue-200 text-blue-800 text-xs font-bold px-3.5 py-1.5 rounded-full mb-4">
+                <i class="fa-solid fa-building text-blue-600"></i>
+                부동산 & 건물·시설 관리 전용 솔루션
+            </span>
+
+            <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight sm:leading-tight lg:leading-tight mb-5">
+                상가·오피스텔·빌딩 임대관리,<br class='hidden sm:inline'> <span class='bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent'>월세·관리비 청구부터 세금계산서까지 원클릭</span>
+            </h1>
+
+            <p class="max-w-3xl mx-auto text-sm sm:text-base text-slate-600 mb-8 leading-relaxed">
+                호실별 월세와 관리비를 엑셀로 일일이 계산하고 홈택스에서 건별 세금계산서를 끊으셨나요?<br class='hidden md:inline'> 한눈 빌링은 <strong>1분 만에 전 호실 일괄 청구, 국세청 전자세금계산서 즉시 전송, 미수금 장부 자동 생성</strong>을 무료 구축하세요. 
+            </p>
+
+            <!-- Target Audience Badge -->
+            <div class="inline-flex items-center gap-2 bg-white border border-slate-200/90 text-slate-700 text-xs px-4 py-2 rounded-xl shadow-2xs mb-8">
+                <span class="font-bold text-blue-600"><i class="fa-solid fa-bullseye"></i> 추천 대상:</span>
+                <span>상가/빌딩 임대인, 오피스텔/원룸 관리사무소, 지식산업센터, 공유오피스 운영사, 물류창고/야적장 임대기업</span>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-3">
+                <a href="../download.html" class="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 text-sm flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-download"></i>
+                    <span>한눈 빌링 무료 다운로드</span>
+                </a>
+                <a href="../use-cases.html" class="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-700 font-semibold px-6 py-3.5 rounded-xl border border-slate-200 shadow-2xs transition text-sm flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-arrow-left text-xs"></i>
+                    <span>전체 산업군 보기</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-16">
+
+        <!-- 1. 업계 실무자의 고민 (Pain Points) -->
+        <section>
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-bold text-rose-600 tracking-wider uppercase mb-1 block">PAIN POINTS</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">수기 엑셀 장부와 홈택스 발행의 한계</h2>
+                <p class="text-sm text-slate-500 mt-2">많은 기업과 관리자가 겪고 있는 실무 스트레스, 이제 끝내야 합니다.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+                <div class="bg-rose-50/60 border border-rose-100 rounded-2xl p-6 relative overflow-hidden">
+                    <div class="w-8 h-8 rounded-full bg-rose-500 text-white font-bold text-sm flex items-center justify-center mb-4">
+                        1
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-base mb-2">임대 물건별 청구 내역 상이</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">임차인마다 계약 기간, 월세, 정액/변동 관리비 계산식이 달라 엑셀 수기 관리 시 누락 및 계산 오류 빈발</p>
+                </div>
+                <div class="bg-rose-50/60 border border-rose-100 rounded-2xl p-6 relative overflow-hidden">
+                    <div class="w-8 h-8 rounded-full bg-rose-500 text-white font-bold text-sm flex items-center justify-center mb-4">
+                        2
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-base mb-2">홈택스 건별 세금계산서 발행의 피로</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">단 몇건의 청구에도 홈택스에 로그인하여 세금계산서를 일일이 타이핑하면서 발생하는 잦은 실수와 많은 시간 소요</p>
+                </div>
+                <div class="bg-rose-50/60 border border-rose-100 rounded-2xl p-6 relative overflow-hidden">
+                    <div class="w-8 h-8 rounded-full bg-rose-500 text-white font-bold text-sm flex items-center justify-center mb-4">
+                        3
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-base mb-2">미수금 및 입금 대조의 어려움</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">임차인 통장 입금 내역과 장부를 매번 수작업으로 대조해야 하며, 미납 월세 및 연체 추적이 매우 번거로움</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. 한눈 빌링 맞춤 솔루션 (Solutions) -->
+        <section class="bg-gradient-to-b from-blue-50/50 to-slate-50 p-6 sm:p-10 rounded-3xl border border-blue-100">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-bold text-blue-600 tracking-wider uppercase mb-1 block">SMART SOLUTION</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">한눈 빌링이 제공하는 3대 핵심 자동화</h2>
+                <p class="text-sm text-slate-600 mt-2">반복되는 청구 업무 시간을 90% 이상 단축하고 누락 없는 수금을 실현합니다.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+                <div class="bg-white border border-blue-100 rounded-2xl p-6 shadow-xs hover:shadow-md transition">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-bold text-base flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-base mb-2">임대 물건별 템플릿 기반 원클릭 일괄 청구</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">임대 물건별 기본 월세와 고정/변동 관리비를 템플릿으로 저장해 두고, 매월 클릭 한 번으로 모든 청구서를 자동 생성합니다.</p>
+                </div>
+                <div class="bg-white border border-blue-100 rounded-2xl p-6 shadow-xs hover:shadow-md transition">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-bold text-base flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-base mb-2">바로빌 연동 국세청 전자세금계산서 신속 전송</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">사업자 임차인에게는 전자세금계산서/청구서, 개인 임차인에게는 현금영수증을 프로그램 내에서 수초 만에 국세청으로 발행합니다.</p>
+                </div>
+                <div class="bg-white border border-blue-100 rounded-2xl p-6 shadow-xs hover:shadow-md transition">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-bold text-base flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-base mb-2">실시간 미수금 장부 & 복식부기 자동 분개</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">청구 및 입금 처리 즉시 미수금 장부와 거래처별 원장에 자동 반영되어 미납 현황을 실시간 파악하고 수금율을 극대화합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 실무 최적화 주요 기능 (Features) 
+        <section>
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-bold text-indigo-600 tracking-wider uppercase mb-1 block">KEY FEATURES</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">업종 실무에 꼭 맞춘 디테일한 편의 기능</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                <div class="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="w-8 h-8 rounded-lg bg-blue-600/10 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
+                        <i class="fa-solid fa-circle-check text-sm"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm mb-1">호실별 복합 청구 (월세+관리비)</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">월세(과세/면세)와 관리비 항목을 단일 청구서에 결합하여 발행할 수 있습니다.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="w-8 h-8 rounded-lg bg-blue-600/10 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
+                        <i class="fa-solid fa-circle-check text-sm"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm mb-1">CSV 엑셀 일괄 업로드</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">기존 엑셀로 관리하던 임차인 및 계약 정보를 CSV 파일로 한 번에 등록할 수 있습니다.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="w-8 h-8 rounded-lg bg-blue-600/10 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
+                        <i class="fa-solid fa-circle-check text-sm"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm mb-1">다수 건물/사업자 분리 관리</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">소유 건물이나 임대 법인이 여러 개여도 단 하나의 프로그램에서 사업자별로 완벽 분리 관리합니다.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="w-8 h-8 rounded-lg bg-blue-600/10 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
+                        <i class="fa-solid fa-circle-check text-sm"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm mb-1">카카오 알림톡/SMS 청구서 전송</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">청구서 발행과 동시에 임차인에게 문자 및 카카오 알림톡으로 청구 내역을 발송합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        -->
+
+        <!-- 4. 실무 자주 묻는 질문 (FAQ) -->
+        <section>
+            <div class="text-center max-w-2xl mx-auto mb-8">
+                <span class="text-xs font-bold text-blue-600 tracking-wider uppercase mb-1 block">FAQ</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">부동산 & 건물·시설 관리 실무 자주 묻는 질문</h2>
+                <p class="text-sm text-slate-500 mt-1">도입 전 가장 궁금해하시는 질문을 모았습니다.</p>
+            </div>
+            <div class="space-y-3 max-w-3xl mx-auto">
+
+                <details class="group bg-white border border-slate-200 rounded-2xl overflow-hidden transition" open>
+                    <summary class="flex items-center justify-between p-5 cursor-pointer font-bold text-slate-900 text-sm sm:text-base hover:text-blue-600 select-none">
+                        <span class="flex items-center gap-3">
+                            <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-xs flex items-center justify-center shrink-0">Q</span>
+                            관리비가 매달 다른데 변동 금액도 쉽게 청구할 수 있나요?
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform duration-200"></i>
+                    </summary>
+                    <div class="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/50">
+                        네, 가능합니다. 기본 템플릿을 불러온 후 이번 달 수도/전기 계량기 검침 사용량에 따른 변동 관리비만 빠르게 수정하여 일괄 청구할 수 있습니다.
+                    </div>
+                </details>
+                <details class="group bg-white border border-slate-200 rounded-2xl overflow-hidden transition" >
+                    <summary class="flex items-center justify-between p-5 cursor-pointer font-bold text-slate-900 text-sm sm:text-base hover:text-blue-600 select-none">
+                        <span class="flex items-center gap-3">
+                            <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-xs flex items-center justify-center shrink-0">Q</span>
+                            개인 임차인에게도 현금영수증 발행이 가능한가요?
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform duration-200"></i>
+                    </summary>
+                    <div class="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/50">
+                        네! 바로빌 API와 연동되어 사업자는 물론 개인 주민등록번호/휴대폰번호로 국세청 현금영수증을 즉시 발행할 수 있습니다.
+                    </div>
+                </details>
+                <details class="group bg-white border border-slate-200 rounded-2xl overflow-hidden transition" >
+                    <summary class="flex items-center justify-between p-5 cursor-pointer font-bold text-slate-900 text-sm sm:text-base hover:text-blue-600 select-none">
+                        <span class="flex items-center gap-3">
+                            <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-xs flex items-center justify-center shrink-0">Q</span>
+                            프로그램 사용료나 호실 수 제한이 있나요?
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform duration-200"></i>
+                    </summary>
+                    <div class="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/50">
+                        호실 수 제한 없이 평생 100% 무료입니다. 바로빌 연동 실비(세금계산서 198P 등) 외에는 프로그램 라이선스 비용이 전혀 발생하지 않습니다.
+                    </div>
+                </details>
+            </div>
+            <div class="text-center mt-6">
+                <a href="../faq.html" class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-800">
+                    <span>더 많은 자주 묻는 질문(FAQ) 전체 보러가기</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- 5. 다른 산업 분야 솔루션 네비게이션 -->
+        <section class="pt-6 border-t border-slate-200">
+            <h3 class="text-sm font-bold text-slate-700 mb-4 text-center">다른 산업 분야의 정기 청구 자동화 솔루션도 둘러보세요</h3>
+            <div class="flex flex-wrap items-center justify-center gap-2">
+
+                <a href="./rental.html" class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 hover:border-blue-400 text-xs font-semibold text-slate-700 hover:text-blue-600 transition flex items-center gap-2 shadow-2xs">
+                    <i class="fa-solid fa-truck-ramp-box text-slate-400"></i>
+                    <span>모빌리티 & 장비·가전 렌탈/리스</span>
+                </a>
+                <a href="./logistics.html" class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 hover:border-blue-400 text-xs font-semibold text-slate-700 hover:text-blue-600 transition flex items-center gap-2 shadow-2xs">
+                    <i class="fa-solid fa-truck-front text-slate-400"></i>
+                    <span>화물, 택배, 건설 중장비 지입 관리</span>
+                </a>
+                <a href="./it-saas.html" class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 hover:border-blue-400 text-xs font-semibold text-slate-700 hover:text-blue-600 transition flex items-center gap-2 shadow-2xs">
+                    <i class="fa-solid fa-cloud text-slate-400"></i>
+                    <span>IT 인프라, 소프트웨어 & SaaS/통신</span>
+                </a>
+                <a href="./maintenance.html" class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 hover:border-blue-400 text-xs font-semibold text-slate-700 hover:text-blue-600 transition flex items-center gap-2 shadow-2xs">
+                    <i class="fa-solid fa-screwdriver-wrench text-slate-400"></i>
+                    <span>용역, 유지보수 & 시설 관리</span>
+                </a>
+                <a href="./subscription.html" class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 hover:border-blue-400 text-xs font-semibold text-slate-700 hover:text-blue-600 transition flex items-center gap-2 shadow-2xs">
+                    <i class="fa-solid fa-id-card text-slate-400"></i>
+                    <span>정기 구독, 멤버십 & 회원제 협회비</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 6. 하단 강력한 다운로드 전환 배너 (Bottom CTA Banner) -->
+        <section class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-700 rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden shadow-xl">
+            <div class="relative z-10 max-w-3xl mx-auto space-y-4">
+                <span class="inline-block bg-white/20 text-white text-xs font-bold px-3.5 py-1.5 rounded-full backdrop-blur-xs">
+                    조건 없이 평생 100% 무료 소프트웨어
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight">
+                    부동산 & 건물·시설 관리, 지금 바로 청구 업무를 자동화하세요!
+                </h2>
+                <p class="text-blue-100 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+                    1인 관리자를 위한 Personal 에디션부터 사내 인트라넷 협업용 Workgroup Server까지, 지금 바로 무료로 다운로드하여 경험해 보세요.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-3 pt-4">
+                    <a href="../download.html" class="w-full sm:w-auto bg-white text-blue-700 hover:bg-blue-50 font-bold px-8 py-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-sm sm:text-base">
+                        <i class="fa-solid fa-download"></i>
+                        <span>한눈 빌링 무료 다운로드 센터 바로가기</span>
+                    </a>
+                    <a href="../manual.html" class="w-full sm:w-auto bg-blue-700/50 hover:bg-blue-700 text-white font-semibold px-6 py-4 rounded-xl border border-white/20 transition flex items-center justify-center gap-2 text-sm sm:text-base">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>간편 사용 매뉴얼 확인하기</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-10 text-center text-xs text-slate-500 mt-16">
+        <div class="max-w-7xl mx-auto px-4 space-y-3">
+            <p class="font-semibold text-slate-700">한눈 빌링 (Hannoon Easybill) - 무료 정기 청구·전자세금계산서·회계 자동화 솔루션</p>
+            <div class="flex flex-wrap justify-center gap-4 text-slate-500">
+                <a href="../index.html" class="hover:text-blue-600">홈</a>
+                <span>•</span>
+                <a href="../features.html" class="hover:text-blue-600">주요 기능</a>
+                <span>•</span>
+                <a href="../use-cases.html" class="hover:text-blue-600">활용 분야</a>
+                <span>•</span>
+                <a href="../download.html" class="hover:text-blue-600">다운로드 센터</a>
+                <span>•</span>
+                <a href="../faq.html" class="hover:text-blue-600">자주 묻는 질문(FAQ)</a>
+                <span>•</span>
+                <a href="../manual.html" class="hover:text-blue-600">사용 매뉴얼</a>
+                <span>•</span>
+                <a href="../server-manual.html" class="hover:text-blue-600">서버 매뉴얼</a>
+            </div>
+            <p class="text-slate-400 mt-2">&copy; 2026 Hannoon Soft. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
