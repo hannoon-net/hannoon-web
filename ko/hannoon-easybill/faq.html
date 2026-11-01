@@ -390,11 +390,14 @@
                 <br><br>
                 [복구 절차]<br>
                 1. PC를 교체/운응체체 재설치 및 새 PC에 프로그램을 설치<br>
-                2. DB 복구<br>
-                    - 개인용 : 구축 중<br>
-                    - 서버 : MariaDB/MySql 일반 복구 방법 참조<br>
-                3. 파일 복구<br>
-                서버에서 설정한 파일 보관 폴더에 그대로 복사<br>
+                2. 자동 백업된 저장 경로 연결<br>
+                3. DB 복구 <br>
+                    - 메뉴 [DB 복구] > 백업 저장 경로의 'DataBaseBackup' 폴더에서 최신 파일 선택<br>
+                    - 개인용, 서버 Lite: hannoon_easybill.db<br>
+                    - 서버 Standard, 서버 Enterprise: hannoon_easybill.sql<br>
+                    - 서버 : <br>
+                4. 파일 복구<br>
+                    - 서버 또는 클라이언트에서 설정한 파일 보관 폴더에서 파일 저장 경로로 전체 복사<br>
                <div class="mt-4 pt-3 border-t border-slate-200/70 flex flex-wrap gap-2"><a href="./manual.html#section-backup" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg border border-blue-200/70 transition"><span>간편 사용 매뉴얼 백업 안내</span><i class="fa-solid fa-arrow-right text-[10px]"></i></a></div>
             </div>
         </details>
