@@ -2,36 +2,302 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Hannoon Platform - Connecting...</title>
-    <script>
-        async function routeByIP() {
-            try {
-                // 무료 IP 위치 정보 API 호출
-                let response = await fetch('https://ipapi.co/json/');
-                let data = await response.json();
-                let countryCode = data.country_code;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HANNOON Project - Clarity in Every Business Flow</title>
+    <meta name="description" content="HANNOON is an engineering initiative dedicated to streamlining complex business workflows, billing automation, and global software productivity. 복잡한 업무를 한눈에 정리하는 소프트웨어 솔루션 생태계, 한눈 프로젝트.">
+    <meta name="keywords" content="HANNOON, 한눈, 한눈빌링, HannoonBilling, Business Software, Billing Automation, 소프트웨어 플랫폼">
+    <meta name="robots" content="index, follow">
 
-                // 한국 IP인 경우 /ko/ 폴더로 이동
-                if (countryCode === 'KR') {
-                    window.location.replace('./ko/');
-                } else {
-                    // 그 외 국가 IP인 경우 /en/ 폴더로 이동
-                    window.location.replace('./en/');
-                }
-            } catch (error) {
-                // API 차단이나 네트워크 오류 시 기본값으로 영어 또는 한국어 페이지로 안전하게 폴백(Fallback)
-                console.error("IP 라우팅 실패, 기본 영문 페이지로 이동:", error);
-                window.location.replace('./ko/');
+    <!-- Canonical & Alternate Tags -->
+    <link rel="canonical" href="https://www.hannoon.net/">
+    <link rel="alternate" hreflang="ko" href="https://www.hannoon.net/ko/">
+    <link rel="alternate" hreflang="en" href="https://www.hannoon.net/en/">
+    <link rel="alternate" hreflang="x-default" href="https://www.hannoon.net/">
+
+    <!-- Open Graph (SNS / 메신저 미리보기) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.hannoon.net/">
+    <meta property="og:title" content="HANNOON Project - Clarity in Every Business Flow">
+    <meta property="og:description" content="복잡한 업무 흐름을 직관적으로 연결하는 소프트웨어 솔루션 플랫폼, 한눈(HANNOON)">
+
+    <!-- 구조화 데이터 (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "HANNOON Project",
+      "url": "https://www.hannoon.net/",
+      "applicationCategory": "BusinessApplication",
+      "description": "Software initiative delivering automated billing, data synchronization, and business clarity.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0"
+      }
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #1F497D;
+            --primary-dark: #153256;
+            --accent: #2563eb;
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --bg-light: #f8fafc;
+            --card-border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Malgun Gothic", sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            word-break: keep-all;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 60px 24px 80px 24px;
+        }
+
+        /* Hero Section */
+        header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .brand-badge {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            background: #eff6ff;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            margin-bottom: 16px;
+            border: 1px solid #bfdbfe;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+        }
+
+        .lead-en {
+            font-size: 1.25rem;
+            color: var(--text-main);
+            font-weight: 500;
+            max-width: 680px;
+            margin: 0 auto 10px auto;
+        }
+
+        .lead-ko {
+            font-size: 1rem;
+            color: var(--text-sub);
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* Hub Navigation Cards */
+        .gateway-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 56px;
+        }
+
+        @media (max-width: 640px) {
+            .gateway-grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 2rem;
             }
         }
 
-        // 실행
-        routeByIP();
-    </script>
+        .card {
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 32px 28px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 12px 20px -3px rgba(37, 99, 235, 0.08);
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .card h2 {
+            font-size: 1.35rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        .card-action {
+            display: inline-flex;
+            align-items: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--accent);
+        }
+
+        .card-action svg {
+            margin-left: 6px;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover .card-action svg {
+            transform: translateX(4px);
+        }
+
+        /* Spotlight Section */
+        .spotlight-box {
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            border-left: 5px solid var(--primary);
+            border-radius: 12px;
+            padding: 24px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        @media (max-width: 640px) {
+            .spotlight-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        .spotlight-info h3 {
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+        }
+
+        .spotlight-info p {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        .spotlight-btn {
+            white-space: nowrap;
+            background-color: var(--primary);
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background-color 0.2s ease;
+        }
+
+        .spotlight-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 64px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            border-top: 1px solid var(--card-border);
+            padding-top: 24px;
+        }
+    </style>
 </head>
 <body>
-    <p style="text-align: center; margin-top: 100px; font-family: sans-serif; color: #666;">
-        Loading Hannoon Platform...
-    </p>
+
+<div class="container">
+    <header>
+        <span class="brand-badge">HANNOON Project</span>
+        <h1>Clarity in Every Flow</h1>
+        <p class="lead-en">Engineering intuitive software solutions that eliminate operational friction and deliver immediate business clarity.</p>
+        <p class="lead-ko">복잡하고 흩어진 업무 흐름을 직관적으로 연결하여, 단 한눈에 확인하고 제어할 수 있는 고성능 소프트웨어를 설계합니다.</p>
+    </header>
+
+    <main>
+        <!-- Regional & Language Portals -->
+        <section class="gateway-grid">
+            <!-- Korean Portal -->
+            <a href="/ko/" class="card">
+                <div>
+                    <span class="card-tag">Korea Operations</span>
+                    <h2>한국 비즈니스 솔루션</h2>
+                    <p>전자세금계산서, 정산 자동화, 대량 청구 수납 등 국내 기업 및 실무 환경에 최적화된 맞춤형 솔루션을 제공합니다.</p>
+                </div>
+                <div class="card-action">
+                    한국어 포털 진입
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </div>
+            </a>
+
+            <!-- Global Portal -->
+            <a href="/en/" class="card">
+                <div>
+                    <span class="card-tag">Global Initiative</span>
+                    <h2>Global Software Lab</h2>
+                    <p>Explore scalable productivity platforms, data synchronization engines, and open business toolsets built for global operations.</p>
+                </div>
+                <div class="card-action">
+                    Explore Global Solutions
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </div>
+            </a>
+        </section>
+
+        <!-- Current Active Release Spotlight -->
+        <section class="spotlight-box">
+            <div class="spotlight-info">
+                <h3>한눈빌링 (HannoonBilling) 출시 안내</h3>
+                <p>청구서 발행부터 수납 확인, 전자세금계산서 연동까지 한눈에 끝내는 스마트 정산 자동화 솔루션</p>
+            </div>
+            <a href="/ko/hannoon-billing/" class="spotlight-btn">한눈빌링 바로가기</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 HANNOON Project. All rights reserved.</p>
+    </footer>
+</div>
+
 </body>
 </html>
