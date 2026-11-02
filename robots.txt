@@ -3,3 +3,5 @@ Allow: /
 
 # 사이트맵 경로 지정
 Sitemap: https://www.hannoon.net/sitemap.xml
+
+#DaumWebMasterTool:4e0186d49c1f60075a0ef836dbf29bb5d2adee90242b0752f9dc834ec652d4d4:y9pY72z5HH+w9gPPOcRKdg==
