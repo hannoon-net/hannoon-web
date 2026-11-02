@@ -26,7 +26,7 @@
 
   <!-- Hannoon Easybill 서비스 메인 -->
   <url>
-    <loc>https://www.hannoon.net/ko/hannoon-easybill/</loc>
+    <loc>https://www.hannoon.net/ko/hannoon-billing/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -34,37 +34,37 @@
 
   <!-- 6대 산업별 전용 랜딩 페이지 (Long-tail SEO) -->
   <url>
-    <loc>https://www.hannoon.net/ko/hannoon-easybill/case/real-estate.html</loc>
+    <loc>https://www.hannoon.net/ko/hannoon-billing/case/real-estate.html</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.hannoon.net/ko/hannoon-easybill/case/rental.html</loc>
+    <loc>https://www.hannoon.net/ko/hannoon-billing/case/rental.html</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.hannoon.net/ko/hannoon-easybill/case/logistics.html</loc>
+    <loc>https://www.hannoon.net/ko/hannoon-billing/case/logistics.html</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.hannoon.net/ko/hannoon-easybill/case/it-saas.html</loc>
+    <loc>https://www.hannoon.net/ko/hannoon-billing/case/it-saas.html</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.hannoon.net/ko/hannoon-easybill/case/maintenance.html</loc>
+    <loc>https://www.hannoon.net/ko/hannoon-billing/case/maintenance.html</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.hannoon.net/ko/hannoon-easybill/case/subscription.html</loc>
+    <loc>https://www.hannoon.net/ko/hannoon-billing/case/subscription.html</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
@@ -72,7 +72,7 @@
 
   <!-- 자주 묻는 질문 & 실무 가이드 (FAQ) -->
   <url>
-    <loc>https://www.hannoon.net/ko/hannoon-easybill/faq.html</loc>
+    <loc>https://www.hannoon.net/ko/hannoon-billing/faq.html</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -80,25 +80,25 @@
 
   <!-- Hannoon Easybill 주요 서비스 페이지 -->
   <url>
-    <loc>https://www.hannoon.net/ko/hannoon-easybill/features.html</loc>
+    <loc>https://www.hannoon.net/ko/hannoon-billing/features.html</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.hannoon.net/ko/hannoon-easybill/use-cases.html</loc>
+    <loc>https://www.hannoon.net/ko/hannoon-billing/use-cases.html</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.hannoon.net/ko/hannoon-easybill/service-fee.html</loc>
+    <loc>https://www.hannoon.net/ko/hannoon-billing/service-fee.html</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.hannoon.net/ko/hannoon-easybill/download.html</loc>
+    <loc>https://www.hannoon.net/ko/hannoon-billing/download.html</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -106,43 +106,43 @@
 
   <!-- 가이드 & 매뉴얼 페이지 -->
   <url>
-    <loc>https://www.hannoon.net/ko/hannoon-easybill/manual.html</loc>
+    <loc>https://www.hannoon.net/ko/hannoon-billing/manual.html</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.hannoon.net/ko/hannoon-easybill/server-manual.html</loc>
+    <loc>https://www.hannoon.net/ko/hannoon-billing/server-manual.html</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.hannoon.net/ko/hannoon-easybill/download-guide.html</loc>
+    <loc>https://www.hannoon.net/ko/hannoon-billing/download-guide.html</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.hannoon.net/ko/hannoon-easybill/csv_guide.html</loc>
+    <loc>https://www.hannoon.net/ko/hannoon-billing/csv_guide.html</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.hannoon.net/ko/hannoon-easybill/server-specs.html</loc>
+    <loc>https://www.hannoon.net/ko/hannoon-billing/server-specs.html</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.hannoon.net/ko/hannoon-easybill/firewall-guide.html</loc>
+    <loc>https://www.hannoon.net/ko/hannoon-billing/firewall-guide.html</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.hannoon.net/ko/hannoon-easybill/barobill_sign_up_guide.html</loc>
+    <loc>https://www.hannoon.net/ko/hannoon-billing/barobill_sign_up_guide.html</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
