@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hannoon Server 구축 매뉴얼 - 사내 인트라넷 환경 설정 가이드 | 한눈 빌링</title>
-    <link rel="canonical" href="https://www.hannoon.net/ko/hannoon-easybill/server-manual.html">
+    <title>Hannoon Server 구축 매뉴얼 - 사내 인트라넷 환경 설정 가이드 | 한눈빌링</title>
+    <link rel="canonical" href="https://www.hannoon.net/ko/hannoon-billing/server-manual.html">
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="사내 폐쇄망 및 로컬 네트워크 환경에서 Hannoon Server(Lite, Standard, Enterprise) 및 MariaDB/MySQL 연동, Workgroup Client 다중 접속 환경 구축 가이드.">
@@ -13,16 +13,16 @@
     
     <!-- Open Graph / Facebook / KakaoTalk Meta Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="한눈 빌링 (Hannoon Easybill)">
+    <meta property="og:site_name" content="한눈빌링 (Hannoon Billing)">
     <meta property="og:locale" content="ko_KR">
-    <meta property="og:title" content="Hannoon Server 구축 매뉴얼 - 사내 네트워크 환경 설정 | 한눈 빌링">
+    <meta property="og:title" content="Hannoon Server 구축 매뉴얼 - 사내 네트워크 환경 설정 | 한눈빌링">
     <meta property="og:description" content="사내 폐쇄망 및 인트라넷에서 안전하게 팀 협업 회계 시스템을 구축하는 Hannoon Server 완벽 설정 가이드.">
-    <meta property="og:url" content="https://www.hannoon.net/ko/hannoon-easybill/server-manual.html">
+    <meta property="og:url" content="https://www.hannoon.net/ko/hannoon-billing/server-manual.html">
     <meta property="og:image" content="https://www.hannoon.net/og-image.png">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Hannoon Server 구축 매뉴얼 - 사내 네트워크 환경 설정 | 한눈 빌링">
+    <meta name="twitter:title" content="Hannoon Server 구축 매뉴얼 - 사내 네트워크 환경 설정 | 한눈빌링">
     <meta name="twitter:description" content="사내 폐쇄망 및 인트라넷에서 안전하게 팀 협업 회계 시스템을 구축하는 Hannoon Server 완벽 설정 가이드.">
     <meta name="twitter:image" content="https://www.hannoon.net/og-image.png">
         <!-- Tailwind CSS CDN -->
@@ -70,7 +70,7 @@
             <div class="relative z-10 space-y-3">
                 <div class="flex items-center gap-2 flex-wrap">
                     <span class="bg-indigo-500/30 text-indigo-300 text-xs font-bold px-3 py-1 rounded-full border border-indigo-400/30">
-                        Hannoon Easybill Workgroup Edition
+                        Hannoon Billing Workgroup Edition
                     </span>
                     <span class="text-xs text-slate-400">Server Lite / Standard / Enterprise 지원</span>
                 </div>
@@ -282,7 +282,7 @@
                         <span class="text-xs bg-slate-200 text-slate-700 px-2 py-0.5 rounded font-mono">자동 조회 (수정 불가)</span>
                     </div>
                     <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        클라이언트 프로그램(HannoonEasybill Workgroup Client) 사용자가 서버에 접속할 때 입력해야 하는 서버 컴퓨터의 네트워크 IP 주소입니다. 
+                        클라이언트 프로그램(HannoonBilling Workgroup Client) 사용자가 서버에 접속할 때 입력해야 하는 서버 컴퓨터의 네트워크 IP 주소입니다. 
                         시스템 네트워크 카드로부터 자동으로 감지되어 읽기 전용(Read-only)으로 표시됩니다.
                     </p>
                     <div class="bg-white p-3.5 rounded-xl border border-slate-200 code-block text-xs text-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
@@ -418,10 +418,10 @@
                         <span>DB 이름 (Database Name)</span>
                     </div>
                     <p class="text-xs text-slate-600 mb-2">
-                        한눈 빌링 전용 데이터베이스 스키마 이름입니다.
+                        한눈빌링 전용 데이터베이스 스키마 이름입니다.
                     </p>
                     <div class="bg-white p-2.5 rounded-lg border border-slate-200 font-mono text-xs">
-                        <span class="text-slate-500">고정/기본값:</span> <strong class="text-indigo-600">hannoon_easybill</strong>
+                        <span class="text-slate-500">고정/기본값:</span> <strong class="text-indigo-600">hannoon_billing</strong>
                     </div>
                     <p class="text-[11px] text-slate-500 mt-1">※ 서버 최초 실행 시 테이블 자동 생성(스키마 자동 마이그레이션)</p>
                 </div>
@@ -450,9 +450,9 @@
                     <span class="text-[11px]">DB 콘솔 실행</span>
                 </div>
                 <pre class="font-mono text-[11px] overflow-x-auto text-emerald-400">
-                    CREATE DATABASE hannoon_easybill DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+                    CREATE DATABASE hannoon_billing DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
                     CREATE USER 'hannoon_admin'@'%' IDENTIFIED BY '당신의안전한비밀번호';
-                    GRANT ALL PRIVILEGES ON hannoon_easybill.* TO 'hannoon_admin'@'%';
+                    GRANT ALL PRIVILEGES ON hannoon_billing.* TO 'hannoon_admin'@'%';
                     FLUSH PRIVILEGES;
                 </pre>
             </div>
@@ -557,7 +557,7 @@
                     <div class="text-xs sm:text-sm space-y-1">
                         <h4 class="font-bold text-slate-900">클라이언트 배포 및 로그인 테스트</h4>
                         <p class="text-slate-600">
-                            팀원의 PC에 설치된 <strong>HannoonEasybill Workgroup Client</strong> 프로그램 실행 후, 발급한 ID와 초기 비밀번호, 서버 IP/Port를 입력하여 첫 로그인을 수행합니다.
+                            팀원의 PC에 설치된 <strong>HannoonBilling Workgroup Client</strong> 프로그램 실행 후, 발급한 ID와 초기 비밀번호, 서버 IP/Port를 입력하여 첫 로그인을 수행합니다.
                         </p>
                     </div>
                 </div>
@@ -582,7 +582,7 @@
                     <span class="font-bold text-slate-900 block">Q2. 서버 Standard 및 Enterprise 에디션에서 "DB 접속 설정이 올바르지 않거나 서버에 연결할 수 없습니다." 오류가 발생합니다.</span>
                     <p class="text-slate-600">
                         1) MariaDB / MySQL 서비스(mysqld)가 Windows 서비스 관리자에서 정상 '실행 중'인지 확인하세요.<br>
-                        2) DB 아이디 및 DB 패스워드, DB 주소, DB 포트, 그리고 <code class="font-mono">hannoon_easybill</code> 데이터베이스가 생성되어 있는지 확인하세요.
+                        2) DB 아이디 및 DB 패스워드, DB 주소, DB 포트, 그리고 <code class="font-mono">hannoon_billing</code> 데이터베이스가 생성되어 있는지 확인하세요.
                     </p>
                 </div>
             </div>
@@ -593,8 +593,8 @@
     <!-- Footer -->
     <footer class="bg-slate-900 text-slate-400 py-10 text-center text-xs border-t border-slate-800">
         <div class="max-w-5xl mx-auto px-4 space-y-2">
-            <p class="font-bold text-slate-200 text-sm">Hannoon Easybill Workgroup Server Engine</p>
-            <p>&copy; Hannoon Easybill. All rights reserved.</p>
+            <p class="font-bold text-slate-200 text-sm">Hannoon Billing Workgroup Server Engine</p>
+            <p>&copy; Hannoon Billing. All rights reserved.</p>
             <p class="text-slate-500">안정적이고 강력한 사내 인트라넷 네트워크 청구·회계 서버 솔루션</p>
         </div>
     </footer>
